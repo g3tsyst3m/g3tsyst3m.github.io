@@ -1,6 +1,7 @@
 ---
 title:  "about"
-layout: about
+layout: single
+type: pages
 permalink: /about/
 author_profile: true
 ---
