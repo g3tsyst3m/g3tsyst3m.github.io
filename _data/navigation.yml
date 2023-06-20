@@ -1,12 +1,3 @@
-# main links
 main:
-  - title: "About"
-  - url: https://g3tsyst3m.github.io/about/
-   - title: "About"
-    - url: https://g3tsyst3m.github.io/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "about"
+    url: /about/
