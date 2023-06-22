@@ -108,7 +108,7 @@ author:
   avatar           : "/assets/images/al.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Super passionate about Infosec...Dwight Schrute level of intensity"
   location         : "Kentucky"
-  email            : g3tsyst3m@gmail.com
+  #email            : g3tsyst3m@gmail.com
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
