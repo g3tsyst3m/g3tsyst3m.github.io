@@ -16,3 +16,15 @@ It is my hopes that we can grow together and help foster a community of avid Inf
 
 You can find me at GitHub:
 [g3tsyst3m](https://github.com/g3tsyst3m/)
+
+## I also contribute to researching software vulnerabilities:
+
+https://www.exploit-db.com/?author=8212
+
+All exploits written in the link above used OllyDbg for x86 reverse engineering.  Exploits are buffer overflow, Structured Event Handler and EIP direct overwrite/ROP 
+
+Co-wrote a Metasploit module:
+
+https://www.rapid7.com/db/modules/exploit/windows/fileformat/boxoft_wav_to_mp3/
+
+https://nvd.nist.gov/vuln/detail/CVE-2015-7243
