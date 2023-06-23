@@ -10,7 +10,7 @@ tags:
 
 I currently serve in a senior management infosec role. I started out as a network admin, then eventually landed a gig as Senior security analyst. Not long after, my employer wanted to edge me more into infosec management type responsibilities. While that has been a great experience, I have never lost my passion for the technical side of infosec. Okay, let’s continue introductions shall we. My foray into cybersecurity truly started when I first stumbled upon Metasploit…
 Now, I need you to know, this wasn’t the Metasploit of today. Nowadays it’s the familiar goto for managing your reverse shells and harnessing a fleet of exploits. Everyone in cybersecurity has heard of Metasploit. However, back when I started using it, it was unheard of. I think it was around 2006 when I started tinkering with the tool, and back then it was called msf2/msf3 (depending on the year). There’s even a release archive with postings from H.D. Moore himself explaining the makings of Metasploit and all that it can accomplish: 
-https://lwn.net/Articles/97670/
+[Article](https://lwn.net/Articles/97670/)
 
 This tool used techniques unheard of to me at the time it was released. It was well ahead of its time. In case you’re interested, these were the included exploit modules for msf2.2 (2004):
 
