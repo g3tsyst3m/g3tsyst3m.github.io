@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "R.B.C. (g3tsyst3m)"
 description              : "Security Researcher and Enthusiast. I'm fairly low profile, but share useful info from time to time. Red Team wannabe"
-url                      : https://github.com/g3tsyst3m # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://g3tsyst3m.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
