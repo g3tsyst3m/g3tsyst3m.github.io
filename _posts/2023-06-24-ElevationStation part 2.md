@@ -66,9 +66,10 @@ if (!DuplicateTokenEx(tok2, TOKEN_ALL_ACCESS, NULL, SecurityImpersonation, Token
 
 and `AFTER` duplicating the token.  Notice a strikingly noteworthy difference? 😸
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/5698a405-fd3a-4343-bfdc-b7630989a2f2)
-
-We now **OWN** a primary token with `SYSTEM` privileges, successfully duplicating the remote `SYSTEM` level process!  Now the moment you have all been waiting for... it's finally time to pop a SYSTEM shell!
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/2ef7009a-27a4-48c9-985f-57a4797d80c6)
+
+Our `elevationstation.exe` process now **OWNS** a primary token with `SYSTEM` privileges, successfully duplicating the remote `SYSTEM` level process!  Now the moment you have all been waiting for... it's finally time to pop a SYSTEM shell!
+
 
 ```cpp
 bRet = CreateProcessWithTokenW(hNewToken, NULL, NULL, wszProcessName, dwCreationFlags, lpEnvironment, pwszCurrentDirectory, &StartupInfo, &ProcInfo);
