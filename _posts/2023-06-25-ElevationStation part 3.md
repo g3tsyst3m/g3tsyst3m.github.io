@@ -72,7 +72,7 @@ int DupThreadToken(DWORD pid)
         Color(7);
     }
 ```
-![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/2de0b57e-7b0f-4fc6-a4d2-923625e4992e)
+<img src="https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/2de0b57e-7b0f-4fc6-a4d2-923625e4992e" width=1000 height=500>
 
 Okay!  so now we have a handle to the process token for the target process, in this case it is **AppleMobleDeviceService.exe**, which is running as **NT AUTHORITY/SYSTEM**
 
@@ -94,7 +94,7 @@ if (!DuplicateToken(tok2, SecurityImpersonation, &hNewToken))
 ```
 We now have the remote process' privileges in our current process' execution thread!
 
-![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/dad2d5f9-7b27-4838-8f16-a81385051aee)
+<img src="https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/dad2d5f9-7b27-4838-8f16-a81385051aee" width=1800 height=600>
 
 Now that we hold the privileges of the SYSTEM process, let's enable the privilege we wanted in the first place!
 
@@ -102,7 +102,7 @@ Now that we hold the privileges of the SYSTEM process, let's enable the privileg
 setThreadPrivs(SE_INCREASE_QUOTA_NAME);     //need this for CreateProcessAsUser!
 setThreadPrivs(SE_ASSIGNPRIMARYTOKEN_NAME); //need this for CreateProcessAsUser!
 ```
-![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/2637214c-ab91-4c32-945a-52efcdcdf121)
+<img src="https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/2637214c-ab91-4c32-945a-52efcdcdf121" width=2100 height=500>
 
 Awesome, it's now enabled and I also went ahead and enabled SeIncreaseQuotaPrivilege too just in case.
 
@@ -142,7 +142,7 @@ We're almost there!  From here, we do some final magic and open a threadtoken ag
 ```
 and the shell!
 
-![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/a446b774-b475-4c2c-aa82-45e96ff21db3)
+<img src="https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/a446b774-b475-4c2c-aa82-45e96ff21db3" width=800 height=600>
 
 Okay, you can breathe.  It's over, you made it to the end. Well done.  I'm tired now so I'm going to bring this to a close.  Hopefully this made some sense and you learned how high maintenance some windows APIs can be. That said, we still managed to overcome our obstacle and pop that desired shell.  Until next time!
 
