@@ -1,5 +1,5 @@
 ---
-title:  "ElevationStation - A walkthrough through the development process [PART 1]"
+title:  "ElevationStation - A walk through the development process [PART 1]"
 header:
   teaser: "/assets/images/token.png"
 categories:
