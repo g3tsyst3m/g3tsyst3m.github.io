@@ -1,5 +1,5 @@
 ---
-title:  "ElevationStation - A walkthrough through the development process [PART 2]"
+title:  "ElevationStation - A walk through the development process [PART 2]"
 categories:
   - privilege escalation
 tags:
