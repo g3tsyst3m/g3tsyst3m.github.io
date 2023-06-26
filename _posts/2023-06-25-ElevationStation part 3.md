@@ -33,7 +33,7 @@ Here are the token privileges for our admninistrative / elevated cmd.exe.  See f
 
 Why do we even need this stupid privilege in the first place?  Because CreateProcessAsUser, which allows for spawning a cmd shell within the current console, **MUST** have this privilege enabled in almost all circumstances to execute a new process.  Check this out:
 
-`**CreateProcessAsUserA** function (processthreadsapi.h)`
+**CreateProcessAsUserA function (processthreadsapi.h)**
 
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/8c61852b-5e7c-481a-a81d-9d82e5bd6059)
 [CreateProcessAsUser Microsoft Documentation](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessasusera)
