@@ -74,7 +74,7 @@ int DupThreadToken(DWORD pid)
 ```
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/2de0b57e-7b0f-4fc6-a4d2-923625e4992e)
 
-Okay!  so now we have a handle to the process token for the target process, in this case it is AppleMobleDeviceService.exe, which is running as **NT AUTHORITY/SYSTEM**
+Okay!  so now we have a handle to the process token for the target process, in this case it is **AppleMobleDeviceService.exe**, which is running as **NT AUTHORITY/SYSTEM**
 
 Next up, we need to set the new token privs to our current process' execution thread.  I duplicate the impersonation token here to be on the safe side, but it may not be necessary. Either way, it works so no harm done.  So, dup the remote process token and then set the threadtoken to our current thread using `NULL`
 
