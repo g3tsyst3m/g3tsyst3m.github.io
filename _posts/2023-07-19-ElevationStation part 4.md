@@ -227,7 +227,9 @@ After the DLL creates the reverse shell, it's no longer needed and can be safely
 ```
 
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/e3393bef-8253-4e6e-b837-c901d5407f0d)
+
 and the unloading of the dll
+
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/ba354fd8-344c-48c5-b2db-1d9f59fe72fe)
 
 That's it for today, and our final writeup for Elevation Station as far as the code goes.  I will include more information about Elevation Station in the near future, but will be focusing more on it's usage in pentest scenarios and not as much emphasis on the underlying code behind it.
