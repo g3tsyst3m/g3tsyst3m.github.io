@@ -23,7 +23,7 @@ The general approach to DLL injection, as it pertains to escalating from local a
 
 We begin by coding our dll and include a function that gets called on the DLL ATTACH portion of our code.  This function handles our reverse shell which of course will call back home to our attacker box:
 
-```C
+```c++
 
 // For x64 compile with: x86_64-w64-mingw32-gcc -o mig2.dll -shared mig2.c -lws2_32
 // For x86 compile with: i686-w64-mingw32-gcc -o mig2.dll -shared mig2.c -lws2_32
