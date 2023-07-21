@@ -1,5 +1,7 @@
 ---
 title:  "ElevationStation - A walk through the development process [PART 2]"
+header:
+  teaser: "/assets/images/teaser2.png"
 categories:
   - privilege escalation
 tags:
