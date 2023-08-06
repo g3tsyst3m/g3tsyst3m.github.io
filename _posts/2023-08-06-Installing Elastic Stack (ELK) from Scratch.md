@@ -38,6 +38,7 @@ Codename:	bookworm
 **Resource Requirements:**
 -
 I use VirtualBox.  You can use whatever flavor of VM environment you like.
+
 3 CPUs, 6.5 GB RAM (8GB ram is ideal)
 
 50-75GB harddrive storage
