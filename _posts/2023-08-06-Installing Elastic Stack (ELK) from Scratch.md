@@ -106,9 +106,9 @@ now, create and edit this file: `nano /etc/elasticsearch/jvm.options.d/jvmconf.c
 
 add the following inside the file:
 
- `-Xms1g`
+`-Xms1g`
  
-` -Xmx1g`
+`-Xmx1g`
 
 **save + quit**
 
