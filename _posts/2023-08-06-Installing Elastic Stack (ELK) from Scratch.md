@@ -17,7 +17,7 @@ tags:
   - elevationstation
 ---
 
-Hey there red team....I mean <span style="color:blue"> BLUE TEAM </span> cadet 😅 I don't just focus on red team stuff you know...and it's been long overdue that I do a writeup on not just blue team tools, but how to install Elastic ELK stack from start to finish.  Well, let's do it to it!
+Hey there red team....I mean <span style="color:blue"> BLUE TEAM </span> cadet 😅 I don't just focus on red team stuff you know...and it's been long overdue that I do a writeup on not just red team tools, but more emphasis on blue team defensive measures/tools. Today, we learn how to install Elastic ELK stack from start to finish.  Well, let's get to it!
 
 First off, I'm using Debian. You'll likely want to use either Debian or Ubuntu for your experience to most closely mimic mine.  We will need the following in order to successfully Install Elastic Stack 8 (ELK 8) on Debian:
 
