@@ -3,15 +3,15 @@ title:  "Installing Elastic Stack (ELK) from Scratch"
 header:
   teaser: "/assets/images/elastic.png"
 categories:
-  - Blue team
   - Threat Hunting
-  - ElasticSearch
 tags:
   - elk
   - elastic
   - kibana
   - logstash
   - filebeats
+  - threat hunting
+  - blue team
   - winlogbeat
   - sysmon
   - elevationstation
