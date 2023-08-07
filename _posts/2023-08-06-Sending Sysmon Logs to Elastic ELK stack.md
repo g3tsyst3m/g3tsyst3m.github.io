@@ -1,5 +1,5 @@
 ---
-title:  "Installing Elastic Stack (ELK) from Scratch"
+title:  "Sending Sysmon Logs to Elastic ELK stack"
 header:
   teaser: "/assets/images/sysmon_example.png"
 categories:
