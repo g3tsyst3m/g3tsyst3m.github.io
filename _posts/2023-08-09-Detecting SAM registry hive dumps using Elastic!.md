@@ -1,5 +1,5 @@
 ---
-title:  "Locating SAM registry hashdumps using Elastic!"
+title:  "Detecting SAM registry hive dumps using Elastic!"
 header:
   teaser: "/assets/images/samhashdetect.png"
 categories:
