@@ -25,7 +25,7 @@ tags:
 
 You guys know what time it is? IT'S GO TIME! Time to dive in and learn how to detect a red teamer trying to grab your local SAM hashes from the registry.  
 
-**Detecting SAM Hashdump attempts - The Setup**
+**Detecting SAM Registry Hive Dumps - The Setup**
 -
 
 First, open up `gpedit.msc`
@@ -85,6 +85,9 @@ PHEW!  glad that's over with....or is it?!?!  Well sort of.  We still have to do
 
 - `Everyone`
   - `This key only`
+
+**Detecting SAM Registry Hive Dumps - Execution Time!!!**
+-
 
 Okay, you can choose to dump the SAM, SECURITY, and SYSTEM files manually via regedit.exe (You'll likely get snagged by Windows Defender AV).  Or....you could do the tactical way.  Let's go the tactical route.  We're going to use python to write our registry dump script:
 
