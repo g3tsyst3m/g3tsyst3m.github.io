@@ -1,7 +1,7 @@
 ---
 title:  "How to use Bitwise Arithmetic Shift Right Encoding with your Shellcode"
 header:
-  teaser: "/assets/images/samhashdetect.png"
+  teaser: "/assets/images/bitwisethings.png"
 categories:
   - Encoding
 tags:
