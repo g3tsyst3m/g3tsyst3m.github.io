@@ -6,7 +6,7 @@ permalink: /about/
 author_profile: true
 ---
 
-A Infosec Research and Development blog:           
+An Infosec Research and Development blog:           
 
 ![home](/assets/images/aboutimg.png){:class="img-responsive"}      
 
