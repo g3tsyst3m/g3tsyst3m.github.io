@@ -1,7 +1,7 @@
 ---
 title:  "Getting that first Foothold - Stealing NTLMv2 hashes with ease"
 header:
-  teaser: "/assets/images/ntlmb2_captured.png"
+  teaser: "/assets/images/ntlmv2_captured.png"
 categories:
   - NTLMv2 hashes
 tags:
