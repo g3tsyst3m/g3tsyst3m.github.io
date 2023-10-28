@@ -64,7 +64,7 @@ Okay, we're almost ready to send this now.  But before we do, I want you to know
 When your email arrives, the target user will see what is captured in the below image.  Be sure to name the uncpath something realistic as they will be able to see this in the email preview:
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/a53ba76c-73cd-4755-9b46-ceb64d955cbf)
 
-On your Linux Box, you should see a captured NTLMv2 hash!  Here's what mine looks like.  Keep in mind I already captured this hash so it shows a different message but trust me, it worked:
+On your Linux Box, you should see a captured NTLMv2 hash assuming the user interacts with your email!  Here's what mine looks like.  Keep in mind I already captured this hash so it shows a different message but trust me, it worked:
 ![image](https://github.com/g3tsyst3m/g3tsyst3m.github.io/assets/19558280/ae4ed132-5e3c-4a2e-b2c4-c16681c02db1)
 
 And Wireshark...
