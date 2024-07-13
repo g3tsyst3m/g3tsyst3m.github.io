@@ -2,4 +2,4 @@ main:
   - title: "about"
     url: /about/
   - title: "Login-Test"
-    url: /login-test/
+    url: /login-test/login-test.html
