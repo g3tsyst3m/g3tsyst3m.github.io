@@ -2,4 +2,4 @@ main:
   - title: "About"
     url: /about/
   - title: "Login"
-    url: /login/
+    url: /login-prompt/
