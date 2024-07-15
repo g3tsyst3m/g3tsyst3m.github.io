@@ -21,7 +21,7 @@ permalink: /login-prompt/
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
-        <input type="submit" value="Login">
+        <input type="submit" value="Login"><input type="button" value="Sign up">
     </form>
     <div id="result"></div>
 
