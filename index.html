@@ -2,3 +2,35 @@
 layout: home
 author_profile: true
 ---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="status"></div>
+
+    <script>
+        $(document).ready(function() {
+            // Function to check session status
+            function checkSession() {
+                $.ajax({
+                    url: 'https://files.thecybersanctuary.com/check_session.php', // PHP script to check session
+                    success: function(response) {
+                        $('#status').html(response); // Update status div with response
+                    }
+                });
+            }
+
+            // Check session status when page loads
+            checkSession();
+
+            // Optionally, check session status periodically (e.g., every 10 seconds)
+            setInterval(checkSession, 10000); // 10 seconds (10000 milliseconds)
+        });
+    </script>
+</body>
+</html>
