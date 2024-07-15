@@ -5,7 +5,7 @@ author_profile: true
 
 <html lang="en">
 <head>
-    <div id="usernameDisplay"></div> <!-- New div to display username -->
+    <div id="usernameDisplay" style="visibility:hidden"></div> <!-- New div to display username -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
@@ -20,8 +20,10 @@ author_profile: true
         var username = localStorage.getItem('username');
         if (username) {
             $('#usernameDisplay').text('Logged in as: ' + username);
+			$('#usernameDisplay').css('visibility', 'visible');
         } else {
             $('#usernameDisplay').text('Not logged in');
+			$('#usernameDisplay').css('visibility', 'hidden');
         }
     }
 
