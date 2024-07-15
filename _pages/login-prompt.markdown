@@ -46,6 +46,12 @@ permalink: /login-prompt/
 						if (response.includes("Successfully authenticated")) {
                             // Store username in local storage
                             localStorage.setItem('username', username);
+							
+							// Delay redirect for 3 seconds
+							setTimeout(function() {
+							// Redirect to the homepage
+							window.location.href = 'https://thecybersanctuary.com'; // Replace with your actual homepage URL
+							}, 3000); 
                      }
 				}
                 });
