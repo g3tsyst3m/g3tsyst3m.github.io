@@ -47,6 +47,7 @@ permalink: /login-prompt/
                             // Store username in local storage
                             localStorage.setItem('username', username);
                      }
+				}
                 });
             });
         });
