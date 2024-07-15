@@ -5,29 +5,39 @@ author_profile: true
 
 <html lang="en">
 <head>
+    <div id="usernameDisplay"></div> <!-- New div to display username -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <div id="usernameDisplay"></div> <!-- New div to display username -->
+    
 
-    <script>
-         // Function to display username from localStorage
-            function displayUsername() {
-                var username = localStorage.getItem('username');
-                if (username) {
-                    $('#usernameDisplay').text('Logged in as: ' + username);
-                } else {
-                    $('#usernameDisplay').text('Not logged in');
-                }
-            }
+<script>
+    // Function to display username from localStorage
+    function displayUsername() {
+        var username = localStorage.getItem('username');
+        if (username) {
+            $('#usernameDisplay').text('Logged in as: ' + username);
+        } else {
+            $('#usernameDisplay').text('Not logged in');
+        }
+    }
 
-            // Check session status and display username when page loads
-          
-            displayUsername();
-      
-    </script>
+    // Check session status and display username when page loads
+    displayUsername();
+
+    // Function to logout
+    function logout() {
+        localStorage.removeItem('username'); // Clear username from localStorage
+        $('#usernameDisplay').text('Not logged in'); // Update display
+    }
+
+    // Example of attaching logout function to a button click
+    $('#usernameDisplay').click(function() {
+        logout();
+    });
+</script>
 </body>
 </html>
