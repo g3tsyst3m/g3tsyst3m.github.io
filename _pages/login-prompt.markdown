@@ -46,7 +46,8 @@ permalink: /login-prompt/
 						if (response.includes("Successfully authenticated")) {
                             // Store username in local storage
                             localStorage.setItem('username', username);
-                    }
+                     }
+                });
             });
         });
     </script>
