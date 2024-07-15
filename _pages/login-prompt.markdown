@@ -43,6 +43,9 @@ permalink: /login-prompt/
                     success: function(response) {
                         // Update result div with the server response
                         $('#result').html(response);
+						if (response.includes("Successfully authenticated")) {
+                            // Store username in local storage
+                            localStorage.setItem('username', username);
                     }
                 });
             });
