@@ -195,7 +195,7 @@ Now, time for the grand finale 🙂  I had the most fun with this one, as it's t
 ***UAC Bypass Technique #3 - UI Access Token Duplication<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
 -
 
-Behold!  I give you...`ctfmon.exe` !!!  Yeah, on it's own it seems pretty bland.  It's not fully elevated, though it is running in HIGH integrity.  So I'll give it that
+Yeah, on it's own `ctfmon` seems pretty bland.  It's not fully elevated, though it is running in HIGH integrity.  So I'll give it that
 
 ![image](https://github.com/user-attachments/assets/dbb926c8-6f88-4a20-8e39-f01b60b6046b)
 
