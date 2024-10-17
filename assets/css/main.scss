@@ -49,20 +49,18 @@ $h-size-4: 1.0625em !default;
 $h-size-5: 1.03125em !default;
 $h-size-6: 1em !default;
 
-@import "minimal-mistakes";
-
 html {
-    font-size: 13px; // change to whatever
+    font-size: 14px; // change to whatever
   
     @include breakpoint($medium) {
-      font-size: 16px; // change to whatever
+      font-size: 14px; // change to whatever
     }
   
     @include breakpoint($large) {
-      font-size: 18px; // change to whatever
+      font-size: 14px; // change to whatever
     }
   
     @include breakpoint($x-large) {
-      font-size: 20px; // change to whatever
+      font-size: 14px; // change to whatever
     }
   }
