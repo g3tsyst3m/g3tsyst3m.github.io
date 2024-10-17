@@ -9,6 +9,7 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 // Custom font size adjustments
-body {
-  font-size: 14px; /* Change this to your desired font size */
+
+html {
+  font-size: 13px; // change from 16
 }
