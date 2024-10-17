@@ -8,7 +8,7 @@ tags:
   - UAC Bypass
   - privilege escalation
   - Windows 11
-  - 2024
+  - '2024'
   - ctfmon
   - UI Access
   - token manipulation
