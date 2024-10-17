@@ -207,7 +207,7 @@ I never really thought much of it.  But then again, others delve much deeper int
 
 [https://www.tiraniddo.dev/2019/02/accessing-access-tokens-for-uiaccess.html](https://www.tiraniddo.dev/2019/02/accessing-access-tokens-for-uiaccess.html)
 
-I'll give you the short end of the matter.  We can duplicate the ctfmon's process token and change the token integrity to the integrity of our current process.  Then, we have Leet powers to do an old trick I used to absolutely LOVE doing back in high school.  Using SendKeys to force elevated programs to do our evil bidding...Mwuahahahahahaa!  Normally, a standard user cannot interact with an elevated application window.  However, with UIAccess, welcome back to the days of Windowss XP and 7, where AV sucks and there are no restrictions...where anything goes!  It's starting to get late so I'd better get to it.  Here's the code:
+I'll give you the short end of the matter.  We can duplicate the ctfmon's process token and change the token integrity to the integrity of our current process.  Then, we have Leet powers to do an old trick I used to absolutely LOVE doing back in high school.  Using SendKeys to force elevated programs to do our evil bidding...Mwuahahahahahaa!  Normally, well.. sometime after Windows XP...a standard user was prevented from interacting with an elevated application window.  However, with UIAccess, welcome back to the days of Windowss XP and 7, where AV sucks and there are no restrictions...where anything goes!  It's starting to get late so I'd better get to it.  Here's the code:
 
 ```c
 #include <windows.h>
