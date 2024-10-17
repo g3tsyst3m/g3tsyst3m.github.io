@@ -347,7 +347,8 @@ Now, check your newly created powershell process' token privs!
 
 ![image](https://github.com/user-attachments/assets/2ce24dd4-406b-4bf4-81a1-3929c4e998ae)
 
-Now, let's get creative 😸  We can now sendkeys to an elevated program.  So, let's start an autoelevated program we'd like to use to gain administrator privs, say...`taskschd.msc` !
+Let's get creative 😸  We can now sendkeys to an elevated program.  So, let's start an autoelevated program we'd like to use to gain administrator privs, say...`taskschd.msc` !
+
 I'm going to use a powershell script to pull this off.  This is actually pretty hilarious.  I made it so it covers the entire screen green with a message telling the user to hit enter and press yes if prompted (In case UAC always on is set)
 covering the whole screen with a form only works best if the victim is on a laptop of course.  I'll see if I can capture screenshots of the madness below.  Here's the code:
 
