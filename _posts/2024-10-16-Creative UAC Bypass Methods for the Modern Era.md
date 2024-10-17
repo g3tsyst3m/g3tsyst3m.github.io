@@ -22,7 +22,7 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 ***UAC Bypass Technique #1 - DLL Sideloading<br>(UAC setting - ALWAYS ON)***
 -
 
-This one isn't too challenging to pull off, though it proved difficult locating a consistent DLL in use across all Windows 11 versions (home/pro/education/enterprise). I'm talking about the ever famous scheduled task, `SilentCleanup`, which of course runs: cleanmgr.exe / dismhost.exe. This scheduled task has been abused time and time again over the years, and somehow it still prevails as a tried and true vector for UAC bypass / privilege escalation to this day.
+This one isn't too challenging to pull off, though it proved difficult locating a consistent DLL in use across all Windows 11 versions (home/pro/education/enterprise). I'm talking about the ever famous scheduled task, `SilentCleanup`, which of course runs: `cleanmgr.exe / dismhost.exe`. This scheduled task has been abused time and time again over the years, and somehow it still prevails as a tried and true vector for UAC bypass / privilege escalation to this day.
 ![image](https://github.com/user-attachments/assets/59d2143f-492c-4454-a041-c450dcac815a)
 
 If we go ahead and run this scheduled task, we'll see we have a stray DLL from `dismhost.exe` desperately looking to be intercepted via a DLL Sideloading attack 🤯  That stray DLL is called: `api-ms-win-core-kernel32-legacy-l1.dll`
@@ -98,7 +98,7 @@ and the text file:
 
 OKAY!  we're in business.  **HOWEVER**, there is a caveat to this bypass and the other two I'll be covering...they do **NOT** work with the upcoming `User Account Control Administrator Protection`:
 
-https://blogs.windows.com/windows-insider/2024/10/02/announcing-windows-11-insider-preview-build-27718-canary-channel/
+[https://blogs.windows.com/windows-insider/2024/10/02/announcing-windows-11-insider-preview-build-27718-canary-channel/](https://blogs.windows.com/windows-insider/2024/10/02/announcing-windows-11-insider-preview-build-27718-canary-channel/)
 
 Trust me, I tried... 😿  But until then, this particular bypass works even with UAC set to ALWAYS ON.  
 
@@ -107,11 +107,12 @@ Trust me, I tried... 😿  But until then, this particular bypass works even wit
 
 This particular technique, just like the last one we discussed, is not anything novel.  It's actually been around for quite some time.  I personally discovered it through reading a Bleeping Computer article last year on it:
 
-https://www.bleepingcomputer.com/news/security/old-windows-mock-folders-uac-bypass-used-to-drop-malware/
+[https://www.bleepingcomputer.com/news/security/old-windows-mock-folders-uac-bypass-used-to-drop-malware/
+](https://www.bleepingcomputer.com/news/security/old-windows-mock-folders-uac-bypass-used-to-drop-malware/)
 
 It's pretty simple really.  We find an auto-elevate executable in c:\Windows\System32 and force it to load our own custom dll.  The interesting aspect of this particular bypass is that the auto elevated executable can only load a DLL if it's contained within the trusted C:\Windows\System32 folder.  We get around this using the mock trusted folder technique.  In brief, when you create a mock folder, the folder includes a trailing space, for instance: `c:\windows \`
 
-In our case, we need to create `c:\windows \system32\`.  This works, as I understand it, because of the following which I swiped from an excellent Medium writeup by David Wells: https://medium.com/@CE2Wells
+In our case, we need to create `c:\windows \system32\`.  This works, as I understand it, because of the following which I swiped from an excellent Medium writeup by David Wells: [https://medium.com/@CE2Wells](https://medium.com/@CE2Wells)
 
 I edited some of this to reflect the executable we're using in this blog post:
 
@@ -194,7 +195,7 @@ Now, time for the grand finale 🙂  I had the most fun with this one, as it's t
 ***UAC Bypass Technique #3 - UI Access Token Duplication<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
 -
 
-Behold!  I give you...`ctfmon.exe` !!!  Yeah, on it's own it seems pretty bland.  It's not full elevated, though it is running in HIGH integrity.  So I'll give it that
+Behold!  I give you...`ctfmon.exe` !!!  Yeah, on it's own it seems pretty bland.  It's not fully elevated, though it is running in HIGH integrity.  So I'll give it that
 
 ![image](https://github.com/user-attachments/assets/dbb926c8-6f88-4a20-8e39-f01b60b6046b)
 
@@ -204,7 +205,7 @@ Let's peek around a bit more to see what's up with this intriguing yet lackluste
 
 I never really thought much of it.  But then again, others delve much deeper into Windows Internals than I have.  Take James Forshaw for example...keep in mind this was from 2019!!!
 
-https://www.tiraniddo.dev/2019/02/accessing-access-tokens-for-uiaccess.html
+[https://www.tiraniddo.dev/2019/02/accessing-access-tokens-for-uiaccess.html](https://www.tiraniddo.dev/2019/02/accessing-access-tokens-for-uiaccess.html)
 
 I'll give you the short end of the matter.  We can duplicate the ctfmon's process token and change the token integrity to the integrity of our current process.  Then, we have Leet powers to do an old trick I used to absolutely LOVE doing back in high school.  Using SendKeys to force elevated programs to do our evil bidding...Mwuahahahahahaa!  Normally, a standard user cannot interact with an elevated application window.  However, with UIAccess, welcome back to the days of Windowss XP and 7, where AV sucks and there are no restrictions...where anything goes!  It's starting to get late so I'd better get to it.  Here's the code:
 
@@ -464,7 +465,7 @@ Here's screenshots of the process unfolding:
 ![IMG_5171](https://github.com/user-attachments/assets/6af7748b-6978-44d1-87dc-76061ac17ad6)
 
 I Literally had to take a picture of my computer monitor with my IPhone so you guys could see the results 😄
-and the final administrator command shell!  You would obiously want to weaponize this to perform a reverse shell, etc.  But for demonstration purposes I wanted you to see the administrator shell.
+and the final administrator command shell!  You would obviously want to weaponize this to perform a reverse shell, etc.  But for demonstration purposes I wanted you to see the administrator shell.
 
 ![image](https://github.com/user-attachments/assets/c7f1baca-cc9f-4553-bc85-48251841250c)
 
