@@ -163,7 +163,7 @@ NET_API_STATUS WINAPI NetApiBufferFree(LPVOID Buffer)
 }
 ```
 
-compile it (I use Debian Linux for DLLs. I seem to run into a lot of inconsistencies using Visual Studio)
+compile it (I sometimes use Debian Linux for DLLs. In this case, I had some weird issues with using Visual Studio so just stuck with mingw)
 
 ~$ `x86_64-w64-mingw32-gcc netutils.c -shared -o netutils.dll`
 
