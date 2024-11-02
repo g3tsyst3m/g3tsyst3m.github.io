@@ -36,7 +36,7 @@ Okay, let's go ahead and get the boring yet vital information out of the way fir
 
 Registers `RCX`, `RDX`, `R8` and `R9` are used as parameters, and in that exact order.  For instance, when you execute ExitProcess and pass the first parameter 0 to your function call, you use the register RCX, like so:
 
-```asm
+```assembly
 ; --- GetProcess ---
 mov r15, rax ;address for GetProcess previously acquired
 mov rcx, 0   ;move '0' into the first and only expected parameter
