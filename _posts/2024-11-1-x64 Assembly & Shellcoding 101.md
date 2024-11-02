@@ -36,7 +36,7 @@ Okay, let's go ahead and get the boring yet vital information out of the way fir
 
 Registers `RCX`, `RDX`, `R8` and `R9` are used as parameters, and in that exact order.  For instance, when you execute ExitProcess and pass the first parameter 0 to your function call, you use the register RCX, like so:
 
-```assembly
+```nasm
 ; --- GetProcess ---
 mov r15, rax ;address for GetProcess previously acquired
 mov rcx, 0   ;move '0' into the first and only expected parameter
@@ -45,7 +45,7 @@ call r15     ;Execute GetProcess!!!
 
 How about more than one parameter?  Well, that would use RCX as the 1st parameter, and RDX as the second.  If you had a 3rd and 4th parameter value, you would then use r8, and r9 respectively.  Here's the x64 assembly code for WinExec, passing the application string into RCX and the value '1' into RDX.  1 equates to 'Display Window' if the application has a window/GUI to be displayed.
 
-```asm
+```nasm
 ; --- WinExec ---
 pop r15                         ;address for WinExec previously acquired
 mov rax, 0x00                   ;NULL byte
@@ -60,7 +60,7 @@ call r15                        ; Execute WinExec!!!
 
 How about all 4 parameters?  We can use MessageBoxA to demonstrate that:
 
-```asm
+```nasm
 mov r15, rax                   ; MessageBoxA address previously acquired
 mov rcx, 0                     ; 1st Parameter - hWnd = NULL (no owner window)
 mov rax, 0x006D                ; move the final letter, m, into RAX and null terminate with a '0'
@@ -164,7 +164,7 @@ Okay, I'm going to go off the assumption that you have familiarized yourself wit
 
 Let's start by locating kernel32 base address.  This is actually very simple!
 
-```asm
+```nasm
 ;nasm -fwin64 [x64findkernel32.asm]
 ;ld -m i386pep -o x64findkernel32.exe x64findkernel32.obj
 
@@ -191,7 +191,7 @@ Okay, `kernel32 base address` is now in `r8`.  `r8` is a **volatile** register s
 
 Now that we have our kernel32 base address, let's go ahead and get our total function count and RVA/VMA info:
 
-```asm
+```nasm
 ;Code for parsing Export Address Table
 mov ebx, [rbx+0x3C]           ; Get Kernel32 PE Signature (0x3C) into EBX
 add rbx, r8                   ; signature offset
@@ -205,7 +205,7 @@ add r11, r8                   ; AddressOfNames = VMA
 
 Next, let's plug in the function name we want to look for and setup our function counter:
 
-```asm
+```nasm
 mov rcx, r10                  ; Setup loop counter
 
 mov rax, 0x00636578456E6957   ;"WinExec" string NULL terminated with a '0' 
@@ -217,7 +217,7 @@ jmp kernel32findfunction
 
 **Now, let's find the function in question:**
 
-```asm
+```nasm
 ; Loop over Export Address Table to find WinApi names
 kernel32findfunction: 
     jecxz FunctionNameNotFound    ; If ecx is zero (function not found), set breakpoint
@@ -241,7 +241,7 @@ int3
 
 **And now the final stretch of code:**
 
-```asm
+```nasm
 OrdinalLookupSetup:  ;We found our target WinApi position in the functions lookup
    pop r15         ;getprocaddress position
    js OrdinalLookup
@@ -273,7 +273,7 @@ Sure enough, there is is!
 
 **Now let's use our newfound WinExec address to execute calc.exe!**
 
-```asm
+```nasm
 executeit:
 ; --- prepare to call WinExec ---
 pop r15                         ;address for WinExec
@@ -307,7 +307,7 @@ You should get your shellcode output along with your assembly instructions.  Her
 
 The machine code is contained in the middle section of the output below: 
 
-```asm
+```nasm
 winexec.obj:     file format pe-x86-64
 
 Disassembly of section .text:
