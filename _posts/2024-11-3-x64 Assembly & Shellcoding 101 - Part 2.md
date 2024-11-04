@@ -80,7 +80,7 @@ kernel32findfunction:
 
 **For the instruction above, we’re using:**
 
-+ r11=VMA of function names
++ r11 = RVA of function names
 
 + \+ 4 (use for alignment purposes)
 
