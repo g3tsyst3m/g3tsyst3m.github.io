@@ -80,13 +80,13 @@ kernel32findfunction:
 
 **For the instruction above, we’re using:**
 
-r11=VMA of function names
++ r11=VMA of function names
 
-+ 4 (use for alignment purposes)
++ \+ 4 (use for alignment purposes)
 
-+ rcx = the place in the function list
++ \+ rcx = the place in the function list
  
-* 4 =  rcx * 4: Since each RVA in AddressOfNames is a 4-byte entry, multiplying rcx by 4 gives the correct offset to retrieve the RVA of a specific function name. 
++ \* 4 =  rcx * 4: Since each RVA in AddressOfNames is a 4-byte entry, multiplying rcx by 4 gives the correct offset to retrieve the RVA of a specific function name. 
 
 **Once the loop finishes, our function name will have been found and the location in the function names will be stored in rcx**
 
@@ -133,7 +133,7 @@ mov eax, [r11+4+r13*4]        ; Get the function RVA.
 
 **R13 = Winexec ordinal (0x64b = 1611 decimal)**
 
-**x 4 = 1613 Winexec**
+**\* 4 = 1613 Winexec**
 
 **X64dbg = dword ptr ds:[r11+r13*4+4]=[kernel32.00007FFA636156D8]=608B0**
 ![image](https://github.com/user-attachments/assets/73c50ad3-bd92-46cd-9208-b5f86dea6339)
