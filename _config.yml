@@ -25,7 +25,7 @@ url                      : https://g3tsyst3m.github.io # the base hostname & pro
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : g3tsyst3m/g3tsyst3m.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/al.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/cyberowl.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -97,7 +97,7 @@ analytics:
 # Site Author
 author:
   name             : "R.B.C (g3tsyst3m)"
-  avatar           : "/assets/images/al.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/cyberowl.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Super passionate about Infosec...Dwight Schrute level of intensity"
   location         : "Kentucky"
   #email            : g3tsyst3m@gmail.com
