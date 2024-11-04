@@ -21,7 +21,7 @@ Okay, I lied 😄  I thought I'd use part 2 to discuss removing NULL bytes, and 
 First let’s get a decent PE viewer.  I’m using Pepper as my PE viewer of choice for viewing x64 binaries:
 [Pepper x64 PE Viewer](https://github.com/jovibor/Pepper)
 
-I’ll walk through each part of the PEB. Let’s use the assembly code from the blog as our guide:
+I’ll walk through each part of the PE header an exports section. Let’s use the assembly code from the blog as our guide:
 ```nasm
 mov r8, rbx         ; mov kernel32.dll base addr into r8
 ```
