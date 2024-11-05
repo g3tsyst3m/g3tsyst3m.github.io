@@ -19,7 +19,9 @@ tags:
 
 **Update: 11/4/2024**
 
-> Of all my blog posts, this one is hands down the most popular and likely the most useful.  Thank you everyone for sharing your interest in this content!  If you have ideas, general feedback, etc hit me up on my discord! I'd love to hear from you and talk more: https://discord.gg/bqDkEdDrQQ
+> Of all my blog posts, this one is hands down the most popular and likely the most useful.  Thank you everyone for sharing your interest in this content!  If you have more ideas, general feedback, etc hit me up on my discord! I'd love to hear from you and talk more:
+
+> [g3tsyst3m's discord server](https://discord.gg/bqDkEdDrQQ)
 
 Why make your own version of Netcat?  Here's a few reasons:
 
