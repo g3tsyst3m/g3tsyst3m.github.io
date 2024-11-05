@@ -17,6 +17,10 @@ tags:
   - elevationstation
 ---
 
+**Update: 11/4/2024**
+
+> Of all my blog posts, this one is hands down the most popular and likely the most useful.  Thank you everyone for sharing your interest in this content!  If you have ideas, general feedback, etc hit me up on my discord! I'd love to hear from you and talk more: https://discord.gg/bqDkEdDrQQ
+
 Why make your own version of Netcat?  Here's a few reasons:
 
 - Windows Defender for Endpoint is at least one EDR solution I can confirm blocks/flags it if used on Windows.  I'm sure other EDR solutions detect it too
