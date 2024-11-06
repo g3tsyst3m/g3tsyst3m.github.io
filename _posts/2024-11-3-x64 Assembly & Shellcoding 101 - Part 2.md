@@ -114,8 +114,8 @@ add r11, r8                   ; AddressOfNameOrdinals VMA
 inc rcx
 mov r13w, [r11+rcx*2]         ; AddressOfNameOrdinals + Counter. RCX = counter
 ```
-**Virtual memory address + rcx (1611) * 2 = 1613 = WinExec!!!**
-![image](https://github.com/user-attachments/assets/9eee3870-aa33-4d91-aba8-eea77dca0f41)
+**Virtual memory address + rcx (1612) * 2 = ordinal value for WinExec!!!**
+![image](https://github.com/user-attachments/assets/4a84140b-b393-4f75-a862-fa5b864cd242)
 
 ```nasm
 ;With the function ordinal value, we can finally lookup the WinExec address from AddressOfFunctions.
