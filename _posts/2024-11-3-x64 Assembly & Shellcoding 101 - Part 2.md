@@ -75,14 +75,12 @@ mov rcx, r10                      ; r10 has our total function count.  Set RCX l
 ```nasm
 kernel32findfunction: 
                
-    mov ebx, [r11+4+rcx*4]                 ; EBX = RVA for first AddressOfName
+    mov ebx, [r11+rcx*4]                 ; EBX = RVA for first AddressOfName
 ```
 
 **For the instruction above, we’re using:**
 
 + r11 = RVA of function names
-
-+ \+ 4 (use for alignment purposes)
 
 + \+ rcx = the place in the function list
  
@@ -114,7 +112,7 @@ add r11, r8                   ; AddressOfNameOrdinals VMA
 inc rcx
 mov r13w, [r11+rcx*2]         ; AddressOfNameOrdinals + Counter. RCX = counter
 ```
-**Virtual memory address + rcx (1612) * 2 = ordinal value for WinExec!!!**
+**Virtual memory address + rcx (1612) * 2 (bytes) = ordinal value for WinExec!!!**
 ![image](https://github.com/user-attachments/assets/4a84140b-b393-4f75-a862-fa5b864cd242)
 
 ```nasm
@@ -126,16 +124,16 @@ mov r11d, [rdx+0x1c]          ; AddressOfFunctions RVA
 ![image](https://github.com/user-attachments/assets/a6941209-e28a-4a0d-b4ec-b159adfbbde7)
 ```nasm
 add r11, r8                   ; AddressOfFunctions VMA in R11. Kernel32+RVA for addressoffunctions
-mov eax, [r11+4+r13*4]        ; Get the function RVA.
+mov eax, [r11+r13*4]        ; Get the function RVA.
 ```
 
 **R11 = Relative Virtual memory address**
 
-**R13 = Winexec ordinal (0x64b = 1611 decimal)**
+**R13 = Winexec ordinal (0x64C = 1612 decimal)**
 
-**\* 4 = 1613 Winexec**
+**\* 4 (bytes) = 1612  = Winexec**
 
-**X64dbg = dword ptr ds:[r11+r13*4+4]=[kernel32.00007FFA636156D8]=608B0**
+**X64dbg = dword ptr ds:[r11+r13*4]=[kernel32.00007FFA636156D8]=608B0**
 ![image](https://github.com/user-attachments/assets/73c50ad3-bd92-46cd-9208-b5f86dea6339)
 
 ```nasm
