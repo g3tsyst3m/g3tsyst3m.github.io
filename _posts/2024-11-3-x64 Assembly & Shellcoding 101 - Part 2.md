@@ -71,7 +71,7 @@ add r11, r8                   ; AddressOfNames VMA
 ```nasm
 mov rcx, r10                      ; r10 has our total function count.  Set RCX loop counter
 ```
-**; Loop over Export Address Table to find WinApi names**
+**; Loop over Export Address of Names Table to find WinApi names**
 ```nasm
 kernel32findfunction: 
                
