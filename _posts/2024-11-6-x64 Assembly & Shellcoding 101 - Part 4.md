@@ -103,7 +103,7 @@ FunctionNameFound:                ; Get function address from AddressOfFunctions
 
 ![image](https://github.com/user-attachments/assets/8c6c934c-198e-4e88-805b-704b9e78ba96)
 
-**This is nice because you can quickly decode and encode your strings to make sure everything is in working order before committing to your code.  As always, we want to strip this down to just shellcode, make sure it has no NULLs, and execute it!  We'll start with the basic objdump output to work off of: **
+**This is nice because you can quickly decode and encode your strings to make sure everything is in working order before committing to your code.  As always, we want to strip this down to just shellcode, make sure it has no NULLs, and execute it!  We'll start with the basic objdump output to work off of:**
 
 ```nasm
 winexec_nonulls.o:     file format pe-x86-64
