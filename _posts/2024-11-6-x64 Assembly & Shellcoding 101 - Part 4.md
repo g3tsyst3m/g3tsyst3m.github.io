@@ -179,9 +179,9 @@ Disassembly of section .text:
 
 **Let's get only the shellcode:**
 
-**nasm -fwin64 winexec_nonulls.asm -o winexec_nonulls.o**
+- nasm -fwin64 winexec_nonulls.asm -o winexec_nonulls.o
 
-**for i in $(objdump -D winexec_nonulls.o | grep "^ " | cut -f2); do echo -n "\x$i" ; done**
+- for i in $(objdump -D winexec_nonulls.o \| grep "^ " \| cut -f2); do echo -n "\x$i" ; done
 
 **Now, pop it into your c++ program and let er rip!**
 
