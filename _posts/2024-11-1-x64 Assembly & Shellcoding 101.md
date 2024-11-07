@@ -293,21 +293,15 @@ That can be your homework.  Try and find a way to use the information gleaned in
 ***Part 3 - Convert to x64 Shellcode: execute your custom shellcode***
 -
 
-Here's the manual way to get the shellcode from your program:
-
 First off, go ahead and compile it:
 
-`nasm.exe -f win64 winexec.asm`
+`nasm.exe -f win64 winexec.asm -o winexec.o`
 
 That will produce an .obj file.  Now, just do the following:
 
-`objdump -d winexec.obj`
+`objdump -d winexec.o`
 
-You should get your shellcode output along with your assembly instructions.  Here's what mine looks like.  Go ahead and copy the machine code.  I'd recommend using Linux to simplify filtering out all the junk you don't need using the following command:
-
-**for i in $(objdump -D popcalc.o | grep "^ " | cut -f2); do echo -n "\x$i" ; done**
-
-The machine code is contained in the middle section of the output below: 
+You should get your shellcode output along with your assembly instructions.  Here's what mine looks like.  
 
 ```nasm
 Disassembly of section .text:
@@ -388,6 +382,9 @@ Disassembly of section .text:
   be:   48 83 ec 30             sub    $0x30,%rsp
   c2:   41 ff d7                call   *%r15
 ```
+Now let's extract the shellcode:
+
+- for i in $(objdump -D winexec.o \| grep "^ " \| cut -f2); do echo -n "\x$i" ; done
 
 **here's what it looks like with just the machine code extracted:**
 
