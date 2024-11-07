@@ -189,10 +189,9 @@ Disassembly of section .text:
 ```
 **Let's convert to shellcode now.  I'll use Linux this time around and use the following commands:**
 
-**nasm -f win64 winexec_nonulls.asm -o winexec_nonulls.o**
+- nasm -fwin64 winexec_nonulls.asm -o winexec_nonulls.o
 
-**for i in $(objdump -D winexec_nonulls.o | grep "^ " | cut -f2); do echo -n "\x$i" ; done**
-
+- for i in $(objdump -D winexec_nonulls.o \| grep "^ " \| cut -f2); do echo -n "\x$i" ; done
 
 **here's what I got:**
 ```nasm
