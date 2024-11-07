@@ -8,14 +8,14 @@ author_profile: true
 
 An Infosec Research and Development blog:           
 
-![home](/assets/images/aboutimg.png){:class="img-responsive"}      
+<center><img src="https://github.com/user-attachments/assets/a345cea1-5afe-42da-b47a-ff52f64994d2" style="width:75%;"></center>
 
-Security Leader, Security Researcher and Enthusiast.  I'm fairly low profile, but share useful info from time to time.  I've worked in Infosec ~14+ years, and have an (ISC)2 CISSP certification.  My programming fluency is centered around Python, PHP, C++ (windows APIs and undocumented APIs), as well as a continued interest in furthering my understanding of x86/x64 assembly.  I enjoy reverse engineering binaries, both statically and dynamically.  I also enjoy learning new programming languages.  I like to lead and serve others, but I also like to get my hands dirty and keep my skills fresh with continuing my technical infosec education.  I serve in an executive role in my field, but my strengths will always be geared toward the technical sphere of influence.  This next statement I say  with all humility in check: I find today more than ever, a technical security leader is essential to an organization.  Long gone are the days of simply having a manager/director with a CISSP that does not have a broad understanding of the technical facets of Cybersecurity.  In my humble opinion, one should strive to learn as many aspects of InfoSec as they can, be it: Network Security, Vulnerability/Pentesting, Cloud based security, programming secure APIs, hardware security, audit and policy/breach/risk, etc!  I will always strive to learn as much as I can surrounding all facets of information Security.  Want to see what I'm studying currently?  Just keep reading this blog and check out my github!  thanks everyone 😸
+Security Leader, Security Researcher and Enthusiast.  I'm fairly low profile, but share useful info from time to time.  I've worked in Infosec or over a decade, and have an (ISC)2 CISSP certification.  My programming fluency is centered around Python, PHP, C++, as well as a continued interest in furthering my understanding of x64 assembly.  I enjoy reverse engineering binaries, both statically and dynamically.  I also enjoy learning new programming languages. I will always strive to learn as much as I can surrounding all facets of information Security.  Want to see what I'm studying currently?  Just keep reading this blog and check out my github!  thanks everyone 😸
 
 It is my hopes that we can grow together and help foster a community of avid InfoSec Learners who strive to grow in knowledge of all facets of offensive security. We will focus primarily on offensive security tools and malware research. I would eventually like to share detailed, on-demand video walkthroughs, breaking down tools and concepts shared in all my writeups.  All in due time I suppose 😸
 
-You can find me at GitHub:
-[g3tsyst3m](https://github.com/g3tsyst3m/)
+You can find me on X:
+[g3tsyst3m](https://x.com/G3tSyst3m)
 
 ## I also contribute to researching software vulnerabilities:
 
