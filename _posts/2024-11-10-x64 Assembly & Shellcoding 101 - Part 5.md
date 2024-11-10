@@ -124,6 +124,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     add rsp, 0x30                  ; alignmnent/shadow space adjustments
     mov r15, rax                   ; holds LoadLibraryA!
 ```
+
 ***Locate the address for ExitProcess using GetProcAddress handle***
 -
 ```nasm
@@ -143,6 +144,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     add rsp, 0x30
     mov r14, rax                    ; holds ExitProcess!
 ```
+
 ***Locate user32.dll using LoadLibraryA handle***
 -
 ```nasm
@@ -158,6 +160,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     call r15                        ; Call LoadLibraryA("user32.dll")
     mov rdi, rax                    ; holds User32.dll address
 ```
+
 ***Locate MessageBoxA address using user32.dll handle + GetProcAddress***
 -
 ```nasm
@@ -174,6 +177,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     call r12                        ; Call GetProcAddress
     mov r15, rax                    ; store MessageBoxA
 ```
+
 ***Pop the MessageBox!***
 -
 ```nasm
@@ -192,6 +196,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     call r15                        ; Call MessageBoxA
     add rsp, 0x30
 ```
+
 ***Call ExitProcess***
 -
 ```nasm
