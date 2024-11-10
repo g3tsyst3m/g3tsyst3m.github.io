@@ -80,11 +80,9 @@ kernel32findfunction:             ; Loop over Export Address Table to find WinAp
     mov ebx, [r11+rcx*4]          ; EBX = RVA for first AddressOfName
     add rbx, r8                   ; RBX = Function name VMA / add kernel32 base address to RVA and get WinApi name
     dec rcx                       ; Decrement our loop by one, this goes from Z to A
-
     mov r9, qword [rax]           ; R9 = "GetProcA"
     cmp [rbx], r9                 ; Compare first 8 bytes
     jnz kernel32findfunction      ; If not equal, continue loop
-    ; Check next part for "aryA" (4 bytes)
     mov r9d, dword [rax + 8]      ; R9 = "ddress"
     cmp [rbx + 8], r9d            ; Compare remaining part
     jz FunctionNameFound          ; If match, function found
