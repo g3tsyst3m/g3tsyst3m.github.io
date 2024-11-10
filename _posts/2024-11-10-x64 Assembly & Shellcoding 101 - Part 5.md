@@ -114,9 +114,9 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
 ; Load "LoadLibraryA" onto the stack
     mov rax, 0x41797261            ; aryA
     push rax
-    mov rax, 0x7262694C64616F4C    ; LoadLibr 
+    mov rax, 0x7262694C64616F4C    ; LoadLibr
     push rax
-    mov rdx, rsp	                 ; RDX points to "LoadLibraryA" (second argument)
+    mov rdx, rsp                   ; RDX points to "LoadLibraryA" (second argument)
     sub rsp, 0x30                  ; decimal 48 ( 3 x 16 bytes)
     call r15                       ; Call GetProcAddress
     add rsp, 0x30                  ; alignmnent/shadow space adjustments
@@ -136,7 +136,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     push rax
     mov rax, 0x636F725074697845     ; ExitProc 
     push rax
-    mov rdx, rsp	                  ; RDX points to "ExitProcess" (second argument)
+    mov rdx, rsp                    ; RDX points to "ExitProcess" (second argument)
     sub rsp, 0x30
     call r14                        ; Call GetProcAddress
     add rsp, 0x30
@@ -182,7 +182,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
 ;messageboxfinally: 
     xor rcx, rcx                    ; hWnd = NULL (no owner window)
     mov rax, 0x9090906D             ; m, 0
-	  shl eax, 24                     ; 000000006D000000
+    shl eax, 24                     ; 000000006D000000
     shr eax, 24                     ; 000000000000006D
     push rax
     mov rax, 0x3374737973743367     ; g3tsyst3
