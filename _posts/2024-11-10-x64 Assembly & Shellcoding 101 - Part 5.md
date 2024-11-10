@@ -173,7 +173,7 @@ I really wish it didn't take so many lines of code to dynamically locate kernel3
     sub rsp, 0x30
     call r12                        ; Call GetProcAddress
     mov r15, rax                    ; store MessageBoxA
-    ```
+```
 ***Pop the MessageBox!***
 -
 ```nasm
