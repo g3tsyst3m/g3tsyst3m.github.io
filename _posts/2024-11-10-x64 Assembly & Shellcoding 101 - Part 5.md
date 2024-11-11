@@ -75,7 +75,7 @@ mov rax, 0x41636F7250746547       ; GetProcA
 push rax
 mov rax, rsp	
 kernel32findfunction:             ; Loop over Export Address Table to find WinApi names
-    jecxz FunctionNameNotFound    ; Loop around this function until we find WinExec
+    jecxz FunctionNameNotFound    ; Loop around this function until we find GetProcAddress
     xor ebx,ebx                   ; Zero EBX for use
     mov ebx, [r11+rcx*4]          ; EBX = RVA for first AddressOfName
     add rbx, r8                   ; RBX = Function name VMA / add kernel32 base address to RVA and get WinApi name
