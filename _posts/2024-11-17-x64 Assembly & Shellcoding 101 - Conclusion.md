@@ -481,7 +481,7 @@ Okay, let's compile this monster, grab our shellcode, and get ourselves a revers
 
 **nasm -fwin64 asmsock2.asm**
 
-**for i in $(objdump -D asmsock2.obj | grep "^ " | cut -f2); do echo -n "\x$i" ; done**
+**for i in $(objdump -D asmsock2.obj \| grep "^ " \| cut -f2); do echo -n "\x$i" ; done**
 
 **Include the generated shellcode in our c++ program.  And yes I realize it's large.  Remember, this was for learning purposes 😄**
 
