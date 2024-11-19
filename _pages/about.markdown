@@ -20,7 +20,7 @@ You can find me on X:
 ## I also contribute to researching software vulnerabilities:
 
 **Latest**:
-https://g3tsyst3m.github.io/cve/msi/Arbitrary-Write-Privilege-Escalation-CVE-2024-50804/
+[https://g3tsyst3m.github.io/cve/msi/Arbitrary-Write-Privilege-Escalation-CVE-2024-50804](https://g3tsyst3m.github.io/cve/msi/Arbitrary-Write-Privilege-Escalation-CVE-2024-50804)
 
 **Archived**:
 [exploit-db.com](https://www.exploit-db.com/?author=8212)
