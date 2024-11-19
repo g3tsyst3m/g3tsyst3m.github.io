@@ -19,11 +19,13 @@ You can find me on X:
 
 ## I also contribute to researching software vulnerabilities:
 
+**Latest**:
+https://g3tsyst3m.github.io/cve/msi/Arbitrary-Write-Privilege-Escalation-CVE-2024-50804/
+
+**Archived**:
 [exploit-db.com](https://www.exploit-db.com/?author=8212)
 
-All exploits written in the link above used OllyDbg for x86 reverse engineering.  Exploits are buffer overflow, Structured Event Handler and EIP direct overwrite/ROP 
-
-Co-wrote a Metasploit module:
+Also co-wrote a Metasploit module:
 
 [metasploit module](https://www.rapid7.com/db/modules/exploit/windows/fileformat/boxoft_wav_to_mp3/)
 
