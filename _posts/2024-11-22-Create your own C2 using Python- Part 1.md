@@ -465,6 +465,12 @@ def zombies():
             return
 ```
 
+You may be thinking to yourself,"But...how can I get this to execute on a windows machine that isn't running python?"  It's a fair question!  I'm sure some folks will knock `pyinstaller`, but it does the job just fine.
+
+> **pyinstaller --onefile --icon=icon.ico your_script.py**
+
+Now you have an .exe that can be used without the need to have python installed.
+
 ***DEMO TIME!!! ⏲️***
 -
 
