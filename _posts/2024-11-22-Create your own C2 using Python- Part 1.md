@@ -22,7 +22,7 @@ Because if it wasn't for Metasploit, I likely would have never became interested
 
 > Now, first things first.  Don't expect this to be Havoc, Cobalt Strike, Slither, Brute Ratel, or any other number of excellent C2 frameworks out there today.  This will bear a crude resemblance to Metasploit at best and console / text based.  My aim is to teach you how to code a C2, not replace the already excellent ones out there today.  Okay, with that disclaimer behind us, let's go!
 
-***The Client***
+***The Implant/Zombie agent***
 -
 
 > The Imports and other important stuff
@@ -43,8 +43,8 @@ exit_event = threading.Event()
 
 > reverse shell function
 
-**use the code I posted here and save it as pyrevshell_client.py:** 
-**be sure to edit the ip and port info!!!**
+**Use the code I posted here and save it as pyrevshell_client.py:** 
+**Be sure to edit the ip and port info!!!**
 
 [https://g3tsyst3m.github.io/sockets/Create-your-own-Netcat-using-Python/](https://g3tsyst3m.github.io/sockets/Create-your-own-Netcat-using-Python/)
 
@@ -54,7 +54,7 @@ def startrevshellcli():
     exit_event.set()
 ```
 
-> Gather Victim/Client Operating System Info
+> Gather Victim/Zombie Operating System Info
 
 ```python
 ##################################
@@ -106,7 +106,7 @@ else:
     info=os.environ.get('COMPUTERNAME') + "\\" + os.getlogin() + "\n[Elevated]: " + str(shell.IsUserAnAdmin()) + "\nMember of Local Admins: " + LocalAdmin + "\n" + "Domain Joined: " + OnADomain + "\n" + "OS info: " + osinfo +"\n" + "IP address info: " + "\n" + ipaddrinfo
 ```
 
-***The Socket Connection to your Attacker Box***
+***The Socket Connection to your Attacker Box / C2 listener***
 -
 
 ```python
@@ -191,7 +191,7 @@ def receiver(client):
 
 Okay, so the `Client` was easy.  The `Server`, which is our main command and control center, is a bit more complex.  I'm running the server code on Linux btw.  Feel free to run it on Windows if you're so inclined.  it'll work but it's a bit buggy at the moment.  I've tried to include some checks to help make things cooperate nicely, where it's operating system agnostic. 😄
 
-***The Server!!!***
+***The C2 Server!!!***
 -
 
 > The Imports and other important stuff
