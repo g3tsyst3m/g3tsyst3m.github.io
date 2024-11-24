@@ -20,7 +20,7 @@ Back in days of my adolescence, I was fascinated with all things Metasploit.  I 
 
 Because if it wasn't for Metasploit, I likely would have never became interested in Cybersecurity at all.  It was the pivotal moment in my life when everything started to click, at least in terms of my aspirations as certified IT geek.  I wanted a challenge, I wanted to understand windows internals more, learn C/C++, assembly,  privilege escalation.  Metasploit was the key to all of it.  Well, that leads us into the reason you're here reading this today.  I knew one day I'd want to learn how to develop my own C2 framework, and what an honor it is to present just that to you starting today! I get to teach you how to code something that was the very fabric of my beginnings in cybersecurity.  I'm thrilled to dive in and explore this with all of you.  Let's get started, cool?!  😸
 
-> Now, first things first.  Don't expect this to be Havoc, Cobalt Strike, Slither, Brute Ratel, or any other number of excellent C2 frameworks out there today.  This will bear a crude resemblance to Metasploit at best and console / text based.  My aim is to teach you how to code a C2, not replace the already excellent ones out there today.  Okay, with that disclaimer behind us, let's go!
+> Now, first things first.  Don't expect this to be Havoc, Cobalt Strike, Slither, Brute Ratel, or any other number of excellent C2 frameworks out there today.  This will bear a crude resemblance to Metasploit at best, and console / text based.  My aim is to teach you how to code a C2, not replace the already excellent ones out there today.  This is a non-encrypted, very basic TCP socket based C2.  It's meant to be simple and easy to learn.  Okay, with that disclaimer behind us, let's go!
 
 ***The Implant/Zombie agent***
 -
@@ -474,17 +474,31 @@ Now you have an .exe that can be used without the need to have python installed.
 ***DEMO TIME!!! ⏲️***
 -
 
+**Start up the C2 server on your Linux (or Windows) box:**
+
 ![image](https://github.com/user-attachments/assets/25c9f790-3fd2-4acf-a973-776bda7996e7)
+
+**Run the implant on the Windows OS (victim):**
 
 ![image](https://github.com/user-attachments/assets/271bf841-b2ff-4b48-8190-b278a162d510)
 
+**We received a connection!**
+
 ![image](https://github.com/user-attachments/assets/7639c05e-2903-4ffb-8ea1-2a4bc0b7db6a)
+
+**Select our zombie**
 
 ![image](https://github.com/user-attachments/assets/adfd33fd-0874-4c42-91cb-c073709ab541)
 
+**Send the zombie agent a message (stupid I know, but just added for learning purposes mainly 😄)**
+
 ![image](https://github.com/user-attachments/assets/987c1706-308e-4fe3-9564-aea4483e9090)
 
+**Get machine information**
+
 ![image](https://github.com/user-attachments/assets/1abdb9a0-9ae9-4212-bb0c-2af8cddb5229)
+
+**Get the victim's public IP**
 
 ![image](https://github.com/user-attachments/assets/d8892c73-b2b4-48af-a230-074d2fdcbe62)
 
@@ -492,7 +506,11 @@ Now you have an .exe that can be used without the need to have python installed.
 
 ![image](https://github.com/user-attachments/assets/55961611-f84e-44ae-b005-0bd6a40e73f4)
 
+**What user are we running as?**
+
 ![image](https://github.com/user-attachments/assets/6b774600-4d55-47e4-85b1-312ab7c541c4)
+
+**Get a reverse shell!**
 
 ![image](https://github.com/user-attachments/assets/699c1fb6-c0da-4f68-8990-691eb24447b9)
 
