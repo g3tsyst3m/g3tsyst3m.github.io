@@ -488,6 +488,10 @@ Now you have an .exe that can be used without the need to have python installed.
 
 ![image](https://github.com/user-attachments/assets/d8892c73-b2b4-48af-a230-074d2fdcbe62)
 
+**Kill the Zombie!**
+
+![image](https://github.com/user-attachments/assets/55961611-f84e-44ae-b005-0bd6a40e73f4)
+
 ![image](https://github.com/user-attachments/assets/6b774600-4d55-47e4-85b1-312ab7c541c4)
 
 ![image](https://github.com/user-attachments/assets/699c1fb6-c0da-4f68-8990-691eb24447b9)
