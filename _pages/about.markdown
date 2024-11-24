@@ -17,6 +17,8 @@ It is my hopes that we can grow together and help foster a community of avid Inf
 You can find me on X:
 [g3tsyst3m](https://x.com/G3tSyst3m)
 
+> If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!
+
 ## I also contribute to researching software vulnerabilities:
 
 **Latest**:
