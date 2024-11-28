@@ -351,7 +351,7 @@ Source code located in the usual spot:
 
 [https://github.com/g3tsyst3m/CodefromBlog](https://github.com/g3tsyst3m/CodefromBlog)
 
-Also, here's the GIF I used in my X post that demo's it all!  
+Also, here's the GIF I used in my X post that demo's some of these new features!  
 
 ![c2_part2](https://github.com/user-attachments/assets/debf1b8d-be1f-446f-a62a-e46f2269e565)
 
