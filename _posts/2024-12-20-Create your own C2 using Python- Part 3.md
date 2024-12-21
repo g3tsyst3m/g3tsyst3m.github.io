@@ -36,6 +36,8 @@ Well, let's get down to it then.  As usual, I'm going to quickly run through the
 
 Instead of posting all the Python code, I'm going to ask that you reference the code from the previous posts.  That way, I can get straight to the new features and post smaller snippits.  I think that will help explain the new additions to our C2 better and make things easier to follow.
 
+All the Visual Studio projects related to this blog post can be found here: [C2 Part 3 - Files](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2024-12-20-Create%20your%20own%20C2%20using%20Python%20-%20Part%203)
+
 > **Prep**
 
 - Be sure to open and compile the UIAccess_bypassUAC C++ project.  
