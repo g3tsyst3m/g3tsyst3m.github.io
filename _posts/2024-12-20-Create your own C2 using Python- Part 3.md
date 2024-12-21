@@ -45,7 +45,7 @@ Instead of posting all the Python code, I'm going to ask that you reference the 
 **> Server side**
 
 ```python
-if choice == "uacbypass":
+if choice == "bypassuac":
             print("checking to see if this user is a member of the admins group...")
             if "True" in clientdata[selection][2]:
                 print("Nice! You're in the administrators group.  continuing...")
