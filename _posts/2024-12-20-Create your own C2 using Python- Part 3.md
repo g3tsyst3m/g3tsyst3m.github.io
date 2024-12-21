@@ -21,7 +21,7 @@ tags:
 
 Twas 5 days before Christmas, and all through the night.  Not a sound was heard, because we bypassed EDR with no alerts in sight!  🎅
 
-LOL, what's happening everyone, and welcome to `Part 3` of our C2 series!  Also all joking aside, it's true you know.  This super lightweight, Python🐍 driven C2 is currently **NOT** detected by Defender.  It's every bit as basic and straightforward as Metasploit with all the familiar functionality.  Yet no need to bypass EDR because it bypasses it by default!  Now, why should that excited you?  Well, we are now incorporating some new features that really make this lightweight C2 actually useful in a live pentest scenario.  The following new features have been added in Part 3:
+LOL, what's happening everyone, and welcome to `Part 3` of our C2 series!  Also all joking aside, it's true you know.  This super lightweight, Python🐍 driven C2 is currently **NOT** detected by Defender.  It's every bit as basic and straightforward as Metasploit with all the familiar functionality.  Yet no need to bypass EDR because it bypasses it by default!  Now, why should that excite you?  Well, we are now incorporating some new features that really make this lightweight C2 actually useful in a live pentest scenario.  The following new features have been added in Part 3:
 
 - **getsystem**
 - **UAC bypass**
