@@ -47,7 +47,7 @@ and rsp, 0xFFFFFFFFFFFFFFF0
 xor rcx, rcx                      ; RCX = 0
 mov rax, [gs:rcx + 0x60]          ; RAX = PEB
 mov rax, [rax + 0x18]             ; RAX = PEB->Ldr
-mov rsi,[rax+0x10]                ; PEB.Ldr->InMemOrderModuleList
+mov rsi,[rax+0x10]                ; PEB.Ldr->InLoadOrderModuleList
 mov rsi, [rsi]
 mov rsi,[rsi]
 mov rbx, [rsi+0x30]               ; kernel32.dll base address
