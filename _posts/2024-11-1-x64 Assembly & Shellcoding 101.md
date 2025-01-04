@@ -178,7 +178,7 @@ and rsp, 0xFFFFFFFFFFFFFFF0
 xor rcx, rcx             ;RCX = 0
 mov rax, [gs:rcx + 0x60] ;RAX = PEB
 mov rax, [rax + 0x18]    ;RAX = PEB / Ldr
-mov rsi,[rax+0x10]       ;PEB_Ldr / InMemOrderModuleList
+mov rsi,[rax+0x10]       ;PEB_Ldr / InLoadOrderModuleList
 mov rsi, [rsi]           ;could substitute lodsq here instead if you like
 mov rsi,[rsi]            ;also could substitute lodsq here too
 mov rbx, [rsi+0x30]      ;kernel32.dll base address
@@ -196,7 +196,7 @@ Now that we have our kernel32 base address, let's go ahead and get our total fun
 mov ebx, [rbx+0x3C]           ; Get Kernel32 PE Signature (0x3C) into EBX
 add rbx, r8                   ; signature offset
 mov edx, [rbx+0x88]           ; PE32 Signature / Export Address Table
-add rdx, r8                   ; kernel32.dll & RVA ExportTable = ExportTable Address
+add rdx, r8                   ; kernel32.dll + RVA ExportTable = ExportTable Address
 mov r10d, [rdx+0x14]          ; Total count for number of functions
 xor r11, r11                  ; clear R11 
 mov r11d, [rdx+0x20]          ; AddressOfNames = RVA
