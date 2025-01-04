@@ -137,7 +137,7 @@ mov eax, [r11+r13*4]        ; Get the function RVA.
 ![image](https://github.com/user-attachments/assets/73c50ad3-bd92-46cd-9208-b5f86dea6339)
 
 ```nasm
-add rax, r8                   ; Found the GetProcAddress WinApi!!!
+add rax, r8                   ; Found the WinExec WinApi!!!
 ```
 
 **Add kernel32 to our RVA of WinExec**
