@@ -12,10 +12,10 @@ tags:
   - Shellcoding
   - x64
   - x64dbg
-  - '2024'
+  - '2025'
   - nasm
   - assembly
   - debugging
 ---
 
-test
+test2
