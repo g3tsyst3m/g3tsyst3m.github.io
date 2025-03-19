@@ -105,6 +105,8 @@ Trust me, I tried... 😿  But until then, this particular bypass works even wit
 ***UAC Bypass Technique #2 - Mock Trusted Folders<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
 -
 
+> **UPDATE: 3/18/2025 - This no longer appears to work on the latest Windows 11 (v24H2), possibly 23H2 as well.**
+
 This particular technique, just like the last one we discussed, is not anything novel.  It's actually been around for quite some time.  I personally discovered it through reading a Bleeping Computer article last year on it:
 
 [https://www.bleepingcomputer.com/news/security/old-windows-mock-folders-uac-bypass-used-to-drop-malware/
