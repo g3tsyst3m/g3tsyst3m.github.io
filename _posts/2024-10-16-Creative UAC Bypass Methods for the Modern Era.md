@@ -71,7 +71,7 @@ int main()
 
 Compile that and move it to the folder you designated in your powershell `Value` field/parameter.
 
-Next up, I'll explain the Node stuff.  `N0de.exe` is literally the Node.JS binary I downloaded as a portable from the Node.js site.  I always use node for pentest engagements as it's a friendly living off the land binary and seems to remain undetected.  Node then opens this .js file, which is my reverse shell:
+Next up, I'll explain the Node stuff.  `N0de.exe` is literally the renamed Node.JS binary I downloaded as a portable from the Node.js site.  I always use node for pentest engagements as it's a friendly living off the land binary and seems to remain undetected.  Node then opens this .js file, which is my reverse shell:
 
 ```javascript
 (function(){
@@ -95,7 +95,7 @@ Bring it all together and you get the following:
 ![image](https://github.com/user-attachments/assets/872b4dcf-94f2-439c-a30c-8df6c75b2101)
 
 And there you have it.  An age old UAC Bypass technique that still works, still bypasses UAC and STILL EVADES DEFENDER!  The irony is it's easier than all the other methods I posted last year.
-Think smarter not harded I guess.  Okay, I feel better about this blog post now.  I couldn't stand sitting idly by while folks found this page and were likely immediately disappointed because none of the techniques I shared were still relevent.  Now there's at least one 😙  Until next time!
+Think smarter not harder I guess.  Okay, I feel better about this blog post now.  I couldn't sit idly by while folks found this page and were likely immediately disappointed because none of the techniques I shared were still relevent.  Now there's at least one 😙  Until next time!
 
 <hr>
 
