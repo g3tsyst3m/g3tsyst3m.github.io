@@ -51,9 +51,11 @@ So...What if we do.... `-Value "../../myfolder/barney.exe"`
 
 ![image](https://media0.giphy.com/media/5y8sRBYSWWb16/giphy.gif?cid=6c09b9522xxdays2x4v6zjs6o5y3oejjfsd40rac1du7g9j4&ep=v1_gifs_search&rid=giphy.gif&ct=g)
 
-It's as simple as that my friends.  Don't include Drive letters, Don't include popular payload locations like `c:\users\public` and `c:\temp`.  Just go with the old school ..\..\ routine and avoid all that altogether and convince Defender that you are in the right.  Right?! 😸
+It's as simple as that my friends.  Don't include Drive letters, Don't include popular payload locations like `c:\users\public` and `c:\temp`.  Just go with the old school ..\\..\\ routine and avoid all that altogether and convince Defender that you are in the right.  Right?! 😸
 
-All that's left now is to issue the final statement: `Start-Process "C:\Windows\System32\ComputerDefaults.exe"` and we're off to the races!  Your .exe file you placed in the `Value` parameter will be executed without Defender yelling at you.
+All that's left now is to issue the final statement: 
+
+`Start-Process "C:\Windows\System32\ComputerDefaults.exe"` and we're off to the races!  Your .exe file you placed in the `Value` parameter will be executed without Defender yelling at you.
 
 I should probably also show you what I did as far as my payload goes.  I kept it really simple.  `barney.exe` is just this simple C++ loader:
 
