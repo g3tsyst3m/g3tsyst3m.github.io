@@ -53,7 +53,7 @@ So...What if we do.... `-Value "../../myfolder/barney.exe"`
 
 It's as simple as that my friends.  Don't include Drive letters, Don't include popular payload locations like `c:\users\public` and `c:\temp`.  Just go with the old school ..\\..\\ routine and avoid all that altogether and convince Defender that you are in the right.  Right?! 😸
 
-Also I should mention, the ..//..// goes from c:\windows\system32 -> c:\ root directory.  Just create a folder of your choosing and place your .exe in it.
+Also I should mention, the ../../ goes from c:\windows\system32 -> c:\ root directory.  Just create a folder of your choosing and place your .exe in it.
 
 All that's left now is to issue the final statement: 
 
