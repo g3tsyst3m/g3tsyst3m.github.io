@@ -53,11 +53,13 @@ So...What if we do.... `-Value "../../myfolder/barney.exe"`
 
 It's as simple as that my friends.  Don't include Drive letters, Don't include popular payload locations like `c:\users\public` and `c:\temp`.  Just go with the old school ..\\..\\ routine and avoid all that altogether and convince Defender that you are in the right.  Right?! 😸
 
+Also I should mention, the ..//..// goes from c:\windows\system32 -> c:\ root directory.  Just create a folder of your choosing and place your .exe in it.
+
 All that's left now is to issue the final statement: 
 
 `Start-Process "C:\Windows\System32\ComputerDefaults.exe"` and we're off to the races!  Your .exe file you placed in the `Value` parameter will be executed without Defender yelling at you.
 
-I should probably also show you what I did as far as my payload goes.  I kept it really simple.  `barney.exe` is just this simple C++ loader:
+I should probably also show you what I did as far as my payload goes.  I kept it really simple.  `barney.exe` is just a simple C++ loader.  This is for demo purposes of course.  In a realistic pentest scenario, you'd be substituting your actual C2 implant in the `Value` field:
 
 ```cpp
 
