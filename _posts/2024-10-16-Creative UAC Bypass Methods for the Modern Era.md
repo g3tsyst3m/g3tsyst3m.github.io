@@ -111,7 +111,7 @@ Think smarter not harder I guess.  Okay, I feel better about this blog post now.
 ***UAC Bypass #2 - Using Micrososft's Troubleshooting Tool to elevate to Admin! (Detection Status: Undetected)***
 -
 
-Credit first and foremost goes to Emeric Nasi, who discovered this quite some time ago.  All I did was repurpose it for my own needs and present it in a way that is understandable and accessible to you the reader 😸  His original article on this particular UAC bypass technique can be found here: https://blog.sevagas.com/?MSDT-DLL-Hijack-UAC-bypass
+Credit first and foremost goes to Emeric Nasi, who discovered this quite some time ago.  All I did was repurpose it for my own needs and present it in a way that is understandable and accessible to you the reader 😸  His original article on this particular UAC bypass technique can be found here: [https://blog.sevagas.com/?MSDT-DLL-Hijack-UAC-bypass](https://blog.sevagas.com/?MSDT-DLL-Hijack-UAC-bypass)
 
 The affected executable is `c:\windows\syswow64\msdt.exe` and we will be seizing the opportunity to exploit a DLL that is vulnerable to DLL hijacking. The reason for the `syswow64` directory is because the vulnerable DLL is the x86/32 bit version, and it will ultimately be loaded by `C:\WINDOWS\SysWOW64\sdiagnhost.exe` which follows the initial loading of `msdt.exe`.  The DLL in question is: `BluetoothDiagnosticUtil.dll`
 
