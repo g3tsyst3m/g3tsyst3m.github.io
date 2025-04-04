@@ -1,5 +1,5 @@
 ---
-title:  "x64 Assembly & Shellcoding 101 - Part 2"
+title:  "x64 Assembly and Shellcoding 101 - Part 2"
 header:
   teaser: "/assets/images/pestuff.png"
 categories:

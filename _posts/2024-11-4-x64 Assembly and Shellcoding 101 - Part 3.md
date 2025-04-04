@@ -1,5 +1,5 @@
 ---
-title:  "x64 Assembly & Shellcoding 101 - Part 3"
+title:  "x64 Assembly and Shellcoding 101 - Part 3"
 header:
   teaser: "/assets/images/shellcode_vs.png"
 categories:

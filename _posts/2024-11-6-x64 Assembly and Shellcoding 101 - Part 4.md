@@ -1,5 +1,5 @@
 ---
-title:  "x64 Assembly & Shellcoding 101 - Part 4"
+title:  "x64 Assembly and Shellcoding 101 - Part 4"
 header:
   teaser: "/assets/images/asm-part4.png"
 categories:

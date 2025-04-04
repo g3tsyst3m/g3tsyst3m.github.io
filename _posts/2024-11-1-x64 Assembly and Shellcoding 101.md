@@ -1,5 +1,5 @@
 ---
-title:  "x64 Assembly & Shellcoding 101"
+title:  "x64 Assembly and Shellcoding 101"
 header:
   teaser: "/assets/images/disassembly.png"
 categories:
