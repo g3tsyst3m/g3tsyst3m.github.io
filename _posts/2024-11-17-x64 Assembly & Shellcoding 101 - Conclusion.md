@@ -1,5 +1,5 @@
 ---
-title:  "x64 Assembly & Shellcoding 101 - Conclusion"
+title:  "x64 Assembly &amp; Shellcoding 101 - Conclusion"
 header:
   teaser: "/assets/images/conclusion.png"
 categories:
