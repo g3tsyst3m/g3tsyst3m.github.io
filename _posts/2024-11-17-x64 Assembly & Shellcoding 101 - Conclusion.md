@@ -1,5 +1,5 @@
 ---
-title:  "x64 Assembly &amp; Shellcoding 101 - Conclusion"
+title:  "x64 Assembly & Shellcoding 101 - Conclusion"
 header:
   teaser: "/assets/images/conclusion.png"
 categories:
@@ -553,5 +553,5 @@ int main() {
 
 That's it everyone!  If you've made it this far and read the other posts in this series, kudos to you on a job well done!  If you'd like to learn more than what I've covered in this series, I'd be interested to hear from you.  I am considering a paid tier service offering at some point to go into things in greater detail, include videos, etc.  If that's something that appeals to you, let me know.  The more interest I receive the more I'll be interested in setting aside the time to put that package offering together.  
 
-See you next time, and thanks for checking out my Assembly & Shellcoding 101 series!!!
+See you next time, and thanks for checking out my Assembly and Shellcoding 101 series!!!
 
