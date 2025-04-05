@@ -211,6 +211,10 @@ GAME OVER!  not too bad huh?  also Defender never made a peep.  This bypasses ED
 
 <hr>
 
+**Video Proof of Concept:**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6J2p9Ve3DIE?si=pJyLIygaSSfaipOW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ***UAC Bypass Technique #3 - DLL Sideloading<br>(UAC setting - ALWAYS ON)***
 -
 
