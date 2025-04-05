@@ -108,6 +108,10 @@ Start-Process "C:\Windows\System32\ComputerDefaults.exe"
 And there you have it.  An age old UAC Bypass technique that still works, still bypasses UAC and STILL EVADES DEFENDER!  The irony is it's easier than all the other methods I posted last year.
 Think smarter not harder I guess.  Okay, I feel better about this blog post now.  I couldn't sit idly by while folks found this page and were likely immediately disappointed because none of the techniques I shared were still relevent.  Now there's at least one 😙  Until next time!
 
+**Video Proof of Concept:**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s4QYZsq32mo?si=IB74bAqzh7zNgIKC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ***UAC Bypass #2 - Using Micrososft's Troubleshooting Tool to elevate to Admin! (Detection Status: Undetected)***
 -
 
