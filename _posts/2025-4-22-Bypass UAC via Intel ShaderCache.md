@@ -30,9 +30,9 @@ So, in short this UAC Bypass involves taking advantage of the fact that auto-ele
 
 ![image](https://github.com/user-attachments/assets/478bf081-dde7-438d-853e-130ec44a84f7)
 
-The bulk of this exploit is fairly trivial if you're familiar with how arbitrary write + junctions work.  The portion of the exploit that took me the longest to pull off was deleting all the files actively being used by processes using the Intel Graphics driver.  I ended up changing the security to all the files to read-only where no process could write to existing files, per the original disclosure.  
+The bulk of this exploit is fairly trivial if you're familiar with how arbitrary write + junctions work.  The portion of the exploit that took me the longest to pull off was deleting all the files actively being used by processes using the Intel Graphics driver.  I ended up changing the security to all the files to read-only where no process could write to existing files, per the original disclosure.  Here's the powershell script I used to change the permissions:  
 
-```ps1
+```c#
 $target = "C:\Users\robbi\AppData\LocalLow\Intel\ShaderCache"
 
 # 2. Remove inheritance and wipe existing permissions
