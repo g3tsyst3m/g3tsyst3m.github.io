@@ -1,7 +1,7 @@
 ---
 title:  "Steganography is still relevant!"
 header:
-  teaser: "/assets/images/stego.jpg"
+  teaser: "/assets/images/stego1.png"
 categories:
   - Steganography
 tags:
