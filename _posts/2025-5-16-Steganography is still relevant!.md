@@ -244,7 +244,7 @@ The result?
 
 ![image](https://github.com/user-attachments/assets/d8ccf6fc-8dd9-4b73-884f-abb735a92ba5)
 
-And there you have it folks.  We successfully copied shellcode into an innocuous image, extracted it, and executed it.  Oh, and what about EDR?  Nada
+And there you have it folks.  We successfully copied shellcode into an innocuous image, extracted it, and executed it.  Oh, and what about EDR?  Nada.  Well, at least in the case of Windows Defender.  As has been recently brough to my attention and rightfully so, I'm only testing against Defender and that's not exactly the best gauge for ensuring we bypassed EDR.  In the future, I'll try and showcase proof of EDR bypass from other solutions.
 
 ![image](https://github.com/user-attachments/assets/ade3c11c-0195-4daa-9ac7-254a62edfd79)
 
