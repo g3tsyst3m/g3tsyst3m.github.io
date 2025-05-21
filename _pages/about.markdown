@@ -17,7 +17,7 @@ The focus on this blog will largely be on offensive security tools and malware r
 You can find me on X:
 [g3tsyst3m](https://x.com/G3tSyst3m)
 
-> If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  Here's cliffnotes version of my CV for those interested.
+> If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
 
 * Dedicated and results-driven information security leader with 12 years of experience designing and implementing comprehensive cybersecurity strategies. I lead a team of on-site and managed services security engineers, driving proactive threat management / threat detection/monitoring, incident response, and compliance with industry frameworks such as NIST, ISO 27001, and PCI DSS.
 
