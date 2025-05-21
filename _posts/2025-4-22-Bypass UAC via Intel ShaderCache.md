@@ -1,7 +1,7 @@
 ---
 title:  "Bypassing UAC via Intel ShaderCache Directory"
 header:
-  teaser: "/assets/images/c2_part3.png"
+  teaser: "/assets/images/uacacquired.png"
 categories:
   - UAC Bypass
 tags:
