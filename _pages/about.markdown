@@ -12,12 +12,22 @@ An Infosec Research and Development blog:
 
 Security Leader, Security Researcher and Enthusiast.  I'm fairly low profile, but share useful info from time to time.  I've worked in Infosec for over a decade, and have an (ISC)2 CISSP certification.  My programming fluency is centered around Python, PHP, C++, as well as a continued interest in furthering my understanding of x64 assembly.  I enjoy reverse engineering binaries, both statically and dynamically.  I also enjoy learning new programming languages. I will always strive to learn as much as I can surrounding all facets of information Security.  Want to see what I'm studying currently?  Just keep reading this blog and check out my github!  thanks everyone 😸
 
-It is my hopes that we can grow together and help foster a community of avid InfoSec Learners who strive to grow in knowledge of all facets of offensive security. We will focus primarily on offensive security tools and malware research. I would eventually like to share detailed, on-demand video walkthroughs, breaking down tools and concepts shared in all my writeups.  All in due time I suppose 😸
+The focus on this blog will largely be on offensive security tools and malware research. I would eventually like to share detailed, on-demand video walkthroughs, breaking down tools and concepts shared in all my writeups.  All in due time I suppose 😸  
 
 You can find me on X:
 [g3tsyst3m](https://x.com/G3tSyst3m)
 
-> If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!
+> If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  Here's cliffnotes version of my CV for those interested.
+
+* Dedicated and results-driven information security leader with 12 years of experience designing and implementing comprehensive cybersecurity strategies. I lead a team of on-site and managed services security engineers, driving proactive threat management / threat detection/monitoring, incident response, and compliance with industry frameworks such as NIST, ISO 27001, and PCI DSS.
+
+* My expertise spans threat intelligence / threat detection / threat hunting, penetration testing, malware analysis/reverse engineering, and vulnerability / risk assessments. Skilled in leveraging cloud technologies to enhance security architectures, I collaborate seamlessly with key stakeholders to align security initiatives with organizational goals, ensuring resilience in an ever-evolving threat landscape.
+
+* Certifications: CISSP, CCNA
+
+* Skills: Python, C/C++, PHP, x86/x64 assembly, JavaScript, Powershell, Application security, Network Security, Security Architecture, Vulnerability Scanning, penetration testing, IDS, IPS, Microsoft DLP, static/dynamic analysis / reverse engineering, Azure, AWS, Elastic SIEM
+
+* Soft Skills: adaptable to fast paced environments, collaborative, team leader, results oriented, problem solver.
 
 ## I also contribute to researching software vulnerabilities:
 
