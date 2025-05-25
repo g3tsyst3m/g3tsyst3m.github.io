@@ -93,9 +93,11 @@ struct ICMLuaUtil : public IUnknown {
 };
 ```
 
-Next, we will declares HRESULT values for error checking and a smart COM pointer to the ICMLuaUtil interface.  Then, we will prepares the moniker string to request elevation through COM:
+Next, we will declare HRESULT values for error checking and a smart COM pointer to the ICMLuaUtil interface.  Then, we will prepare the moniker string to request elevation through COM:
 
-Moniker String: **"Elevation:Administrator!new:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}"** This moniker asks COM to create an elevated instance of the class CMSTPLUA.  We will next do some string to GUID conversions on CLSID and IID.  Then, we need to setup binding options for CoGetObject(), telling it to look for a local server COM object.  Finally, we use `CoGetObject()` with the special elevation moniker to request an elevated COM object implementing ICMLuaUtil.  If successful, it uses the `ShellExec` method of ICMLuaUtil to launch an elevated cmd.exe!
+Moniker String: **"Elevation:Administrator!new:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}"** 
+
+This moniker asks COM to create an elevated instance of the class CMSTPLUA.  We will next do some string to GUID conversions on CLSID and IID.  Then, we need to setup binding options for CoGetObject(), telling it to look for a local server COM object.  Finally, we use `CoGetObject()` with the special elevation moniker to request an elevated COM object implementing ICMLuaUtil.  If successful, it uses the `ShellExec` method of ICMLuaUtil to launch an elevated cmd.exe!
 
 ```cpp
 int injector() {
@@ -169,7 +171,7 @@ But wait...Why are we creating a DLL with our COM bypass code?  Okay, here's the
 
 Yeah dude, but that doesn't explain the DLL!  I know...I'm getting there I promise 😸  Most people would opt to do PEB masquerading to make it look as if the executable is running as explorer.exe
 
-I'm not most people, and I like easy solutions. 😆 So, I just inject our DLL into explorer.exe and call it a day.  PEB masquering is hype don't get me wrong!  We can do that next time if you guys like.  For now and for learning purposes, let's just stick with the easy route.  Here's some basic DLL injection code to bring it all together:
+I'm not most people, and I like easy solutions. 😆 So, I just inject our DLL into explorer.exe and call it a day.  PEB masquerading is hype don't get me wrong!  We can do that next time if you guys like.  For now and for learning purposes, let's just stick with the easy route.  Here's some basic DLL injection code to bring it all together:
 
 ```cpp
 #include <windows.h>
