@@ -34,6 +34,8 @@ You can find me on X:
 **Latest**:
 [https://g3tsyst3m.github.io/cve/msi/Arbitrary-Write-Privilege-Escalation-CVE-2024-50804](https://g3tsyst3m.github.io/cve/msi/Arbitrary-Write-Privilege-Escalation-CVE-2024-50804)
 
+(I was among a few other researchers that discovered this Elevation of Privilege vuln with Microsoft's SDK):
+
 [https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-47962](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-47962)
 
 **Archived**:
