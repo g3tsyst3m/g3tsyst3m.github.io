@@ -142,7 +142,7 @@ Now that we have the vulnerable program compiled and ready for exploitation, let
 
 ![image](https://github.com/user-attachments/assets/51e0825b-aec5-4e2c-a0b1-7340e217d73b)
 
-**Now, Let's step through the function call until you get here.  Once you do, check out your command prompt output 😸**
+**Now, Let's step through the function call, pressing `'F8'` until you get here.  Once you do, check out your command prompt output 😸**
 
 ![image](https://github.com/user-attachments/assets/84b74f61-e653-435e-a429-5076b3711ee4)
 
