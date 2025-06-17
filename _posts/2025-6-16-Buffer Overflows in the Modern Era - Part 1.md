@@ -1,5 +1,5 @@
 ---
-title:  Buffer Overflows in the Modern Era - Part 1"
+title:  Buffer Overflows in the Modern Era - Part 1
 header:
   teaser: "/assets/images/x64dbg.png"
 categories:
