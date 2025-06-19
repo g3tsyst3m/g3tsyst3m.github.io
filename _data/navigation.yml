@@ -1,3 +1,6 @@
 main:
   - title: "About"
     url: /about/
+  - title: "Donate"
+    url: /donate/
+
