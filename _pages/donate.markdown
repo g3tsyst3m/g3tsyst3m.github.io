@@ -2,7 +2,7 @@
 title:  "donate"
 layout: single
 type: pages
-permalink: /about/
+permalink: /donate/
 author_profile: true
 ---
 
