@@ -4,6 +4,8 @@ layout: single
 type: pages
 permalink: /donate/
 author_profile: true
+header:
+  show_title: false
 ---
 
 **Want to support my work?**
