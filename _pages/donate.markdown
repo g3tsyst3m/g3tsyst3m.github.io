@@ -1,5 +1,5 @@
 ---
-title:  "donate"
+title:  ""
 layout: single
 type: pages
 permalink: /donate/
