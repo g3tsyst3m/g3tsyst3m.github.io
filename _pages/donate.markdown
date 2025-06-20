@@ -14,4 +14,4 @@ Ko-Fi:
 
 Paypal:
 
-[paypal.me/g3tsyst3m](paypal.me/g3tsyst3m) 🦉
+[https://paypal.me/g3tsyst3m](https://paypal.me/g3tsyst3m) 🦉
