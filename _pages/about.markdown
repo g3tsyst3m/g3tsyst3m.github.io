@@ -4,6 +4,8 @@ layout: single
 type: pages
 permalink: /about/
 author_profile: true
+header:
+  show_title: false
 ---
 
 An Infosec Research and Development blog:           
