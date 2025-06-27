@@ -566,8 +566,16 @@ with actual shellcode.
 
 Next, we need to copy that shellcode using the memcpy API to the region of memory we just allocated.  Stay tuned for Part 4.  It's gonna be a doozy!  See you then 😸
 
+**ANY.RUN Observations for the vulnerable binary and final python script:**
 
+![image](https://github.com/user-attachments/assets/e7da795f-4e08-4731-bed1-782c9f1bc3a6)
 
+![image](https://github.com/user-attachments/assets/57722297-885a-4e71-b476-6ef42b19ea35)
+
+<div style="text-align: right;">
+Sponsored by:<br>
+<img src="https://github.com/user-attachments/assets/111a0bb6-66e1-43b0-9a0a-5ce093f4b65e" alt="Sponsor logo" style="max-width: 200px;">
+</div>
 
 
 
