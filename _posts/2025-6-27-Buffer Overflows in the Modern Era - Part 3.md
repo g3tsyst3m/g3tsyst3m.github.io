@@ -572,6 +572,8 @@ Next, we need to copy that shellcode using the memcpy API to the region of memor
 
 ![image](https://github.com/user-attachments/assets/57722297-885a-4e71-b476-6ef42b19ea35)
 
+**Associated Task(s):** https://app.any.run/tasks/1b412129-c7d2-46d3-9adf-625f238449a0
+
 <div style="text-align: right;">
 Sponsored by:<br>
 <img src="https://github.com/user-attachments/assets/111a0bb6-66e1-43b0-9a0a-5ce093f4b65e" alt="Sponsor logo" style="max-width: 200px;">
