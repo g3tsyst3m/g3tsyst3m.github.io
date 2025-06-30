@@ -20,9 +20,8 @@ Paypal:
 
 **Partnerships:**
 
-<a href="https://any.run">
-  <img src="https://github.com/user-attachments/assets/2f832e92-9735-47b8-ae12-7a06d1739fc5" alt="image" />
-</a>
+[![ANY.RUN](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png)](https://any.run)
+
 
 <hr>
 
