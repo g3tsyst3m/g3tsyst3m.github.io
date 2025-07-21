@@ -16,9 +16,6 @@ tags:
   - DEP
 ---
 
-***Recap***
--
-
 Well we're almost there guys!  First, let's go over what we've accomplished so far.  We have explored, quite in depth I might add, the useage of `x64dbg`.  You should now how a soldid understanding on how to navigate our vulnerable program in `x64dbg`, and locating and implementing ROP gadgets.  We've also managed to use ROP gadgets to setup the necessary arguments for `VirtualAlloc`.  So, we've allocated space for the highly anticipated shellcode we wish to execute, and now we're left with locating and executing `memcpy` so we can transfer the shellcode off the stack to the region of memory we've previously allocated.
 
 ***The Shellcode***
