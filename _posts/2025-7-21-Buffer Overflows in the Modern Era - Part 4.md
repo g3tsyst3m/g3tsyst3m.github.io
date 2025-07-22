@@ -79,7 +79,7 @@ I chose `0xAC` because it's a nice and cooperative byte to use with encoding our
 
 In the encoded shellcode above, I include a `decode stub routine` at the beginning of the shellcode that looks like this:
 
-```masm
+```nasm
 0000000000E20007 | 48:31C9                  | xor rcx,rcx                                |
 0000000000E2000A | 48:8D35 F8DDDDFD         | lea rsi,qword ptr ds:[FFFFFFFFFEBFDE09]    |  This is used simply to remove nulls
 0000000000E20011 | 81C6 22222202            | add esi,2222222                            |  Continuation of the above
