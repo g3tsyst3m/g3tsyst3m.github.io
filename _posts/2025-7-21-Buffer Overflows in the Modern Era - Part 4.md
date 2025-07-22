@@ -412,7 +412,7 @@ if stderr:
 
 <img width="342" height="134" alt="image" src="https://github.com/user-attachments/assets/c92dae7d-1f5c-4f6a-a3bd-d1163e551ad7" />
 
-**Step through the code some more until you get here and check out the RCX register!  Technically we added the EBX (32 bit value) to RCX, but it still acommplishes the same thing in our case**
+**Step through the code some more until you get here and check out the RCX register!  Technically we added the EBX (32 bit value) to RCX, but it still accomplishes the same thing in our case**
 
 <img width="1003" height="125" alt="image" src="https://github.com/user-attachments/assets/6f9226c2-2350-4a82-b086-7c396c2726e8" />
 
