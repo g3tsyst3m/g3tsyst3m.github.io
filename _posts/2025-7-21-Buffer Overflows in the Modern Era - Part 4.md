@@ -21,7 +21,7 @@ Well we're almost there guys!  First, let's go over what we've accomplished so f
 ***The Shellcode***
 -
 
-Here's what we're using for our shellcode.  It's just your usual spawning a calc shellcode 😸  But there's a but more to this shellcode than meets the eye 👁️  I unintentionally coded the vulnerable executable using the following code:
+Here's what we're using for our shellcode.  It's just your usual spawning a calc shellcode 😸  But there's a bit more to this shellcode than meets the eye 👁️  I unintentionally coded the vulnerable executable using the following code:
 
 ```cpp
 void vulnerable_function() {
@@ -79,7 +79,7 @@ I chose `0xAC` because it's a nice and cooperative byte to use with encoding our
 
 In the encoded shellcode above, I include a `decode stub routine` at the beginning of the shellcode that looks like this:
 
-```asm
+```masm
 0000000000E20007 | 48:31C9                  | xor rcx,rcx                                |
 0000000000E2000A | 48:8D35 F8DDDDFD         | lea rsi,qword ptr ds:[FFFFFFFFFEBFDE09]    |  This is used simply to remove nulls
 0000000000E20011 | 81C6 22222202            | add esi,2222222                            |  Continuation of the above
@@ -109,9 +109,9 @@ The `decoder stub` is this portion of our shellcode that I've highlighted below:
 "\x25\x4d\xe4\x9d\x7e\xe4\x53\x6e\xe4\x2f\x40\x9c\xed\x53\x7b" #251 bytes
 ```
 
-So, the decoder stub and encoded shellcode are included in our payload.  Now you see what there's more to this shellcode than meets the eye! haha
+So, the decoder stub and encoded shellcode are included in our payload.  Now you see that there's more to this shellcode than meets the eye! haha
 
-Okay, so now that you understand how the shellcode it put together, let's continue with collecting and employing our ROP gadgets to use memcpy and copy our shellcode to our allocate region of memory we previously allocated in Part 3 of this series.
+Okay, so now that you understand how the shellcode is put together, let's continue with collecting and employing our ROP gadgets to use memcpy and copy our shellcode to our allocated region of memory we previously allocated in Part 3 of this series.  Granted, we will be re-allocating again since we're actually using shellcode now instead of a bunch of /0x41's but you get the idea 😸  Part 3 was meant to serve in helping you learn how to execute `VirtualAlloc`.
 
 ***Memcpy***
 -
@@ -127,7 +127,7 @@ Okay, so now that you understand how the shellcode it put together, let's contin
 ***Setting the Memcpy - R8 Register***
 -
 
-Let's go ahead and get the worst register out of the way shall we?  😸  It's the worst because the R8 register just isn't used that much in our vulnerable binary.  So, finding ROP gadgets can be quite the challenge.  But, after longer than I'd like to admit, I found enough to make it happen.  Here's what it looks like:
+Let's go ahead and get the worst register out of the way shall we?  😸  It's the worst because the `R8 register` just isn't used that much in our vulnerable binary.  So, finding ROP gadgets can be quite the challenge.  But, after longer than I'd like to admit, I found enough to make it happen.  Here's what it looks like:
 
 ```python
 #r8 gadget setup
