@@ -111,7 +111,7 @@ The `decoder stub` is this portion of our shellcode that I've highlighted below:
 
 So, the decoder stub and encoded shellcode are included in our payload.  Now you see that there's more to this shellcode than meets the eye! haha
 
-Okay, so now that you understand how the shellcode is put together, let's continue with collecting and employing our ROP gadgets to use memcpy and copy our shellcode to our allocated region of memory we previously allocated in Part 3 of this series.  Granted, we will be re-allocating again since we're actually using shellcode now instead of a bunch of /0x41's but you get the idea 😸  Part 3 was meant to serve in helping you learn how to execute `VirtualAlloc`.
+Okay, so now that you understand how the shellcode is put together, let's continue with collecting and employing our ROP gadgets to use memcpy and copy our shellcode to our allocated region of memory we previously allocated in Part 3 of this series.  Granted, we will be re-allocating again since we're actually using shellcode now instead of a bunch of 0x41's but you get the idea 😸  Part 3 was meant to serve in helping you learn how to execute `VirtualAlloc`.
 
 ***Memcpy***
 -
