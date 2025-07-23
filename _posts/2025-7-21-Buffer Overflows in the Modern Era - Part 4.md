@@ -451,7 +451,13 @@ if stderr:
 Source Code: [SourceCode](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2025%20-%20Buffer%20Overflow%20Series)
 > ANY.RUN Observations for the vulnerable binary and final python script:
 
-I'll retroactively add the ANY.RUN observations after this post.  I'm working something out at the moment 😸
+<img width="1148" height="562" alt="image" src="https://github.com/user-attachments/assets/5aad91be-8e53-426f-83c8-d385527f9dec" />
+
+<img width="1089" height="701" alt="image" src="https://github.com/user-attachments/assets/4867ea48-740f-451f-9112-365c08b92141" />
+
+Full report/analysis: [full report](https://any.run/report/8f851af71079ffa30acc64470f32a8b6f02712052e7cb88f4a6ad07cddeec7c8/5256f3aa-efb6-4675-a856-810d6db71531)
+
+Sandbox session: [Sandbox session](https://app.any.run/tasks/5256f3aa-efb6-4675-a856-810d6db71531)
 
 <div style="text-align: right;">
 Sponsored by:<br>
