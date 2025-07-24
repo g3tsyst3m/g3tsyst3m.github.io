@@ -10,10 +10,12 @@ header:
 
 **Want to support my work?**
 
-Ko-Fi:
+**Ko-Fi:**
+
+Make a one-time donation or choose a membership tier that best suits you!  There's only one membership tier right now so it's very easy to navigate 😸
+Click on my ko-fi profile below to learn more!  This is a great way to further compliment the content on my blog with videos/walkthroughs, Q/A with me, livestream content, private discord roles, etc.
 
 [https://ko-fi.com/g3tsyst3m](https://ko-fi.com/g3tsyst3m) ☕
-
 
 **Partnerships:**
 
