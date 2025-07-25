@@ -17,6 +17,10 @@ Click on my ko-fi profile below to learn more!  This is a great way to further c
 
 [https://ko-fi.com/g3tsyst3m](https://ko-fi.com/g3tsyst3m) ☕
 
+<img width="20" height="20" alt="image" src="https://github.com/user-attachments/assets/52c96b6b-4117-4882-b16b-2c301c66a642" /> **Bitcoin (BTC)**
+
+379c5AzGLaFsPVmQCzozSjzCZ5zky66bHj
+
 **Partnerships:**
 
 [![ANY.RUN](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png)](https://any.run)
