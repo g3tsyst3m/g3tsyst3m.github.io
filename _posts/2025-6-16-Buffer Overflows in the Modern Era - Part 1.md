@@ -95,6 +95,10 @@ Go ahead and compile that:
     - Use static addresses or relative addresses in our payload
     - Create reproducible exploits
 
+You will also need the following libraries to execute the program.  I didn't think to use the -static command when compiling/linking because I already have mingw32 on my Windows host machine and I have an environment PATH variable pointing to required libraries for ming.  For those of you that aren't goofy like me, you likely don't have ming installed on your windows box.  In that case, run the overflow executable in the same folder as these libraries and you should be good to go.
+
+[libraries.zip](https://github.com/user-attachments/files/21509644/libraries.zip)
+
 ***Exploring the Debugger***
 -
 
