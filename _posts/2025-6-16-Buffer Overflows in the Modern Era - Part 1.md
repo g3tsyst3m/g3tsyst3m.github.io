@@ -122,7 +122,7 @@ Now that we have the vulnerable program compiled and ready for exploitation, let
 
 **We are selecting this memory address for our breakpoint because it immediately follows the section of our program where it asks for input, and thus, immediately follows our buffer overflow which we will execute in Part 2 of this series!  Also worth mentioning, there is no JMP ESP / JMP RSP used in x64 buffer overflows like we're accustomed to in x86/32 bit buffer overflows.  We are using Return Oriented Programming (ROP), where we take advantage of RET instructions to execute ROP gadgets off the stack.**  
 
-**Also you will **NOT** see the address of our next instruction in RIP/EIP after successfully overflowing the buffer.  You will likely see other registers overflowed with 0x41 though.  Whereas in x86 buffer overflows you usually JMP to your memory address using RIP/EIP.  It's just different in x64 due to how registers are laid out.**
+**Also you will `NOT` see the address of our next instruction in RIP/EIP after successfully overflowing the buffer.  You will likely see other registers overflowed with 0x41 though.  Whereas in x86 buffer overflows you usually JMP to your memory address using RIP/EIP.  It's just different in x64 due to how registers are laid out.**
 
 **Ok with that information behind us, let's proceed!  Double click here to set a breakpoint:**
 
