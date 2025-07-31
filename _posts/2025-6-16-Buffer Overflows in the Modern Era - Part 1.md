@@ -87,17 +87,13 @@ int main() {
 
 Go ahead and compile that:
 
-**x86_64-w64-mingw32-g++ -o overflow.exe overflow.cpp -fno-stack-protector -no-pie**
+**x86_64-w64-mingw32-g++ -o overflow.exe overflow.cpp -fno-stack-protector -no-pie -static**
 
 - `-fno-stack-protector` = disables stack canaries.  No canary is inserted which means we can overwrite the return address freely with our buffer overflow
 - `-no-pie` = Disables PIE (Position Independent Executable) — a form of address space layout randomization (ASLR).  Modern compilers generate PIE binaries by default. PIE means the entire binary can and likely will be loaded at a random memory address, making ROP and shellcode harder because you don’t know where functions and gadgets are.  With -no-pie, the binary loads at a fixed address, making it easier to:
     - Know the location of functions
     - Use static addresses or relative addresses in our payload
     - Create reproducible exploits
-
-You will also need the following libraries to execute the program.  I didn't think to use the -static command when compiling/linking because I already have mingw32 on my Windows host machine and I have an environment PATH variable pointing to required libraries for ming.  For those of you that aren't goofy like me, you likely don't have ming installed on your windows box.  In that case, run the overflow executable in the same folder as these libraries and you should be good to go.
-
-[libraries.zip](https://github.com/user-attachments/files/21509644/libraries.zip)
 
 > If after you compile the executable, you show different memory addresses in x64dbg than those in my screenshots throughout this series, then just go ahead and download the executable.  It's preferable to have exactly what I show in the blog to facilitate a smooth learning experience 😸
 
