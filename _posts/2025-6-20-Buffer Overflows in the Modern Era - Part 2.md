@@ -78,6 +78,10 @@ Now, hit `F8` two times (`fn + F8` if on laptop).  Your code instruction executi
 
 ![image](https://github.com/user-attachments/assets/943c5742-0636-4eef-8e84-b42a52565d5e)
 
+I'll reiterate what I mentioned in Part 1 that way it doesn't go unnoticed.  We are selecting this memory address for our breakpoint because it immediately follows the section of our program where it asks for input, and thus, immediately follows our buffer overflow! Also worth reiterating, there is no JMP ESP / JMP RSP used in x64 buffer overflows like we're accustomed to in x86/32 bit buffer overflows. We are using Return Oriented Programming (ROP), where we take advantage of RET instructions to execute ROP gadgets off the stack.
+
+Also you will **NOT** see the address of our next instruction in RIP/EIP after successfully overflowing the buffer. You will likely see other registers overflowed with 0x41 though. Whereas in x86 buffer overflows you usually JMP to your memory address using RIP/EIP. It’s just different in x64 due to how registers are laid out.  The next instruction will be your ROP gadget, so think of RIP/EIP in terms of the stack and the ROP gadget memory addresses we will "return" to, and not so much what value RIP/EIP holds.
+
 Now, take a look at the bottom right hand corner of your debugger window.  You should see the following:
 
 ![image](https://github.com/user-attachments/assets/e095b392-208a-4b59-aa7a-1517f66df64f)
