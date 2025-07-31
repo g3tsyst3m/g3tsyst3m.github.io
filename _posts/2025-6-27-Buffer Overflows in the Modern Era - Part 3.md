@@ -16,7 +16,13 @@ tags:
   - DEP
 ---
 
-Hey welcome back!  If you've followed along up until this point, you should have a decent handle on navigating x64dbg as well as crafting your buffer overflow.  The other aspects of this series I'd like to re-emphasize are the restrictions still in place on my machine, even with everything disabled in Windows security.  DEP is still enabled at the hardware level for my machine (Windows 11).  What does this mean?
+Hey welcome back!  If you've followed along up until this point, you should have a decent handle on navigating x64dbg as well as crafting your buffer overflow.  
+
+> Before we proceed, it is paramount that your x64dbg memory addresses for the overflow executable line up with what I show in the blog posts for this series.  You could sort of get by in Parts 1 and 2 without everything lining up 100%, but in order to really follow along without confusion, it's best your dissassembly addresses show exactly what I show in the screenshots.  All you should have to do is use my precompiled overflow executable to have the identical disassembly as what is shown in the screenshots. Here it is again should you need it:
+
+[overflow-static.zip](https://github.com/user-attachments/files/21530469/overflow-static.zip)
+
+The other aspects of this series I'd like to re-emphasize are the restrictions still in place on my machine, even with everything disabled in Windows security.  DEP is still enabled at the hardware level for my machine (Windows 11).  What does this mean?
 
 I briefly touched on this in the last post, but essentially, even if we used virtualalloc to make the stack executable, it wouldn't work.  But that's okay!  We can still find the address for virtualalloc and assign RWX to a memory region under our control 😸  This is where ROP gadgets come into play!
 
