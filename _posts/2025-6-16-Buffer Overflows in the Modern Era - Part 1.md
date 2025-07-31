@@ -99,6 +99,10 @@ You will also need the following libraries to execute the program.  I didn't thi
 
 [libraries.zip](https://github.com/user-attachments/files/21509644/libraries.zip)
 
+> If after you compile the executable, you show different memory addresses in x64dbg than those in my screenshots throughout this series, then just go ahead and download the executable.  It's preferable to have exactly what I show in the blog to facilitate a smooth learning experience 😸
+
+[overflow-static.zip](https://github.com/user-attachments/files/21530359/overflow-static.zip)
+
 ***Exploring the Debugger***
 -
 
