@@ -285,7 +285,11 @@ Lastly, we launch TaskManager again to create the dummy file that we plan to tak
  return 0;
 ```
 
-**Full Source Code below (obviously change my username to your own when you use this, as well as the .ps1 script above):**
+**Full Source Code below (obviously change my username in the .cpp code to your own when you use this: 😸**
+
+[powershell permissions code](https://github.com/g3tsyst3m/CodefromBlog/blob/main/4-22-2025-Intel%20Shader%20Cache%20UAC%20Bypass/permissions.ps1)
+
+[Intel ShaderCache UAC bypass code](https://github.com/g3tsyst3m/CodefromBlog/blob/main/4-22-2025-Intel%20Shader%20Cache%20UAC%20Bypass/intel_UAC_bypass.cpp)
 
 ```cpp
 
