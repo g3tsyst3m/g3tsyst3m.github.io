@@ -290,8 +290,8 @@ else {
 Lastly, we launch TaskManager again to create the dummy file that we plan to take advantage of. The file get's created, and the following takes place:
 
 - The dummy file is written to `C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\4acae28c94cad7a0b8f78d11fefc67ef3b8cd41ecba3ad1a9da81873fb4c56f8` and then redirected to `c:\\windows\\system32\\oci.dll`
-- I have my own custom made oci.dll DLL file we will use that I created.  It just simply opens cmd.exe
-- We copy my custom oci.dll file and overwrite the one in System32 that we now have the ability to write to.
+- We have our custom made oci.dll DLL file we will use that we created earlier.  Remember?  It's the very basic DLL code that just simply opens cmd.exe
+- We copy the custom oci.dll file and overwrite the one in System32 that we now have the ability to write to.
 - ComExp.msc (Component Services) uses this DLL file so we just run comexp.msc and our payload gets loaded and the rest is history!
 
 ```cpp
