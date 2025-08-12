@@ -337,8 +337,10 @@ There's also tons of evidence contained in memory for strings I used and even th
 
 <img width="1085" height="738" alt="image" src="https://github.com/user-attachments/assets/e06d9e7d-9863-4928-9f17-016eb1a78a97" />
 
-Those are just a few tips.  There's tons of more in-depth Blue Team tricks and tactics to tackle this.  Trust me.  For now, we settle for this victory of bypassing Windows Defender XDR and Sophos XDR 😸  However!  Shoutouts to ANY.RUN, as it DID notice suspicious activity
+Those are just a few tips.  There's tons of more in-depth Blue Team tricks and tactics to tackle this.  Trust me.  For now, we settle for this victory of bypassing Windows Defender XDR and Sophos XDR 😸  However!  Shoutouts to ANY.RUN, as it DID notice suspicious activity.
 That's it for me. Hope this made sense and helped. Later everyone!
+
+All Code used in this post: [Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2025-8-12-How%20to%20Create%20a%20Staged%20In-Memory%20.NET%20Reflective%20Shellcode%20Loader)
 
 ***ANY.RUN Sandboxing***
 -
