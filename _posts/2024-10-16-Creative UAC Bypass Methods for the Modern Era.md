@@ -265,6 +265,17 @@ As always, full source code can be found in my github repo:
 
 [Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2024-10-16-Creative%20UAC%20Bypass%20Methods%20for%20the%20Modern%20Era/CSMTP%20COM%20interface%20UAC%20Bypass)
 
+🔒 Bonus Content for Subscribers (COM objects - A Deeper exploration)
+-
+
+> Description
+> This is a deeper investigation into COM objects prompted by a curious reader of my blog. This supplements the COM Object UAC bypass method I write about on by UAC bypasses for the modern era post.
+
+🗒️ [Access Writeup Here](https://ko-fi.com/s/4bde51ae7b) 🗒️
+
+<hr>
+
+
 ***UAC Bypass #2 - Revisiting an old technique! (Detection Status: Undetected via Windows Defender)***
 -
 
