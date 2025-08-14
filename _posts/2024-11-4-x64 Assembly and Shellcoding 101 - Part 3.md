@@ -250,6 +250,16 @@ int main() {
 
 ![image](https://github.com/user-attachments/assets/d3a85a38-48b6-4133-ad2e-8087075bc821)
 
+## Bonus Content for subscribers (WinExec + ExitThread)
+
+<iframe 
+    src="https://docs.google.com/document/d/1BKfL3_OBJRi4mI60ZUM-wWmv7WGbqc16y7Mm39_hcCs/edit?usp=sharing" 
+    width="100%" 
+    height="600" 
+    style="border:1px solid #ccc;" 
+    frameborder="0">
+</iframe>
+
 There you have it!  NULL free shellcode for the win 😄  I've had fun with this series so far, and there's more exciting stuff on the way.  I still need to do the dynamic messagebox at some point as promised.  All in due time.  See you guys next time!
 
 
