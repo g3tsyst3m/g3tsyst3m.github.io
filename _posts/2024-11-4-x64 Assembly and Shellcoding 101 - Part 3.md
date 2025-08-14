@@ -250,15 +250,12 @@ int main() {
 
 ![image](https://github.com/user-attachments/assets/d3a85a38-48b6-4133-ad2e-8087075bc821)
 
-## 🔒 Bonus Content for Subscribers (WinExec using ExitThread vs ExitProcess)
+***🔒 Bonus Content for Subscribers (WinExec using ExitThread vs ExitProcess)***
+-
 
-<div class="post-card" style="background: var(--color-page-background); border: 1px solid var(--color-border); border-radius: 0.5rem; padding: 1rem; margin: 1.5rem 0;">
+🗒️ [Access SourceCode Here](https://ko-fi.com/post/WinExec--ExitThread-Shellcode-U7U21JNC90) 🗒️
 
-  <a href="https://ko-fi.com/post/WinExec--ExitThread-Shellcode-U7U21JNC90" target="_blank" class="btn" style="text-decoration:none; display:inline-block; padding:0.5rem 1rem; border-radius:0.25rem; background-color: var(--color-accent); color: var(--color-page-background); font-weight:500;">
-    View Document
-  </a>
-</div><br>
-
+<hr>
 
 There you have it!  NULL free shellcode for the win 😄  I've had fun with this series so far, and there's more exciting stuff on the way.  I still need to do the dynamic messagebox at some point as promised.  All in due time.  See you guys next time!
 
