@@ -250,7 +250,7 @@ int main() {
 
 ![image](https://github.com/user-attachments/assets/d3a85a38-48b6-4133-ad2e-8087075bc821)
 
-***🔒 Bonus Content for Subscribers (WinExec using ExitThread vs ExitProcess)***
+🔒 Bonus Content for Subscribers (WinExec using ExitThread vs ExitProcess)
 -
 
 🗒️ [Access SourceCode Here](https://ko-fi.com/post/WinExec--ExitThread-Shellcode-U7U21JNC90) 🗒️
