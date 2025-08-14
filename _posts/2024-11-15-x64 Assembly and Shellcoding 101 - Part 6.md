@@ -230,4 +230,11 @@ Lastly, let's exit this thing gracefully:
     call ExitProcess
 ```
 
+🔒 Bonus Content for Subscribers (Shellcode for Creating a Suspended Process)
+-
+
+🗒️ [Access SourceCode Here](https://ko-fi.com/post/Shellcode-for-Creating-a-Suspended-Process-C0C81JO0UZ) 🗒️
+
+<hr>
+
 That's a wrap everyone!  Short and well....not simple but it could be worse 😆  Next post will be the same concept, a reverse shell written in pure x64 assembly but **WITHOUT** resorting to using **EXTERNS** for our APIs.  We will dynamically locate them walking the PE export table like before.  See you then!
