@@ -1,7 +1,7 @@
 ---
 title:  Using Direct Syscalls with an In-Memory PIC Shellcode Loader
 header:
-  teaser: "/assets/images/reflectiveloader.png"
+  teaser: "/assets/images/pic_syscall.png"
 categories:
   - Fileless Techniques
 tags:
@@ -733,7 +733,7 @@ Next up, we basically locate the functions we need and call them
 
 The remainder of the code I'm just going to paste here and let you walk through it as your homework assignment 😸 It's a lot to explain and I'd prefer to stick with my video series to cover the remainder of code versus typing out the explanation for each aspect of the remaining code.  I do still offer up some light comments throughout:
 
-```masm
+```nasm
  ;Prepare arguments for GetProcAddress to locate InternetOpenUrlA
     xor rax, rax
     push rax
