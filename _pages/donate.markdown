@@ -14,11 +14,11 @@ header:
 
 [Make a Donation to R.B.C](https://ko-fi.com/g3tsyst3m) ☕
 
-**Donate via Bitcoin (BTC)**
+**Donate via Bitcoin (BTC):**
 
 379c5AzGLaFsPVmQCzozSjzCZ5zky66bHj
 
-**Membership Offering**
+**Membership Offering:**
 
 Also, if you ever want to go deeper into any topic I write about, feel free to check out my membership offering as well.  I don't mind helping here and there with quick questions via discord, but I think I owe it to you and myself to spend the proper time it takes to teach you a given topic thoroughly.  That's why I toss that out there.  No pressure, but it's there should anyone ever need it.
 
