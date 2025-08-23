@@ -20,7 +20,7 @@ tags:
 Today's post began in an unusual manner lol.  I wanted to explore the basic concept of creating an in-memory shellcode loader using APIs from the Wininet.h library.  I then got sidetracked and became interested in doing this purely using x64 assembly, which in turn led me to want to make it PIC friendly 😸  Furthermore, I also wanted to include the use of syscalls to help reduce detection at the EDR layer. 😹  All of that to just load some reverse shell shellcode.  If you're a fan of the Big Bang Theory, it's summed up in this clip:
 
 <iframe width="1080" height="720" 
-        src="https://www.youtube.com/watch?v=BVd-rYIqSy8" 
+        src="https://www.youtube.com/embed/BVd-rYIqSy8" 
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -190,7 +190,7 @@ Also for the record, this is fairly over the top I realize 😆  If you're a fan
 Also, if you ever want to go deeper into any topic I write about, feel free to check out my membership offering.  I don't mind helping here and there with quick questions via discord, but I think I owe it to you and myself to spend the proper time it takes to teach you a given topic thoroughly.  That's why I toss that out there.  No pressure, but it's there should anyone ever need it.
 
 <iframe width="1080" height="720" 
-        src="https://www.youtube.com/watch?v=BVd-rYIqSy8" 
+        src="https://www.youtube.com/embed/BVd-rYIqSy8"
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -204,7 +204,7 @@ We're going to start with our nasm x64 assembly code to represent the base skele
 
 Okay here's the code for Phase 1 of our in-memory shellcode loader.  I'll add comments throughout:
 
-```masm
+```nasm
 bits 64
 extern GetLastError
 extern InternetOpenA
@@ -378,7 +378,7 @@ Okay, so we need to start working our way toward that PIC shellcode.  Once again
 We're going to use a ROT5 (ROTATE LEFT 5) + XOR hashing technique.  In essence, we are performing a bitwise rotatation of each character in our API string left by 5, and then Xoring it.  This will produce a reliable and unique hash.
 Here's what that hashing routine looks like:
 
-```masm
+```nasm
 initiator:
     xor eax, eax
 next_char:
@@ -393,7 +393,7 @@ next_char:
 
 It's as simple as that.  The rest of the assembly code is really just listing the APIs we wish to use to generate our hashes and then pushing the hashed value to the stack.  Here's the full code!
 
-```masm
+```nasm
 bits 64
 
 section .data
@@ -517,7 +517,7 @@ store_hash:
 Here's what that looks like in action.  Be sure to pay attention to the bottom right hand corner of x64dbg to see the hashed APIs pushed to the stack!
 
 <iframe width="1080" height="720" 
-        src="https://youtu.be/Dxu9h35hw58" 
+        src="https://www.youtube.com/embed/Dxu9h35hw58" 
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -526,7 +526,7 @@ Here's what that looks like in action.  Be sure to pay attention to the bottom r
 
 So now we have our hashes ready to go!  They are as follows (not in the order I pushed them in x64dbg btw):
 
-```masm
+```nasm
 api6 dd 0xA4A1011B  ;loadlibrarya
 api1 dd 0x80778D35  ;waitforsingleobject
 api9 dd 0xCEFC5AFD  ;createthread
@@ -541,7 +541,7 @@ api7 dd 0xE536B693  ; getprocaddress
 
 Ok so now it's time dive into the full, revised assembly code.  This time around, we will be producing the PIC formatted assembly code.  I'll try and provide comments throughout but I promise to go into even greater detail in my soon to be x64 Assembly/Shellcode video series.  It will be a purchaseable item in my ko-fi shop once it's ready.  Ok let's start laying this code out.  I'll be going over it in segments because there's a lot to cover.  See my comments inline below:
 
-```masm
+```nasm
 ;nasm -fwin64 [x64findkernel32.asm]
 ;x86_64-w64-mingw32-gcc downloader.obj -o downloader.exe
 
@@ -680,7 +680,7 @@ continuation:
 Phew!  that's a lot to take in am I right?  Well there's a lot more to it so hang on tight.  It doesn't get much easier lol.  Then again, that's what I love about this stuff!  The challenge is intoxicating, at least for me, and I thrive on a good challenge 😸  Ok spoiler alert.  I'm not going to be able to go into incredible detail on every aspect of the remaining code, though I will share it.  I like to keep these blog posts digestable in an easy to read fashion.  Not too wordy/lengthy, and my aim it to teach you while retaining your attention 😄  I'll show you how the code works up to this point, and briefly explain the rest.  Then we need to move on to the syscalls!
 
 <iframe width="1080" height="720" 
-        src="https://youtu.be/VDKQnw4YLn8" 
+        src="https://www.youtube.com/embed/VDKQnw4YLn8" 
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -693,7 +693,7 @@ Next up, we basically locate the functions we need and call them
 
 > **Let's locate GetProcAddress and Wininet**
 
-```masm
+```nasm
 
 ;****************************************************
 ; basically, all we need to do is locate our value's place on the stack
