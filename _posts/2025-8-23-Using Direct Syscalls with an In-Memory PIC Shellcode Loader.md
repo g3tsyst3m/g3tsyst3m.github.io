@@ -17,15 +17,7 @@ tags:
   - Windows 11
 ---
 
-Today's post began in an unusual manner lol.  I wanted to explore the basic concept of creating an in-memory shellcode loader using APIs from the Wininet.h library.  I then got sidetracked and became interested in doing this purely using x64 assembly, which in turn led me to want to make it PIC friendly 😸  Furthermore, I also wanted to include the use of syscalls to help reduce detection at the EDR layer. 😹  All of that to just load some reverse shell shellcode.  If you're a fan of the Big Bang Theory, it's summed up in this clip:
-
-<iframe width="1080" height="720" 
-        src="https://www.youtube.com/embed/BVd-rYIqSy8" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-</iframe>
+Today's post began in an unusual manner lol.  I wanted to explore the basic concept of creating an in-memory shellcode loader using APIs from the Wininet.h library.  I then got sidetracked and became interested in doing this purely using x64 assembly, which in turn led me to want to make it PIC friendly 😸  Furthermore, I also wanted to include the use of syscalls to help reduce detection at the EDR layer. 😹  All of that to just load some reverse shell shellcode.  
 
 To kick things off, I started with some basic c++ code that would download and execute code in-memory.  The APIs I went with were `InternetOpenA`, `InternetOpenUrlA`, and `InternetReadFile`.  It's not an uncommon approach to downloading and executing shellcode, and you don't have to resort to using `wininet` either.  There are other perfectly suitable libraries that can download and execute files.  However, I'm personally most familiar with wininet.h so I went with it 😸
 
