@@ -13,7 +13,7 @@ tags:
   - Stager
   - In-Memory
   - PE Loader
-  - Direcy Syscalls
+  - Direct Syscalls
   - Windows 11
 ---
 
