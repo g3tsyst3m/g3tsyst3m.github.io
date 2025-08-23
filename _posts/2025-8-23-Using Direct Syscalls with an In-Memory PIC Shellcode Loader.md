@@ -179,8 +179,6 @@ So there you have it.  The above code template is the start to this journey I'm 
 
 Also for the record, this is fairly over the top I realize 😆  If you're a fan of The Big Bang Theory, it's basically this clip in a nutshell.  We're doing something that doesn't require nearly this much work but I'm doing it "because we can" lol. Also this will help briefly go over PIC shellcode and Direct Syscall stuff which I love.  All in one blog post 😸  
 
-Also, if you ever want to go deeper into any topic I write about, feel free to check out my membership offering.  I don't mind helping here and there with quick questions via discord, but I think I owe it to you and myself to spend the proper time it takes to teach you a given topic thoroughly.  That's why I toss that out there.  No pressure, but it's there should anyone ever need it.
-
 <iframe width="1080" height="720" 
         src="https://www.youtube.com/embed/BVd-rYIqSy8"
         title="YouTube video player" 
@@ -188,6 +186,8 @@ Also, if you ever want to go deeper into any topic I write about, feel free to c
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
 </iframe>
+
+Also, if you ever want to go deeper into any topic I write about, feel free to check out my membership offering.  I don't mind helping here and there with quick questions via discord, but I think I owe it to you and myself to spend the proper time it takes to teach you a given topic thoroughly.  That's why I toss that out there.  No pressure, but it's there should anyone ever need it.
 
 Converting the C++ in-memory shellcode loader to x64 Assembly
 -
