@@ -360,7 +360,7 @@ You should be greeted with a nice reverse shell!
 
 <img width="995" height="269" alt="image" src="https://github.com/user-attachments/assets/a5494ffd-d22c-4be8-88a4-a4f8b2f97706" />
 
-Cool, so we know it works.  😸 Plus, using `externs` for our APIs simlifies the process for conceptualizing going from C++ code to x64 assembly.  However, we now need to step it up a notch and move toward our end goal of PIC friendly shellcode.  This will remove all reliance upon .bss uniitialized variables and the .data section for starters.  But first, we need to prepare for loading all those APIs we used in this Phase 1 template.  We'll do that next!
+Cool, so we know it works.  😸 Plus, using `externs` for our APIs simplifies the process for conceptualizing going from C++ code to x64 assembly.  However, we now need to step it up a notch and move toward our end goal of PIC friendly shellcode.  This will remove all reliance upon .bss uniitialized variables and the .data section for starters.  But first, we need to prepare for loading all those APIs we used in this Phase 1 template.  We'll do that next!
 
 API Hashing in x64 Assembly
 -
