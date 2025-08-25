@@ -1095,4 +1095,18 @@ Compile and run, and you can turn your EDR back on if you want as well 😄   Th
 Thanks, and if you enjoyed this stay tuned for the next time when I discuss PE loaders and PE injection techniques!  Looking forward to it.  Also I need to continue working on my shellcode video series.
 If you're interested in that please do let me know.  I think it's going to be a lot of fun, entertaining, and informative 😸
 
+***ANY.RUN Results***
+-
+
+<img width="1085" height="900" alt="image" src="https://github.com/user-attachments/assets/01be980b-8c20-4fb2-86bf-08f900d3e4fa" />
+
+<img width="1105" height="205" alt="image" src="https://github.com/user-attachments/assets/7c0dacc4-40e2-40a5-bbf9-643cdaa5ea10" />
+
+[Full Sandbox Analysis](https://app.any.run/tasks/8b7d6892-9f0b-494f-bb21-aa92a064ac0a)
+
+<div style="text-align: right;">
+Sponsored by:<br>
+<img src="https://github.com/user-attachments/assets/111a0bb6-66e1-43b0-9a0a-5ce093f4b65e" alt="Sponsor logo" style="max-width: 200px;">
+</div>
+
 See you guys next time!
