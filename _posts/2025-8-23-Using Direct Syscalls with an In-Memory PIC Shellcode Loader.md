@@ -1005,7 +1005,17 @@ Once again, I'm not going to go over a lot of detail here.  This is code that us
  - void* cleanNtAllocate = ntdll.GetProcAddress("NtAllocateVirtualMemory");
  - void* cleanNtWrite = ntdll.GetProcAddress("NtWriteVirtualMemory");
  - void* cleanNtCreate = ntdll.GetProcAddress("NtCreateThreadEx");
-    
+
+Here's the portion of code that collects the syscall ID from each API:
+
+> syscall stub contents and address + SyscallID
+
+<img width="1577" height="607" alt="image" src="https://github.com/user-attachments/assets/7431d6fd-b1f5-4abb-bf9d-307e14f32c49" />
+
+> allocating 32 bytes for the stub
+
+<img width="658" height="188" alt="image" src="https://github.com/user-attachments/assets/26ca5102-7343-4feb-bf16-8db7802938a9" />
+
 The entire source code, including the ManualNtdll.h and other cpp files can be found in the link below.
 
 I'm also including the assembly source code in the link as well:
