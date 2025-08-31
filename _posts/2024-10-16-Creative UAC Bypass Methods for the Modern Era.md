@@ -56,7 +56,13 @@ Let's bring it all together.  We will be doing the following:
 
 - Call ICMLuaUtil::ShellExec(...) → results in an elevated process of our choosing
 
-Now time for some code!  We will be using Visual Studio per the usual routine.  We will define our CLASS object CLSID and Interface CLSID as can be seen below.  
+But wait...I thought COM objects need to be ran within a trusted process?  Correct you are!  COM objects are very finnicky/high maintenance 😸 and as I understand it, will not run correctly if they are not being executed within a trusted parent/calling process, such as **explorer.exe**
+
+Most people would opt to do PEB masquerading to make it look as if the executable is running as explorer.exe
+
+I'm not most people, and I like easy solutions. 😆 So, we're going to be injecting a DLL into `explorer.exe` to accomplish the UAC bypass using our COM object of choice and call it a day.  PEB masquerading is hype don't get me wrong!  We can do that next time if you guys like.  For now and for learning purposes, let's just stick with the easy route.  
+
+Now, it's high time we get started on the code we will be using for our DLL we plan to inject into `explorer.exe`!  We will be using Visual Studio per the usual routine.  We will define our CLASS object CLSID and Interface CLSID as can be seen below.  
 
 ```cpp
 
@@ -167,11 +173,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 }
 ```
 
-But wait...Why are we creating a DLL with our COM bypass code?  Okay, here's the deal.  COM objects are very finnicky and as I understand it, will not run correctly if they are not being executed within a trusted parent/calling process, such as **explorer.exe**
-
-Yeah dude, but that doesn't explain the DLL!  I know...I'm getting there I promise 😸  Most people would opt to do PEB masquerading to make it look as if the executable is running as explorer.exe
-
-I'm not most people, and I like easy solutions. 😆 So, I just inject our DLL into explorer.exe and call it a day.  PEB masquerading is hype don't get me wrong!  We can do that next time if you guys like.  For now and for learning purposes, let's just stick with the easy route.  Here's some basic DLL injection code to bring it all together:
+**Now that we have the DLL code completed, here's some basic DLL injection code to bring it all together:**
 
 ```cpp
 #include <windows.h>
