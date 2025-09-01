@@ -267,6 +267,16 @@ As always, full source code can be found in my github repo:
 
 [Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2024-10-16-Creative%20UAC%20Bypass%20Methods%20for%20the%20Modern%20Era/CSMTP%20COM%20interface%20UAC%20Bypass)
 
+🔒 Bonus Content for Subscribers (Using PEB Masquerading to elevate our cmd.exe using CMSTPLUA COM object UAC Bypass!)
+-
+
+> Description
+> This supplements the COM Object UAC bypass method we learned about today with the PEB masquerading technique.  This time, no DLL injection will be required and we make our process look like it's running as explorer.exe
+
+🗒️ [Access Code Here](https://ko-fi.com/s/1d5e78a48a) 🗒️
+
+<hr>
+
 🔒 Bonus Content for Subscribers (COM objects - A Deeper exploration)
 -
 
