@@ -270,8 +270,7 @@ As always, full source code can be found in my github repo:
 🔒 Bonus Content for Subscribers (Using PEB Masquerading to elevate our cmd.exe using CMSTPLUA COM object UAC Bypass!)
 -
 
-> Description
-> This supplements the COM Object UAC bypass method we learned about today with the PEB masquerading technique.  This time, no DLL injection will be required and we make our process look like it's running as explorer.exe
+> Description: This supplements the COM Object UAC bypass method we learned about today with the PEB masquerading technique.  This time, no DLL injection will be required and we make our process look like it's running as explorer.exe
 
 🗒️ [Access Code Here](https://ko-fi.com/s/1d5e78a48a) 🗒️
 
@@ -280,8 +279,7 @@ As always, full source code can be found in my github repo:
 🔒 Bonus Content for Subscribers (COM objects - A Deeper exploration)
 -
 
-> Description
-> This is a deeper investigation into COM objects prompted by a curious reader of my blog. This supplements the COM Object UAC bypass method I write about on by UAC bypasses for the modern era post.
+> Description: This is a deeper investigation into COM objects prompted by a curious reader of my blog. This supplements the COM Object UAC bypass method I write about on by UAC bypasses for the modern era post.
 
 🗒️ [Access Writeup Here](https://ko-fi.com/s/4bde51ae7b) 🗒️
 
