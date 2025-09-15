@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "R.B.C. (g3tsyst3m)"
 description              : "Security Researcher and Enthusiast. I'm fairly low profile, but share useful info from time to time. Red Team wannabe"
-url                      : https://g3tsyst3m.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://g3tsyst3m.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : g3tsyst3m/g3tsyst3m.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -107,7 +107,7 @@ author:
       url: "mailto:g3tsyst3m@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://g3tsyst3m.github.io/"
+      url: "https://g3tsyst3m.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/G3tSyst3m"
