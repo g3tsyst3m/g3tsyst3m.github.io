@@ -120,6 +120,9 @@ author:
     - label: "Discord"
       icon: "fab fa-fw fa-discord"
       url: "https://discord.gg/bqDkEdDrQQ"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "(See the -About- section of my blog :D )"
 
 # Site Footer
 footer:
