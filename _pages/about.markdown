@@ -21,9 +21,9 @@ The focus on this blog will largely be on offensive security tools and malware r
 
 **LinkedIn:**
 
-Quick caveat here.  I like to keep my blog separate from my work identity.  However, I also want folks who value and respect the content I produce on this blog to know and connect with the real me if they want.  So, here it is, hack the box style! 😸  If you happen to browse my LinkedIn, please connect and shoot me a message and tell me about yourself, what you think about the blog, etc.  I'd like that very much!
+Quick caveat here.  I like to keep my blog separate from my work identity.  However, I also want folks who value and respect the content I produce on this blog to know and connect with the real me if they want.  So, here it is, hack the box style! 😸  If you happen to browse my LinkedIn, please connect and shoot me a private message and tell me about yourself, what you think about the blog, etc.  I'd like that very much!
 
-**6148523063484d364c7939336433637562476c756132566b61573475593239744c326c754c334a76596d4a705a53316a62334a735a586b744d6d49784d54517a4d6a6376**
+```6148523063484d364c7939336433637562476c756132566b61573475593239744c326c754c334a76596d4a705a53316a62334a735a586b744d6d49784d54517a4d6a6376```
 
 > If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
 
