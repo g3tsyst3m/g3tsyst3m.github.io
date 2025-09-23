@@ -122,7 +122,7 @@ author:
       url: "https://discord.gg/bqDkEdDrQQ"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "(See the -About- section of my blog :D )"
+      url: "/about"
 
 # Site Footer
 footer:
