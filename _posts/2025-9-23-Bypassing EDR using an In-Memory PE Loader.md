@@ -311,7 +311,11 @@ Oh you know what this code does 😸  I don't even need to explain.  But I will 
 
 <img width="1277" height="986" alt="image" src="https://github.com/user-attachments/assets/2d924db5-3486-43cf-b564-8ca860d3935d" />
 
-We did it!  So, take this code (full source code below) and try it yourself with various PE executables.  I have folks reach out to me often wondering about why their particular payload was detected by EDR.  I almost always inevitably end up encouraging them to use a PE loader, especially in memory pe loader. It really tends to help dissuade EDR detections from taking action more often than you'd think.  Disclaimer because I know someone will say IT DIDN'T WORK!  EDR DETECTED IT!  Yeah, it happens.  I'm not certifying this as foolproof FUD.  In fact I'll readily admit running this 10-20 times in a row will likely trip up EDR with an AI!ML alert because EDR solutions have AI intelligence built in these days.  It will eventually get caught if you're continually running it, or at least I'd assume it would eventually catch it. 😄
+We did it!  So, take this code (full source code below) and try it yourself with various PE executables.  I have folks reach out to me often wondering about why their particular payload was detected by EDR.  I almost always inevitably end up encouraging them to use a PE loader, especially in memory pe loader. It really tends to help dissuade EDR detections from taking action more often than you'd think.  
+
+**Disclaimer**: Because I know someone will say IT DIDN'T WORK!  EDR DETECTED IT!  Yeah, it happens.  I'm not certifying this as foolproof FUD.  In fact I'll readily admit running this 10-20 times in a row will likely trip up EDR with an AI!ML alert because EDR solutions have AI intelligence built in these days.  It will eventually get caught if you're continually running it, or at least I'd assume it would eventually catch it. 😄
+
+Until next time! Later dudes and dudettes 😺
 
 Source code: [PE LOADER FULL SOURCE CODE](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2025-9-23-Bypassing%20EDR%20using%20an%20In-Memory%20PE%20Loader)
 
