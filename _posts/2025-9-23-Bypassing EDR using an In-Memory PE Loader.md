@@ -16,6 +16,9 @@ It's high time we get another blog post going, and what better time than now to 
 
 Not only that, but it's also loading it into the calling process that we're assuming has been loaded successfully and already passed all the familiar EDR checks.  So, EDR basically says "this executable checks out, let's let the user run it" 🙂  Now that we're on good talking terms with EDR, we then sneak in another portable executable, from memory, into our already approved/vetted process!  I've loaded various executable's using this technique, many lazily thrown together with shotty code and heavy use of syscalls, obfuscation, you name it.  I very rarely triggered EDR alerts, at least using the EDR solutions I test with.  I mainly use Defender XDR and Sophos XDR these days, though I'd like to try others at some point.  PE Loader's, especially custom made where we load the PE image from memory, are very useful for red team engagements.  Stay with me and I'll walk you through how the code is laid out!
 
+> **IMPORTANT UPDATE!**
+> less than 24 hours into making this post live, people are already questioning the usefulness of using putty as our PE for this exercise.  First off, my intention was to demonstrate how we can load PE's that have GUIs.  Second, putty is easy to find and use.  It's great for demo's.  But for those that want to see the effectiveness of bypassing EDR more specifically, I get it.  So, i've retroactively added in a well known and flagged EDR bypass tool to prove the effectiveness of using PE Loaders. I'll share the screenshot of this in action so you can see how we can effectively bypass the EDR solutions I'm able to test against.  We will be using the EDRSilencer tool: [EDR Silencer](https://github.com/netero1010/EDRSilencer)
+
 **Here's what's happening at a high level overview:**
 
 - The code we will be writing is an in-memory PE loader that downloads a 64-bit executable from a github URL
@@ -312,6 +315,14 @@ Oh you know what this code does 😸  I don't even need to explain.  But I will 
 <img width="1277" height="986" alt="image" src="https://github.com/user-attachments/assets/2d924db5-3486-43cf-b564-8ca860d3935d" />
 
 We did it!  So, take this code (full source code below) and try it yourself with various PE executables.  I have folks reach out to me often wondering about why their particular payload was detected by EDR.  I almost always inevitably end up encouraging them to use a PE loader, especially in memory pe loader. It really tends to help dissuade EDR detections from taking action more often than you'd think.  
+
+**Example using a known EDR bypass tool that should be detected**
+
+<img width="1314" height="744" alt="image" src="https://github.com/user-attachments/assets/40005fb2-2bc0-46b2-9cb3-d21638685694" />
+
+**And without using the PE Loader:**
+
+<img width="399" height="485" alt="image" src="https://github.com/user-attachments/assets/0c6e1811-e8a6-4dbf-b75e-2565a321f3d6" />
 
 **Disclaimer**: Because I know someone will say IT DIDN'T WORK!  EDR DETECTED IT!  Yeah, it happens.  I'm not certifying this as foolproof FUD.  In fact I'll readily admit running this 10-20 times in a row will likely trip up EDR with an AI!ML alert because EDR solutions have AI intelligence built in these days.  It will eventually get caught if you're continually running it, or at least I'd assume it would eventually catch it. 😄
 
