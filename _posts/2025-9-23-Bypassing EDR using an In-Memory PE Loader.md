@@ -315,6 +315,15 @@ We did it!  So, take this code (full source code below) and try it yourself with
 
 **Disclaimer**: Because I know someone will say IT DIDN'T WORK!  EDR DETECTED IT!  Yeah, it happens.  I'm not certifying this as foolproof FUD.  In fact I'll readily admit running this 10-20 times in a row will likely trip up EDR with an AI!ML alert because EDR solutions have AI intelligence built in these days.  It will eventually get caught if you're continually running it, or at least I'd assume it would eventually catch it. 😄
 
+🔒 Bonus Content for Subscribers (In-Memory PE loader for DLLs / Reflective DLL Loader!)
+-
+
+> Description: This code will download a DLL from a location you specify, similar to today's post, and reflectively load/execute it in memory!  In this case, it's a DLL instead of an EXE. 😸
+
+🗒️ [Access Code Here](https://ko-fi.com/s/7e66117e37) 🗒️
+
+<hr>
+
 Until next time! Later dudes and dudettes 😺
 
 Source code: [PE LOADER FULL SOURCE CODE](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2025-9-23-Bypassing%20EDR%20using%20an%20In-Memory%20PE%20Loader)
