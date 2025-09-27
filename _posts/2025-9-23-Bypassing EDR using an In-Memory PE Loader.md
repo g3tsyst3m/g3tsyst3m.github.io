@@ -19,7 +19,7 @@ Not only that, but it's also loading it into the calling process that we're assu
 > **IMPORTANT UPDATE!**
 > less than 24 hours into making this post live, people are already questioning the usefulness of using putty as our PE for this exercise.  First off, my intention was to demonstrate how we can load PE's that have GUIs.  Second, putty is easy to find and use.  It's great for demo's.  But for those that want to see the effectiveness of bypassing EDR more specifically, I get it.  So, i've retroactively added in a well known and flagged EDR bypass tool to prove the effectiveness of using PE Loaders. I'll share the screenshot of this in action so you can see how we can effectively bypass the EDR solutions I'm able to test against.  We will be using the EDRSilencer tool: [EDR Silencer](https://github.com/netero1010/EDRSilencer) Awesome tool btw!  Kudos to the author.
 
-> **UPDATE #2 LOL: Now we're cookin!**
+> **UPDATE #2 LOL: Now we're cookin!  Let's Load Mimikatz too while we're at it 😸**
 
 <iframe width="1080" height="720" 
         src="https://www.youtube.com/embed/fYhWRyyGO5s"
