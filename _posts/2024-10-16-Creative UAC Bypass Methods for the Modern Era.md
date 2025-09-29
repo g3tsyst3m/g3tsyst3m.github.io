@@ -25,6 +25,8 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 Got a new one for you guys 😸  Well, a new take on an old bypass.  This is another COM Object UAC bypass technique which seems to be quite popular right now.  I go over the internals and how it works, analyzing it with Binary Ninja and I walk through the code.  This one still works though you'll have to edit the code some to get it to make EDR happy.  Here's a sneak preview.  If you're a subscriber to the blog you can watch the full length video and get all the code that goes with it! 😸
 
+> Preview Video Below.  Full video at: [https://ko-fi.com/s/ecfb427347](https://ko-fi.com/s/ecfb427347)
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e3VlUjM7P4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ***UAC Bypass #1 - Let's travel back to sometime around 8 years...CMSTPLUA COM interface UAC bypass - (Detection Status: Undetected via Windows Defender and Sophos XDR)***
