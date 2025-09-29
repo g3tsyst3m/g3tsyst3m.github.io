@@ -21,6 +21,12 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 > Update: 3/20/2025: I think someone at Microsoft secretly reads this blog... 😆 I say that because all the methods I posted in fall of last year are now deprecated.  The irony is that I was able to resurrect an old UAC Bypass method that still works if you tweak it a bit!  See below for more info:
 
+> Update 9/28/2025 - IEditionUpgradeManager COM Object UAC Bypass!
+
+Got a new one for you guys 😸  Well, a new take on an old bypass.  This is another COM Object UAC bypass technique which seems to be quite popular right now.  I go over the internals and how it works, analyzing it with Binary Ninja and I walk through the code.  This one still works though you'll have to edit the code some to get it to make EDR happy.  Here's a sneak preview.  If you're a subscriber to the blog you can watch the full length video and get all the code that goes with it! 😸
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e3VlUjM7P4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ***UAC Bypass #1 - Let's travel back to sometime around 8 years...CMSTPLUA COM interface UAC bypass - (Detection Status: Undetected via Windows Defender and Sophos XDR)***
 -
 
