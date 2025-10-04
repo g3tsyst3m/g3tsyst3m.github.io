@@ -209,6 +209,10 @@ The Calculator!!!
 
 <img width="1338" height="968" alt="image" src="https://github.com/user-attachments/assets/9f3627cf-dbdb-4ca7-8a24-92c4fe2f1452" />
 
+
+**Source code:** [Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2025-10-3-Module%20Stomping%20101%20-%20My%20Favorite%20Stomping%20Grounds)
+
+
 **Notice no EDR alerts either:**
 
 <img width="932" height="996" alt="image" src="https://github.com/user-attachments/assets/802943d7-a68d-4a83-92d4-1d56afed454b" />
