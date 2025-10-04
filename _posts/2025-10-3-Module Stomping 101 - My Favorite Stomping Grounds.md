@@ -61,9 +61,9 @@ int main(int argc, char* argv[]) {
 Load the DLL into the Remote Process
 -
 
-Next, we will load the DLL we specified below (CoreShell.dll) into our remote process.  I use Notepad in my demo.
-P
-We first allocate memory the size of our filepath + filename using `VirtualAllocEx`. Next, we write the filepath+filename string (`benignMod`) to that memory location we just allocated (`modPath`).  It looks like this!
+Next, we will load the DLL we specified below (CoreShell.dll) into our remote process.  I use Notepad in my demo.  Also you'll notice a slight discrepancy between the DLL used in the video versus the code in this blog post.  The DLL in the video was already loaded by Notepad so I needed to choose another one.  That's the shortend of it 😄
+
+Okay, we will first allocate memory the size of our filepath + filename using `VirtualAllocEx`. Next, we write the filepath+filename string (`benignMod`) to that memory location we just allocated (`modPath`).  It looks like this!
 
 <img width="1208" height="520" alt="image" src="https://github.com/user-attachments/assets/763a845f-5a06-408f-a639-1906f2b21e9e" />
 
