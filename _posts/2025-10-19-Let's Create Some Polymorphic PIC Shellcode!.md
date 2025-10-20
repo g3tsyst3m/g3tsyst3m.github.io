@@ -19,7 +19,7 @@ Alright I'll admit I'm pretty pumped for today's post 😸  Shellcode and x64 As
 
 First off, let's start with our x64 assembly code.  I'm doing things a bit differently this time around.  I'm going to first locate the Thread Environment Block, and **THEN** get the PEB, next we get kernel32 base address, and **FINALLY** execute the ever-ubiquitous windows calculator 😸  This is honestly good practice to get into folks.  You don't want to always have to rely on msfvenom to generate your shellcode for you for your red team engagements.  Even when encoding msfvencom generated shellcode, EDR in memory scanners can still easily detect it.  It's terribly predictable.  I HIGHLY encourage you to create your own shellcode.  With today's post, we not only will be coding custom assembly/shellcode, but then encoding it and making it to where it's always different.  You'll see what I mean later on into the post, I promise!
 
-Okay, without further ago, the x64 assembly code can be found below.  I tried not to be too lazy and add in comments to help where I thought they'd be useful.  One other important item of importance.  If you've ever used Avast for your AV/EDR solution, you'll quickly realize Avast hooks into your program's loaded modules.  Other EDR solutions do this as well, but Avast is the one that comes to my immediate memory.  In particular, it hooks into the initial loader prologue that we walk over in our shellcode to locate Kernel32's base address.  So, if you use the old school method of locating kernel32, you'll usually land on the hooked version instead.  Not so with the code below.  We literally search for a module with KERN in the name (unicode) and unless EDR / AV starts to name their hooked module KERNxx.dll, you'll be in good shape and bypass the initial hook with the code below!
+Okay, without further ado, the x64 assembly code can be found below.  I tried not to be too lazy and add in comments to help where I thought they'd be useful.  One other important item of importance.  If you've ever used Avast for your AV/EDR solution, you'll quickly realize Avast hooks into your program's loaded modules.  Other EDR solutions do this as well, but Avast is the one that comes to my immediate memory.  In particular, it hooks into the initial loader prologue that we walk over in our shellcode to locate Kernel32's base address.  So, if you use the old school method of locating kernel32, you'll usually land on the hooked version instead.  Not so with the code below.  We literally search for a module with KERN in the name (unicode) and unless EDR / AV starts to name their hooked module KERNxx.dll, you'll be in good shape and bypass the initial hook with the code below!
 
 The Calc x64 Assembly Code (with custom loading of kernel32 base via TEB)
 -
@@ -354,7 +354,7 @@ if __name__ == '__main__':
 
 <img width="1462" height="358" alt="image" src="https://github.com/user-attachments/assets/46502d42-aedc-4804-af38-4b8527a4ba64" />
 
-Polymorphic prep part 2 - The 1st Encoder - Bitwise NOT + XOR
+Polymorphic prep part 2 - The Encoder - Bitwise NOT + XOR
 -
 
 Now that we have our shellcode, we need to encode it to add more layers of polymorphism to our code!  I'm a huge fan of Bitwise NOT and I feel like it doesn't get the attention it deserves.  It's quite easy to work with, and can easily be incorporated into your encoding arsenal. 😸  Here's how it works.  We will place our newly generated shellcode in the `shellcode` variable.  Next, we simply run the script I went ahead and put together for you below.  It will generate shellcode encoded with the `Bitwise NOT` operation combined with the familiar XOR Bitwise operation.  The script will also inform us as to the location of our `key` that we used when encoding the shellcode.  This key will be in the encoded shellcode itself! 🤯  This affords us not only great evasion for general static and dynamic analysis engines, but also introduces yet more polymorphism into our code, as this location will always change depending on the encoding key value you choose to use.  This is essentially a self-decoding shellcode stub.  These self-decrypting/self-decoding shellcode stubs are commonly seen in buffer overflow exploits.  I chose `0xAC` for our encoding key by the way for this particular example.   
@@ -391,7 +391,10 @@ else:
 
 <img width="1473" height="476" alt="image" src="https://github.com/user-attachments/assets/a1e0410a-30f5-407e-82dc-3b0c24203af6" />
 
-Cool, so just pick one of the index locations the script discovered as your decoding key and apply it to our .asm file below;  I chose key index `38`.  This will be used to yet once again compile our shellcode with an additional layer of polymorphism!  Notice how I added `38` here:
+Polymorphic prep part 2 continued - The Decoder x64 Assembly code 
+-
+
+Cool, so now that we have our encoded shellcode, we now need to write a decoder in x64 assembly.  Just pick one of the index locations the script discovered as your decoding key and apply it to our .asm file below;  I chose key index `38`.  This will be used to yet once again compile our shellcode with an additional layer of polymorphism!  Notice how I added `38` here:
 
 > mov r9b, [rel encoded_shellcode + 38]
 
