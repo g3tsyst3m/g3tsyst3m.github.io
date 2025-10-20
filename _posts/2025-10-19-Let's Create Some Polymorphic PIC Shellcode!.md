@@ -149,12 +149,12 @@ single_reg_templates = [
     "sub {reg}, 0x0",
     "cmp {reg}, 0x0",
     "test {reg}, {reg}",
-    "lea {reg}, [{reg}]",
     "imul {reg}, {reg}, 1",
     "shl {reg}, 0x0",
     "shr {reg}, 0x0",
     "rol {reg}, 0x0",
     "ror {reg}, 0x0",
+    "inc {reg}",  # Added inc
     "nop"
 ]
 ```
@@ -210,12 +210,12 @@ single_reg_templates = [
     "sub {reg}, 0x0",
     "cmp {reg}, 0x0",
     "test {reg}, {reg}",
-    "lea {reg}, [{reg}]",
     "imul {reg}, {reg}, 1",
     "shl {reg}, 0x0",
     "shr {reg}, 0x0",
     "rol {reg}, 0x0",
     "ror {reg}, 0x0",
+    "inc {reg}",  # Added inc
     "nop"
 ]
 
@@ -230,7 +230,7 @@ def is_flag_setter(clean):
     if not parts:
         return False
     opcode = parts[0].lower()
-    flag_setters = {"xor", "add", "sub", "cmp", "test", "lea", "imul", "shl", "shr", "rol", "ror"}
+    flag_setters = {"xor", "add", "sub", "cmp", "test", "inc", "imul", "shl", "shr", "rol", "ror"} #removed LEA
     return opcode in flag_setters
 
 def is_conditional(clean):
