@@ -516,8 +516,6 @@ Well, that's it for this particular post.  But I anticipate I'll do more develop
 
 <img width="1549" height="623" alt="image" src="https://github.com/user-attachments/assets/475df143-f13f-4819-a611-9c64767a6ee8" />
 
-<img width="1105" height="205" alt="image" src="https://github.com/user-attachments/assets/7c0dacc4-40e2-40a5-bbf9-643cdaa5ea10" />
-
 [Full Sandbox Analysis](https://app.any.run/tasks/c81c07c1-f6b9-4f74-bb89-95bc605b7ecb)
 
 <div style="text-align: right;">
