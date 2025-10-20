@@ -116,7 +116,50 @@ FunctionNameFound:                ; Get function address from AddressOfFunctions
    call r15                       ; Call WinExec
 ```
 
-Okay, so now that we have our assembly code, we need to move on to the next step and scramble it.  This is part 1 of our polymorphic shellcode preparations.  The code below will insert benign assembly instructions throughout our assembly code where it will be completely unique each time it is compiled into shellcode.  Go ahead and run this python script below.  You'll see what I mean:
+Okay, so now that we have our assembly code, we need to move on to the next step and scramble it.  This is part 1 of our polymorphic shellcode preparations.  The code below will insert benign assembly instructions throughout our assembly code where it will be completely unique each time it is compiled into shellcode.  Basically what I did was check for registers already in use and those that I determined weren't in use would be the registers chosen for the scrambled assembly instruction code insertion.  For instance, here's all the possible x64 register combinations we will search for and use:
+
+```python
+all_reg_variants = {
+    'rax': ['rax', 'eax', 'ax', 'al', 'ah'],
+    'rcx': ['rcx', 'ecx', 'cx', 'cl', 'ch'],
+    'rdx': ['rdx', 'edx', 'dx', 'dl', 'dh'],
+    'rbx': ['rbx', 'ebx', 'bx', 'bl', 'bh'],
+    'rsp': ['rsp', 'esp', 'sp', 'spl'],
+    'rbp': ['rbp', 'ebp', 'bp', 'bpl'],
+    'rsi': ['rsi', 'esi', 'si', 'sil'],
+    'rdi': ['rdi', 'edi', 'di', 'dil'],
+    'r8': ['r8', 'r8d', 'r8w', 'r8b'],
+    'r9': ['r9', 'r9d', 'r9w', 'r9b'],
+    'r10': ['r10', 'r10d', 'r10w', 'r10b'],
+    'r11': ['r11', 'r11d', 'r11w', 'r11b'],
+    'r12': ['r12', 'r12d', 'r12w', 'r12b'],
+    'r13': ['r13', 'r13d', 'r13w', 'r13b'],
+    'r14': ['r14', 'r14d', 'r14w', 'r14b'],
+    'r15': ['r15', 'r15d', 'r15w', 'r15b'],
+}
+```
+
+and here's all the possible instruction combinations I chose to use for this particular scrambler script:
+
+```python
+single_reg_templates = [
+    "xor {reg}, {reg}",
+    "mov {reg}, {reg}",
+    "add {reg}, 0x0",
+    "sub {reg}, 0x0",
+    "cmp {reg}, 0x0",
+    "test {reg}, {reg}",
+    "lea {reg}, [{reg}]",
+    "imul {reg}, {reg}, 1",
+    "shl {reg}, 0x0",
+    "shr {reg}, 0x0",
+    "rol {reg}, 0x0",
+    "ror {reg}, 0x0",
+    "nop"
+]
+```
+
+Now that you know how it works, let's go ahead and run the full python script below:
 
 The Assembly Code Scrambler - Polymorphic prep part 1
 -
