@@ -354,10 +354,10 @@ if __name__ == '__main__':
 
 <img width="1462" height="358" alt="image" src="https://github.com/user-attachments/assets/46502d42-aedc-4804-af38-4b8527a4ba64" />
 
-Polymorphic prep part 2 - The 1st Encoder - Bitwise NOT
+Polymorphic prep part 2 - The 1st Encoder - Bitwise NOT + XOR
 -
 
-Now that we have our shellcode, we need to encode it to add more layers of polymorphism to our code!  I'm a huge fan of Bitwise NOT and I feel like it doesn't get the attention it deserves.  It's quite easy to work with, and can easily be incorporated into your encoding arsenal. 😸  Here's how it works.  We will place our newly generated shellcode in the `shellcode` variable.  Next, we simply run the script I went ahead and put together for you below.  It will generate shellcode encoded with the `Bitwise NOT` operation.  The script will also inform us as to the location of our `key` that we used when encoding the shellcode.  This key will be in the encoded shellcode itself! 🤯  This affords us not only great evasion for general static and dynamic analysis engines, but also introduces yet more polymorphism into our code, as this location will always change depending on the encoding key value you choose to use.  This is essentially a self-decoding shellcode stub.  These self-decrypting/self-decoding shellcode stubs are commonly seen in buffer overflow exploits.  I chose `0xAC` for our encoding key by the way for this particular example.   
+Now that we have our shellcode, we need to encode it to add more layers of polymorphism to our code!  I'm a huge fan of Bitwise NOT and I feel like it doesn't get the attention it deserves.  It's quite easy to work with, and can easily be incorporated into your encoding arsenal. 😸  Here's how it works.  We will place our newly generated shellcode in the `shellcode` variable.  Next, we simply run the script I went ahead and put together for you below.  It will generate shellcode encoded with the `Bitwise NOT` operation combined with the familiar XOR Bitwise operation.  The script will also inform us as to the location of our `key` that we used when encoding the shellcode.  This key will be in the encoded shellcode itself! 🤯  This affords us not only great evasion for general static and dynamic analysis engines, but also introduces yet more polymorphism into our code, as this location will always change depending on the encoding key value you choose to use.  This is essentially a self-decoding shellcode stub.  These self-decrypting/self-decoding shellcode stubs are commonly seen in buffer overflow exploits.  I chose `0xAC` for our encoding key by the way for this particular example.   
 
 ```python
 import sys
@@ -474,7 +474,7 @@ That's it!  You've done it!  That is the final shellcode we were looking for.  S
 - We started with a barebones x64 assembly template that uses WinExec to spawn the windows calculator
   -  This assembly code is also unique in that it locates the kernel32 base starting with TEB, then locating PEB, then locating kernel32 by it's unicode string via a string comparison
 - Layered our original shellcode with benign assembly instructions which introduce randomness to our code
-- We introduced a self-decoding Bitwise NOT encoded shellcode
+- We introduced a self-decoding Bitwise NOT + XOR encoded shellcode
 - We then took that shellcode and added yet another layer of polymorphism and made it Alpha/Mix compatible.
 
 I may have missed something in the bullet points above, but that' the gist of it.  Now, you can use this final form of shellcode any way you like.  You can inject it into another process, run it as is, etc.  I'll go ahead and just run it as-is for demonstration purposes.  
