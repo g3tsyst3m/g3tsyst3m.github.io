@@ -12,14 +12,16 @@ An Infosec Research and Development blog:
 
 <center><img src="https://github.com/user-attachments/assets/a345cea1-5afe-42da-b47a-ff52f64994d2" style="width:75%;"></center>
 
-Security Leader, Security Researcher and Enthusiast.  I'm fairly low profile, but share useful info from time to time.  I've worked in Infosec for over a decade, and have an (ISC)2 CISSP certification.  My programming fluency is centered around Python, PHP, C++, as well as a continued interest in furthering my understanding of x64 assembly.  I enjoy reverse engineering binaries, both statically and dynamically.  I also enjoy learning new programming languages. I will always strive to learn as much as I can surrounding all facets of information Security.  Want to see what I'm studying currently?  Just keep reading this blog and check out my github!  thanks everyone 😸
+Security Leader, Security Researcher and Enthusiast.  I'm fairly low profile, but share useful info from time to time.  I've worked in Infosec for over a decade, and have an (ISC)2 CISSP certification.  My programming fluency is centered around Python, PHP, C/C++, and x86/x64 assembly.  I've worked in Healthcare and Higher Education most of my career;  the longest time served in  Higher Education where I worked at a Law School for a few years and then moved on to yet another higher education entity where I live, and that's where I remain today.  I've also been involved (and continue to be involved) in freelance/consulting work as the opportunity arises (This blog has helped considerably in that respect).  I will always strive to learn as much as I can surrounding all facets of information Security.  Want to see what I'm studying currently?  Just keep reading this blog and check out my github!  Thanks everyone 😸
 
-The focus on this blog will largely be on offensive security tools and malware research. I would eventually like to share detailed, on-demand video walkthroughs, breaking down tools and concepts shared in all my writeups.  All in due time I suppose 😸  
+The focus on this blog will largely be on offensive security tools and malware research. Outside of the blog, I also share detailed, on-demand video walkthroughs, breaking down tools and concepts shared throughout several of my blog posts via my ko-fi membership. 😸 I also share exclusive content not on my blog via ko-fi.
 
-**You can find me on X:**
+[ko-fi membership offering](https://ko-fi.com/g3tsyst3m/tiers)
+
+> **You can also find me on X:**
 [g3tsyst3m](https://x.com/G3tSyst3m)
 
-**LinkedIn:**
+> and on **LinkedIn:**
 
 Quick caveat here.  I like to keep my blog separate from my work identity.  However, I also want folks who value and respect the content I produce on this blog to know and connect with the real me if they want.  So, here it is, hack the box style! 😸  If you happen to browse my LinkedIn, please connect and shoot me a private message and tell me about yourself, what you think about the blog, etc.  I'd like that very much!
 
@@ -28,9 +30,9 @@ Quick caveat here.  I like to keep my blog separate from my work identity.  Howe
 4c334a76596d4a705a53316a62334a735a58
 6b744d6d49784d54517a4d6a6376**
 
-> If interested, I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
+> As I mentioned earlier.  I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
 
-* Dedicated and results-driven information security leader with 12 years of experience designing and implementing comprehensive cybersecurity strategies. I lead a team of on-site and managed services security engineers, driving proactive threat management / threat detection/monitoring, incident response, and compliance with industry frameworks such as NIST, ISO 27001, and PCI DSS.
+* Dedicated and results-driven information security leader with 12 years of experience designing and implementing comprehensive cybersecurity strategies in Healthcare and Higher Education. I lead a team of on-site and managed services security engineers, driving proactive threat management / threat detection/monitoring, incident response, and compliance with industry frameworks such as NIST, ISO 27001, and PCI DSS.
 
 * My expertise spans threat intelligence / threat detection / threat hunting, penetration testing, malware analysis/reverse engineering, and vulnerability / risk assessments. Skilled in leveraging cloud technologies to enhance security architectures, I collaborate seamlessly with key stakeholders to align security initiatives with organizational goals, ensuring resilience in an ever-evolving threat landscape.
 
