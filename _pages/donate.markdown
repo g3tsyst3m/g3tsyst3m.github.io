@@ -18,6 +18,12 @@ header:
 
 379c5AzGLaFsPVmQCzozSjzCZ5zky66bHj
 
+**Tutoring/Mentorship Program Opportunity**
+
+Yes, I provide Tutoring/Mentorship services!  This is a very personalized and dedicated service I provide that is uniquely different from my KO-FI ☕ membership offering.  The mentorship / tutoring program is a dedicated set of hours applied directly to a learning path of your choosing.  More info below:
+
+[Tutoring Services/Mentorship](https://ko-fi.com/g3tsyst3m/commissions)
+
 **Membership Offering:**
 
 Also, if you ever want to go deeper into any topic I write about, feel free to check out my membership offering as well.  I don't mind helping here and there with quick questions via discord, but I think I owe it to you and myself to spend the proper time it takes to teach you a given topic thoroughly.  That's why I toss that out there.  No pressure, but it's there should anyone ever need it.
