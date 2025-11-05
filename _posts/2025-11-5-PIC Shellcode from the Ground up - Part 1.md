@@ -184,9 +184,9 @@ So, we call Heap Alloc and now our Heap has stored enough bytes to hold our shel
 
 Before we do that, let me show you our PIC friendly assembly code so far, both the code and how it looks in x64dbg.  Bear in mind we will eventually remove the `externs`.  I'm just using that to simplify teaching you the basics of how we lay the foundation for PIC assembly code.  We'll get more into how to do this without relying on externs in Part 2.  Externs are a way to call the windows API of our choosing without walking the PEB and manually locating the api.  In case you were wondering.  Ok, here's our code so far:
 
-```
-;nasm -fwin64 [x64findkernel32.asm]
-;ld -m i386pep -N -o x64findkernel32.exe x64findkernel32.obj
+```nasm
+; nasm -fwin64 [x64findkernel32.asm]
+; ld -m i386pep -N -o x64findkernel32.exe x64findkernel32.obj
 ; externs: ld -m i386pep -LC:\mingw64\x86_64-w64-mingw32\lib asmsock.obj -o asmsock.exe -lws2_32 -lkernel32
 
 BITS 64
