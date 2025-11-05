@@ -13,9 +13,6 @@ tags:
   - PIC shellcode
 ---
 
-Overview
--
-
 Have you ever wondered how the popularized PIC (position independent code) actually works?  I can answer that question alongside you with a resounding YES! You are exposed to PIC based shellcode constantly in today's widely used C2 platforms.  Then there's the popular donut utility, which can convert .NET assemblies to PIC friendly shellcode.  But what about from scratch, and I mean producing a template in C++ and then wrtiting x64 assembly code modeled after your C++ program?  Also why should we?  Well, while I admit I can't find many tutorials for writing PIC from scratch, I found a plethora of definitions and explanations for what PIC accomplishes.  I don't want to reinvent the wheel too much here, so suffice to say, here are the advantages of using PIC in my mind.  I'll also include frustrations in the opinion of yours truly. 😸
 
 - **Necessity for ASLR Compatibility**: Modern operating systems employ Address Space Layout Randomization (ASLR) to randomize memory addresses, making fixed-location shellcode unreliable or non-functional; PIC-friendly shellcode avoids absolute addresses, ensuring it executes correctly regardless of where it's loaded in memory.
