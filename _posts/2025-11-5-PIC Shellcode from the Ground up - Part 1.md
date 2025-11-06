@@ -112,10 +112,10 @@ Finally we call the API: call qword ptr [__imp_HeapCreate (07FF6281220F0h)]
 here's what it looks like all together in nasm x64 syntax:
 
 ```nasm
-xor         r8d,r8d  
-xor         edx,edx  
-mov         ecx, 0x40000  
-call        HeapCreate
+xor  r8d,r8d  
+xor  edx,edx  
+mov  ecx, 0x40000  
+call HeapCreate
 ```
 
 Next, you'll see in the disassembly window the following instruction: `mov qword ptr [hHeap],rax` 
@@ -141,10 +141,10 @@ You'll notice we have some interesting values being stored in the R8 register an
 Here's what that looks like in nasm x64 assembly.  Also, it's worth mentioning that Visual Studio uses the MASM assembler syntax, whereas I show code in NASM.  In nasm, you don't need the PTR keyword so you'll see me omit that often when I reproduce the assembly code on the blog.
 
 ```nasm
-mov         r8, encoded_shellcode_total ;size of shellcode
-mov         edx,8  
-mov         rcx,qword [rsp - 72]  
-call        HeapAlloc
+mov  r8, encoded_shellcode_total ;size of shellcode
+mov  edx,8  
+mov  rcx,qword [rsp - 72]  
+call HeapAlloc
 ```
 
 Now, you're probably asking yourself,"Where did he get the `encoded_shellcode_total` ?  I'll show you!  That's actually calculated at the very top of my assembly code.  Check it out:
@@ -174,10 +174,10 @@ I calculate the total shellcode using: `encoded_shellcode_total equ $ - encoded_
 Let's revisit that API call for HeapAlloc.  Now that you know how to calculate the total amount of bytes for our shellcode, you can better understand the visual studio disassebly.  Here's our version of what we could see within Visual Studio for our original C++ code.  If we manually calculated the total size, it would be 0x1FA, which is the value shown in the Visual Studio Disassembler.
 
 ```nasm
-mov         r8, encoded_shellcode_total ;size of shellcode
-mov         edx,8  
-mov         rcx,qword [rsp - 72]  
-call        HeapAlloc
+mov  r8, encoded_shellcode_total ;size of shellcode
+mov  edx,8  
+mov  rcx,qword [rsp - 72]  
+call HeapAlloc
 ```
 
 So, we call Heap Alloc and now our Heap has stored enough bytes to hold our shellcode.  Next up, a custom assembly loop will be introduced that copies our shellcode into the heap memory location we allocated. 😺
@@ -209,19 +209,19 @@ main:
 sub rsp, 0x28
 and rsp, 0xFFFFFFFFFFFFFFF0 ; this instruction helps with stack alignment
 	
-xor         r8d,r8d  
-xor         edx,edx  
-mov         ecx, 0x40000  
-call        HeapCreate
+xor  r8d,r8d  
+xor  edx,edx  
+mov  ecx, 0x40000  
+call HeapCreate
 sub rsp, 72
 mov [rsp], rax
 add rsp, 72
 xor rcx, rcx
 	
-mov         r8, encoded_shellcode_total ;size of shellcode
-mov         edx,8  
-mov         rcx,qword [rsp - 72]  
-call        HeapAlloc
+mov  r8, encoded_shellcode_total ;size of shellcode
+mov  edx,8  
+mov  rcx,qword [rsp - 72]  
+call HeapAlloc
 push rax
 pop rdx ; memory address of mapped region of memory
 ```
@@ -311,19 +311,19 @@ main:
 sub rsp, 0x28
 and rsp, 0xFFFFFFFFFFFFFFF0
 	
-xor         r8d,r8d  
-xor         edx,edx  
-mov         ecx, 0x40000  
-call        HeapCreate
+xor  r8d,r8d  
+xor  edx,edx  
+mov  ecx, 0x40000  
+call HeapCreate
 sub rsp, 72
 mov [rsp], rax
 add rsp, 72
 xor rcx, rcx
 	
-mov         r8, encoded_shellcode_total ;size of shellcode
-mov         edx,8  
-mov         rcx,qword [rsp - 72]  
-call        HeapAlloc
+mov r8, encoded_shellcode_total ;size of shellcode
+mov edx,8  
+mov rcx,qword [rsp - 72]  
+call HeapAlloc
 push rax
 pop rdx ; memory address of mapped region of memory
 	
