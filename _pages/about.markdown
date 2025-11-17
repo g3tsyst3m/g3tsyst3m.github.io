@@ -21,15 +21,6 @@ The focus on this blog will largely be on offensive security tools and malware r
 > **You can also find me on X:**
 [g3tsyst3m](https://x.com/G3tSyst3m)
 
-> and on **LinkedIn:**
-
-Quick caveat here.  I like to keep my blog separate from my work identity.  However, I also want folks who value and respect the content I produce on this blog to know and connect with the real me if they want.  So, here it is, hack the box style! 😸  If you happen to browse my LinkedIn, please connect and shoot me a private message and tell me about yourself, what you think about the blog, etc.  I'd like that very much!
-
-**6148523063484d364c793933643363756247
-6c756132566b61573475593239744c326c75
-4c334a76596d4a705a53316a62334a735a58
-6b744d6d49784d54517a4d6a6376**
-
 > As I mentioned earlier.  I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
 
 * Dedicated and results-driven information security leader with 12 years of experience designing and implementing comprehensive cybersecurity strategies in Healthcare and Higher Education. I lead a team of on-site and managed services security engineers, driving proactive threat management / threat detection/monitoring, incident response, and compliance with industry frameworks such as NIST, ISO 27001, and PCI DSS.
