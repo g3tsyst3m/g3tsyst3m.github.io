@@ -19,6 +19,18 @@ My goal is always to find code that executes across all Windows versions **AND**
 
 Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) link on the left panel of my site, in case anyone wants to hop in and say hi.  I've met quite a few of you on Twitter over the years and I've thoroughly enjoyed the conversations that have unfolded since I first joined twitter not that long ago.  Okay, let's dive in to the first UAC bypass method.  
 
+> **Update: 11/16/2025**:
+
+🔒 Bonus Content for Subscribers (Working UAC Bypass for Windows 11 25H2 - CMSTPLUA using PEB Masquerading)
+-
+
+> Description: This is a fully working, UAC Bypass for Windows 11 25h2 that once again leverages the CMSTPLUA COM object UAC bypass method.  I've updated the code to help adapt to the changes with the recent 25h2 update.  This should also bypass Windows Defender as a nice added perk.  Enjoy!
+
+🗒️ [Access Code Here](https://ko-fi.com/s/3214218cba) 🗒️
+
+<hr>
+
+
 > Update: 3/20/2025: I think someone at Microsoft secretly reads this blog... 😆 I say that because all the methods I posted in fall of last year are now deprecated.  The irony is that I was able to resurrect an old UAC Bypass method that still works if you tweak it a bit!  See below for more info:
 
 > Update 9/28/2025 - IEditionUpgradeManager COM Object UAC Bypass!
