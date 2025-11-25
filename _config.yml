@@ -14,6 +14,10 @@ theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+#don't show welcome message on all posts, just homepage
+show_homepage_content_on_posts: false
+
+
 # Site Settings
 locale                   : "en-US"
 title                    : "G3tSyst3m's Infosec Blog"
