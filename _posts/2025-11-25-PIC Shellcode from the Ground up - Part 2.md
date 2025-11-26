@@ -13,14 +13,14 @@ tags:
   - PIC shellcode
 ---
 
-Let's `PIC` back up where we left off shall we? 😸 I gave you the framework for developing PIC friendly shellcode.  We went from the original code written in a high level language (C++), down to a pseudo low level representation of that C++ code.  I say pseudo low level because after our C++ code, we then used a combination of assembly and externs to locate the memory address of `HeapCreate` and `HeapAlloc`.  This is sort of like inputting a cheat code, since we don't have to resort to walking the PE headers, specifically the PE export table, to locate our APIs.  However, this time around we will NOT be using externs.  We will be locating TEB/PEB, walking the familiar PE headers, and finding our APIs in question manually without help from externs.  We will also hash our APIs to make them easier to lookup and lower our static analysis footprint.  Let's dive in!
+Let's `PIC` back up where we left off shall we? 😸 I gave you the framework for developing PIC friendly shellcode back in Part 1.  We went from the original code written in a high level language (C++), down to a pseudo low level representation of that C++ code.  I say pseudo low level because after our C++ code, we then used a combination of assembly and externs to locate the memory address of `HeapCreate` and `HeapAlloc`.  This is sort of like inputting a cheat code, since we don't have to resort to walking the PE headers, specifically the PE export table, to locate our APIs.  However, this time around we will NOT be using externs.  We will be locating TEB/PEB, walking the familiar PE headers, and finding our APIs in question manually without help from externs.  We will also hash our APIs to make them easier to lookup and lower our static analysis footprint.  Let's dive in!
 
 Locating NTDLL.DLL
 -
 
 For this code exercise, we're going to locate the base address for `NTDLL.DLL` instead of `KERNEL32.DLL`
 
-Why?  Because foolish me didn't realize that `HeapAlloc` is just a stub in `Kernel32.dll` that is redirected/forwarded to `RtlAllocateHeap`, which is contained within the NTDLL library.  😆  So, all that we need to really change loading the NTDLL base address instead of the usual Kernel32 base address.  I'll show you what that looks like now.  You'll also see our shellcode at the start of the code too just FYI.  That hasn't changed from the original assembly template we wrote back in `part 1`.
+Why?  Because foolish me didn't realize that `HeapAlloc` is just a stub in `Kernel32.dll` that is redirected/forwarded to `RtlAllocateHeap`, which is contained within the NTDLL library.  😆  So, all that we really needed to change was loading the NTDLL base address instead of the usual Kernel32 base address.  I'll show you what that looks like now.  You'll also see our shellcode at the start of the code too just FYI.  That hasn't changed from the original assembly template we wrote back in `part 1`.
 
 ```nasm
 ; nasm -fwin64 [x64findkernel32.asm]
@@ -89,7 +89,7 @@ Hit run and step over (step through) your code until you hit the `cmp rbx, rdx` 
 
 The compare will succeed, since we found NTDLL!  Next, we will jump to the assembly instruction that will locate the actual address of NTDLL and store it in rbx.  
 
-> **00007FF6EDFA103B | 48:8B5E 30                   | mov rbx,qword ptr ds:[rsi+30]**          
+> 00007FF6EDFA103B | 48:8B5E 30                   | mov rbx,qword ptr ds:[rsi+30]          
 
 We will make a copy of this memory address, storing it in the `R8` register to prepare for later needs throughout our code.
 
@@ -152,7 +152,7 @@ mov r13, r11                  ; Save AddressOfNames pointer in R13 for later nam
 mov rcx, r10                  ; Set RCX as countdown loop counter (will decrement through names)
 ```
 
-I've added comments throughout the entirety of the assembly code, so I'm not going to go in great detail on that.  Just know we need the addressofnames and total number of apis to loop over.  We will ultimately be hashing each API string from the AddressofNames string.  We will use our **ROTATE left by 5 + XOR** hash routine against each string.  We will keep the loop active until we find our api string in question.  That's the general breakdown of how this works.  Let me add some more code so you can see how the loop is laid out:
+I've added comments throughout the entirety of the assembly code, so I'm not going to go in great detail on that.  Just know we need the `addressofnames` and total number of apis to loop over.  We will ultimately be hashing each API string from the AddressofNames string.  We will use our **ROTATE left by 5 + XOR** hash routine against each string.  We will keep the loop active until we find our api string in question.  That's the general breakdown of how this works.  Let me add some more code so you can see how the loop is laid out:
 
 ```nasm
 ;**********************************************************************
@@ -180,7 +180,7 @@ The API string is `wcstoul`
 
 <img width="1176" height="594" alt="image" src="https://github.com/user-attachments/assets/0f9e07b9-98a3-48c1-ad97-73ee5f0a0ab8" />
 
-Throughout this loop, we are constantly jumping to the hashinitiator function routine, which hashes each api string with our hashing routine and compares it to both of our hashes to determine if there's a match!
+Throughout this loop, we are constantly jumping to the `hashinitiator` function routine, which hashes each api string with our hashing routine and compares it to both of our hashes to determine if there's a match!
 Let's follow the **jmp hashinitiator**.  I'll show you what that looks like in the next section.
 
 Hashing Routine
