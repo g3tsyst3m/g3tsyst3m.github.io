@@ -72,7 +72,7 @@ mov rbx, [rsi + 0x30]
 mov r8, rbx              ; mov NTDLL.dll base addr into r8
 ```
 
-We can consider the above the Preamble for most PIC shellcode.  Mine will likely be a varation on a theme to what you'll find used in C2 frameworks and elsewhere, but the general principle is the same.  I'm first locating the Thread Environment Block (TEB), then we proceed to locate and walk the Process Environment Block (PEB).  The approach we're taking here is really effective.  
+We can consider the above the Preamble for most PIC shellcode.  Mine will likely be a variation on a theme to what you'll find used in C2 frameworks and elsewhere, but the general principle is the same.  I'm first locating the Thread Environment Block (TEB), then we proceed to locate and walk the Process Environment Block (PEB).  The approach we're taking here is really effective.  
 
 The reason being, is that we will locate NTDLL (or kernel32, etc) by name and not mathematically like the old school method of locating kernel32/ntdll base address by some hardcoded offset.  Notice how I'm looking for the unicode value **N T D L**?  Say EDR hooks our program and we had previously hardcoded ntdll as the 3rd item to grab when walking the PEB?  The PEB could be hooked by the EDR, and the 3rd position, normally reserved for kernel32.dll or ntdll, would have the hooked dll in its place.  This is **NOT** good!  However, since we're actually searching for NTDLL by name, we are pretty much guaranteed to always find the appropriate one!  😼
 
@@ -174,7 +174,7 @@ FunctionNameNotFound:
     jmp continuation              ; No matching function found, continue execution
 ```
 
-So, that's a lot to take in.  Let me explain how everything plays out in a simpler fashion, using some screenshots from debugging our code.  Remember, we're working backwards.  So, we'll be starting with 'Z' and working our way to 'A'.  One of the first Windows API strings I see is this one you'll see in the screenshot below. This is once we step ove the loop and reach the **add rbx, r8** instruction.
+So, that's a lot to take in.  Let me explain how everything plays out in a simpler fashion, using some screenshots from debugging our code.  Remember, we're working backwards.  So, we'll be starting with 'Z' and working our way to 'A'.  One of the first Windows API strings I see is this one you'll see in the screenshot below. This is once we step over the loop and reach the **add rbx, r8** instruction.
 
 The API string is `wcstoul`
 
@@ -241,7 +241,7 @@ We keep this up until we get a full string then we just compare that full hashed
 
 <img width="866" height="573" alt="image" src="https://github.com/user-attachments/assets/b1102934-5fe2-42d3-8293-6d94a3570495" />
 
-And here's the the hash for `RtlCreateHeap` looks like when we find it:
+And here's the hash for `RtlCreateHeap` looks like when we find it:
 
 <img width="1716" height="535" alt="image" src="https://github.com/user-attachments/assets/2ebc0b76-d683-4d2e-a3a3-1eece17e97b1" />
 
