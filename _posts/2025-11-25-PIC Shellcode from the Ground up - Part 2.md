@@ -360,3 +360,15 @@ const unsigned char shellcode[] = {
 ```
 
 I initially intended to go deeper on PIC coding, extending this into a series / multiple parts, but I will likely have to reserve deeper explorations into PIC coding some other time.  Perhaps as a course or something.  I'm considering a full on x64 assembly and shellcoding course with videos, code, the works.  If I pull it off, I'll definitely go deeper on PIC shellcode.  Until next time, thanks all!
+
+***ANY.RUN Results***
+-
+
+<img width="1537" height="637" alt="image" src="https://github.com/user-attachments/assets/5c3e7b60-6db7-4da3-8e96-75795cf3be7e" />
+
+[Full Sandbox Analysis](https://app.any.run/tasks/c940314e-6d43-4e22-834e-4d3125afc4fc)
+
+<div style="text-align: right;">
+Sponsored by:<br>
+<img src="https://github.com/user-attachments/assets/111a0bb6-66e1-43b0-9a0a-5ce093f4b65e" alt="Sponsor logo" style="max-width: 200px;">
+</div>
