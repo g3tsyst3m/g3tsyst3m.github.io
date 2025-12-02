@@ -104,7 +104,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:g3tsyst3m@gmail.com"
+      url: "mailto:robbie@g3tsyst3m.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://g3tsyst3m.com"
@@ -136,7 +136,7 @@ footer:
       url: "https://discord.gg/bqDkEdDrQQ"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:g3tsyst3m@gmail.com"
+      url: "mailto:robbie@g3tsyst3m.com"
 
 
 # Reading Files
