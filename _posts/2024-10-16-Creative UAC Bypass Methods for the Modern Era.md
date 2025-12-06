@@ -28,6 +28,10 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 🗒️ [Access Code Here](https://ko-fi.com/s/3214218cba) 🗒️
 
+> Teaser Video Below:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MLXg8luDtK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <hr>
 
 
