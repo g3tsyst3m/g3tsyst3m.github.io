@@ -3,4 +3,6 @@ main:
     url: /about/
   - title: "Tutoring / Donate / Become a Member!"
     url: /donate/
+ - title: "Cybersecurity News"
+    url: /news/
 
