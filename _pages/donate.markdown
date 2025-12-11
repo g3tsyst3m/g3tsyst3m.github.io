@@ -34,10 +34,11 @@ The membership details can be found via the link below. Subscribing is a great w
 
 [Leaderboard](https://ko-fi.com/g3tsyst3m/leaderboard) 🦉
 
-**Partnerships:**
+**Sponsors:**
 
 [![ANY.RUN](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png)](https://any.run)
 
+[![Vector35](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/vector35.png)](https://vector35.com/) [![BinaryNinja](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/binja.png)](https://binary.ninja/)
 
 <hr>
 
