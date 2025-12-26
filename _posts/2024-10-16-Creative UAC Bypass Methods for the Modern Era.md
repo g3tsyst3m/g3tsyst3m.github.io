@@ -26,7 +26,11 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 > Description: This is a fully working, UAC Bypass for Windows 11 25h2 that once again leverages the CMSTPLUA COM object UAC bypass method.  I've updated the code to help adapt to the changes with the recent 25h2 update.  This should also bypass Windows Defender as a nice added perk.  Enjoy!
 
-🗒️ [Access Code Here](https://ko-fi.com/s/3214218cba) 🗒️
+🗒️ [C++ version (As seen in Video below)](https://ko-fi.com/s/3214218cba) 🗒️
+
+🗒️ [Rust version (Rust executable loads UAC bypass via exported DLL)](https://ko-fi.com/s/693e5ca616) 🗒️
+
+
 
 > Teaser Video Below:
 
