@@ -28,8 +28,7 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 🗒️ [C++ version (As seen in Video below)](https://ko-fi.com/s/3214218cba) 🗒️
 
-🗒️ [Rust version (Rust executable loads UAC bypass via exported DLL)](https://ko-fi.com/s/693e5ca616) 🗒️
-
+🦀 [Rust version (Rust executable loads UAC bypass via exported DLL)](https://ko-fi.com/s/693e5ca616) 🦀
 
 
 > Teaser Video Below:
