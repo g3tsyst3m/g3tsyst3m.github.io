@@ -24,7 +24,7 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 🔒 Bonus Content for Subscribers (Newly Discovered Working UAC Bypass for Windows 11 25H2 - Bypasses ALWAYS ON!!!!)
 -
 
-> **Description**: Yes you heard that correctly.  This is a fully working, newly discovered UAC Bypass *by yours truly) for Windows 11 25h2 that bypasses the highest level of UAC control - **UAC Always On**.  This is an exclusive subscriber only offering.  Video teaser below!
+> **Description**: Yes you heard that correctly.  This is a fully working, newly discovered UAC Bypass (by yours truly) for Windows 11 25h2 that bypasses the highest level of UAC control - **UAC Always On**.  This is an exclusive subscriber only offering.  Video teaser below!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mf6DDVpQV-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
