@@ -19,6 +19,19 @@ My goal is always to find code that executes across all Windows versions **AND**
 
 Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) link on the left panel of my site, in case anyone wants to hop in and say hi.  I've met quite a few of you on Twitter over the years and I've thoroughly enjoyed the conversations that have unfolded since I first joined twitter not that long ago.  Okay, let's dive in to the first UAC bypass method.  
 
+> **MAJOR Update: 1/11/2026**:
+
+🔒 Bonus Content for Subscribers (Newly Discovered Working UAC Bypass for Windows 11 25H2 - Bypasses ALWAYS ON!!!!)
+-
+
+> **Description**: Yes you heard that correctly.  This is a fully working, newly discovered UAC Bypass *by yours truly) for Windows 11 25h2 that bypasses the highest level of UAC control - **UAC Always On**.  This is an exclusive subscriber only offering.  Video teaser below!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mf6DDVpQV-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+🗒️ [Source Code and Video Walkthrough](https://ko-fi.com/s/6feb840a3e) 🗒️
+
+<hr>
+
 > **Update: 11/16/2025**:
 
 🔒 Bonus Content for Subscribers (Working UAC Bypass for Windows 11 25H2 - CMSTPLUA using PEB Masquerading)
