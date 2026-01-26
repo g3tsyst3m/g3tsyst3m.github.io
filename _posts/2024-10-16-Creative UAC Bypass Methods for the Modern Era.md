@@ -43,6 +43,7 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 🦀 [Rust version (Rust executable loads UAC bypass via exported DLL)](https://ko-fi.com/s/693e5ca616) 🦀
 
+💻 [C# version](https://ko-fi.com/s/f233eda4de) 💻
 
 > Teaser Video Below:
 
