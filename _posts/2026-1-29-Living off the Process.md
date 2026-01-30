@@ -754,8 +754,8 @@ Full Source Code ready to compile: [Source Code](https://github.com/g3tsyst3m/Co
 
 <div style="text-align: right;">
 Sponsored by:<br>
-<img src="https://github.com/user-attachments/assets/111a0bb6-66e1-43b0-9a0a-5ce093f4b65e" alt="Sponsor logo" style="max-width: 200px; mix-blend-mode: screen;">
+<img width="220" height="78" alt="anyrun" src="https://github.com/user-attachments/assets/31fd6169-6c27-4c8d-a9e5-2550709441d0" />
 <br><br>
-<img src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/vector35.png" alt="Sponsor2logo" style="max-width: 200px; mix-blend-mode: screen;">
+<img width="347" height="102" alt="vector35" src="https://github.com/user-attachments/assets/c6be7f7a-3b20-4c41-9e83-701d715d8c3c" />
 </div>
 
