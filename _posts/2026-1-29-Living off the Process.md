@@ -754,7 +754,7 @@ Full Source Code ready to compile: [Source Code](https://github.com/g3tsyst3m/Co
 
 <div style="text-align: right;">
   
-**Sponsored By:**
+<b>Sponsored By:</b><br>
 
 <img width="200" height="130" alt="image" src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png" />
 
