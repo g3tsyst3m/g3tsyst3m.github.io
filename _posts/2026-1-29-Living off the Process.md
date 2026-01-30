@@ -753,11 +753,12 @@ Full Source Code ready to compile: [Source Code](https://github.com/g3tsyst3m/Co
 [Full Sandbox Analysis](https://app.any.run/tasks/7c5f7772-79b3-41a0-8ad0-863095cf6e48)
 
 <div style="text-align: right;">
+  
 **Sponsored By:**
 
-[![ANY.RUN](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png)](https://any.run)
+<img width="200" height="130" alt="image" src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png" />
 
-[![Vector35](https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/vector35.png)](https://vector35.com/)
+<img width="200" height="130" alt="image" src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/vector35.png" />
 
 </div>
 
