@@ -31,6 +31,13 @@ So, Living off the Process huh?
 
 Yes! 😆  It may seem overkill to do all the aforementioned prepwork just to copy shellcode into a remote process, but the benefits far outweigh the labor involved.  Think about it: If everything that we need is already available to a given process, all we are required to do is to take the existing artifacts and repurpose them for our needs.  No need for overusing WriteProcessMemory, VirtualAlloc, injecting a DLL, etc.  This way, everything you need to manipulate the remote process is self-contained and already available to the process.  Furthermore, we'll be working with a process that EDR has already blessed 😸  So, just like Living off the Land, we take a similar approach.  Using what's already available to the process, which in turn should lower our EDR footprint on the machine considerably.  
 
+Video Teaser for an In-Depth Technical Walkthrough of this Blog Post
+-
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6-eOvC7Rh28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Full In-Depth Walkthrough can be found at my ko-fi shop: 📹 [Ko-Fi Subscribers](https://ko-fi.com/s/35ab60ff88) 📹
+
 Part - 1: Collecting ROP Gadgets
 -
 
