@@ -755,7 +755,7 @@ Apologies that I jumped straight to executing the shellcode toward the end there
 
 📹 In-Depth Video/Audio Walkthrough for today's blog post: [In-Depth Video Walkthrough](https://ko-fi.com/s/35ab60ff88)
 
-🗒️ Updated Exclusive Source Code to go with the Video: [Source Code for Video Walkthrough](https://ko-fi.com/s/00e5869580)
+🗒️ Updated Source Code to go with the Video: [Source Code for Video Walkthrough](https://ko-fi.com/s/00e5869580)
 
 ***Bonus Content for Members! (Emerald + Diamond Tiers)***
 -
@@ -764,6 +764,7 @@ Apologies that I jumped straight to executing the shellcode toward the end there
 
 📹📓 Video walkthrough + Source code for Assembly to Machine code & Rop Gadget lookup toolkit!: [Video explaining ROP gadget and Assembly to Machine Code Tools](https://ko-fi.com/s/825b8ee3e4)
 
+📔 LOTP Exclusive Final Code Update - Hijacking a worker thread [LOTP & Hijacking a worker thread](https://ko-fi.com/s/12ba29993b)
 
 ***ANY.RUN Sandboxing***
 -
