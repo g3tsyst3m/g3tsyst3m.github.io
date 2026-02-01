@@ -748,7 +748,22 @@ And here's a quick video demonstration of walkthing through each code stub and R
 
 Apologies that I jumped straight to executing the shellcode toward the end there.  I thought I had more breakpoints set 😆  If you want to see how the entire process plays out in greater detail, I'll have the full video walkthrough available for those that subscribe to me on ko-fi.  Thanks, and hope you enjoyed this demonstration of my take on Living off the Process.  Until next time!
 
-Full Source Code ready to compile: [Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2026-1-29-Living%20off%20the%20Process)
+**Full Source Code ready to compile (Be sure to set the Build to 'Release' in Visual Studio!):** [Source Code](https://github.com/g3tsyst3m/CodefromBlog/tree/main/2026-1-29-Living%20off%20the%20Process)
+
+***Bonus Content for Members! (Sapphire Tier)***
+-
+
+📹 In-Depth Video/Audio Walkthrough for today's blog post: [In-Depth Video Walkthrough](https://ko-fi.com/s/35ab60ff88)
+
+🗒️ Updated Exclusive Source Code to go with the Video: [Source Code for Video Walkthrough](https://ko-fi.com/s/00e5869580)
+
+***Bonus Content for Members! (Emerald + Diamond Tiers)***
+-
+
+📓RWX Scanner Tool for detecting RWX memory regions in all processes [RWX Scanner Tool](https://ko-fi.com/s/4a8a0dc254)
+
+📹📓 Video walkthrough + Source code for Assembly to Machine code & Rop Gadget lookup toolkit!: [Video explaining ROP gadget and Assembly to Machine Code Tools](https://ko-fi.com/s/825b8ee3e4)
+
 
 ***ANY.RUN Sandboxing***
 -
