@@ -3,7 +3,7 @@ title: Gaining Initial Access and Outsmarting SmartScreen
 header:
   teaser: "/assets/images/MOTW.png"
 categories:
-  - LOTP
+  - Initial Access
 tags:
   - Initial Access
   - Pentest
