@@ -8,7 +8,7 @@ header:
   show_title: false
 ---
 
-An Infosec Research and Development blog:           
+G3tSyst3m's Infosec Research and Development blog:           
 
 <center><img src="https://github.com/user-attachments/assets/a345cea1-5afe-42da-b47a-ff52f64994d2" style="width:75%;"></center>
 
