@@ -36,3 +36,10 @@ As always, it's a great read and I encourage you to check it out! 👍
 I'm honored to see the most recent post on Initial access and Bypassing SmartScreen made it into LWIS!
 
 [https://blog.badsectorlabs.com/last-week-in-security-lwis-2026-02-23.html](https://blog.badsectorlabs.com/last-week-in-security-lwis-2026-02-23.html)
+
+> 3/20/2026
+
+This is a very handy new feature from the crew over at 
+@anyrun_app Be sure to check it out and give it a try when you're able!  This post also includes a look into a Real-World Example: Detecting Salty2FA Phishing Campaign
+
+[https://any.run/cybersecurity-blog/automatic-ssl-decryption/](https://any.run/cybersecurity-blog/automatic-ssl-decryption/)
