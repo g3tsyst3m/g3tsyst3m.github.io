@@ -78,7 +78,7 @@ That time we didn't run into any issues.  Phew!
 
 Okay, so that's one approach you can take to prep your payload.  This can go a number of ways of course.  You could have used a .ps1 script or py-to-exe executable, .hta script, .vbs, and so on.  You get the idea.  The primary key is to "cloak" your scripts inside a virtual disk file.  I've tried **.iso** and **.img** and those get flagged more often than I'd like.  The only consistent way I've found to include an attachment and it not get flagged is through the use of `.VHDX` files.  Here's the script I used to package this btw.  It needs to be ran as Administrator to create the `.VHDX` file.
 
-~~It does **NOT** need admin rights to mount/open it as a user.~~ **<-- Revision 3/29/2026**: This is incorrect.  You need to be a member of the local administrators group for this to work.  Thank you to the kind and responsible user who pointed this out to me!
+~~It does **NOT** need admin rights to mount/open it as a user.~~ **<-- Revision 3/29/2026**: This is incorrect.  You need to be a member of the local administrators group for this to work.  Thank you to the kind and responsible reader who pointed this out to me!
 
 - **VHD_PATH** is the output file
 - **EXE_TO_COPY** is the executable you wish to add to the VHDX
