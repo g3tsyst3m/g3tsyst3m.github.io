@@ -652,3 +652,13 @@ if scode:
 And that's a wrap folks!  Thanks and see you on the next blog post!
 
 ~G3tSyst3m
+
+<div style="text-align: right;">
+  
+<b>Sponsored By:</b><br>
+
+<img width="200" height="130" alt="image" src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/anyrun.png" />
+
+<img width="200" height="130" alt="image" src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/vector35.png" />
+
+</div>
