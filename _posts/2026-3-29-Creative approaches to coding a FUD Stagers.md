@@ -73,7 +73,7 @@ def dwnlod_scode(url):
         return None
 ```
 
-In the code above is pretty straightforward.  My shellcode is located in a file that resides on my Github repo and I've reversed the URL string to thwart static analysis efforts. :hurtrealbad: I've also renamed the file extension to something random, in this case `.dyno` as that is not a typical windows file extension and it will not receive as much scrutiny as say a `.bin` file extension.  Finally, we return the bytes of the shellcode we just downloaded in the shel_ly variable. 
+In the code above is pretty straightforward.  My shellcode is located in a file that resides on my Github repo and I've reversed the URL string to thwart static analysis efforts.  I've also renamed the file extension to something random, in this case `.dyno` as that is not a typical windows file extension and it will not receive as much scrutiny as say a `.bin` file extension.  Finally, we return the bytes of the shellcode we just downloaded in the shel_ly variable. 
 
 Part 3 - Eggsecuting Shellcode in Memory 🥚
 -
@@ -488,7 +488,7 @@ for entry in pe.DIRECTORY_ENTRY_IMPORT:
 Part 4 - Cast and Execute!
 -
 
-Lastly, this code snippet filters to kernel32.dll imports only.  We then match against b"VirtualAlloc", without that string ever appearing plaintext :hurtrealbad:
+Lastly, this code snippet filters to kernel32.dll imports only.  We then match against b"VirtualAlloc", without that string ever appearing in plaintext.
 
 `imp.address` is the on-disk VA of the IAT slot.  Subtracting `pe.OPTIONAL_HEADER.ImageBase` converts it to an RVA.  Adding base converts the RVA to the actual runtime address of the slot.
 
