@@ -636,6 +636,13 @@ if scode:
     print("[*] freed")
 ```
 
+***Bonus Content for Members! (All Membership Tiers)***
+-
+
+📹 In-Depth Video/Audio Walkthrough for today's blog post: [In-Depth Video Walkthrough](https://ko-fi.com/s/3e9d57ce10)
+
+🗒️ Packaged .zip file containing portable python + Source Code to go with the Video: [Portable Python + code](https://ko-fi.com/s/3e9d57ce10)
+
 🛡️ **Dynamic Analysis Detection Tips** 🛡️
 
 - Flag `python.exe` when allocating RWX memory at runtime.  I'd say most legitimate Python workloads almost never do this 😆
