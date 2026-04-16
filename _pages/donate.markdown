@@ -18,11 +18,11 @@ header:
 
 379c5AzGLaFsPVmQCzozSjzCZ5zky66bHj
 
-**Tutoring/Mentorship Program Opportunity**
+**Tutoring Sessions / One on One Instruction Opportunities**
 
-Yes, I provide Tutoring/Mentorship services!  This is a very personalized and dedicated service I provide that is uniquely different from my KO-FI ☕ membership offering.  The mentorship / tutoring program is a dedicated set of hours applied directly to a learning path of your choosing.  More info below:
+Yes, I provide Teaching & Instructional Services!  This is a very personalized and dedicated service I provide that is uniquely different from my KO-FI ☕ membership offering.  The lessons include a dedicated set of hours applied directly to a learning path of your choosing.  More info below:
 
-[Tutoring Services/Mentorship](https://ko-fi.com/g3tsyst3m/commissions)
+[Tutoring Services/One on One Sessions](https://ko-fi.com/g3tsyst3m/commissions)
 
 **Membership Offering:**
 
