@@ -17,8 +17,6 @@ tags:
   - g3tsyst3m
 ---
 
-# Building an Encrypted C2 Implant over QUIC
-
 Hey everyone! If you've been following the blog for a while, you'll likely recall my python driven C2 series.  Today we're doing something a little different. We're going to ditch TCP sockets entirely and build a C2 implant that communicates over **QUIC**.  QUIC is an encrypted transport protocol that runs over UDP. If you've never heard of QUIC, buckle up, because it's genuinely cool and increasingly relevant from an offensive security perspective. Let's get into it!
 
 ---
