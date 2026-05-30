@@ -16,7 +16,7 @@ tags:
 
 I still remember when Mimikatz dropped in 2011. It was a wild time in offensive security, and a period where a single tool could expose fundamental weaknesses in Windows credential handling and force the entire ecosystem to level up. Features like Protected Process Light (PPL), hardened LSASS protections, and vastly improved ETW telemetry didn't emerge in a vacuum; they were, in part, Microsoft's response to researchers openly demonstrating just how broken things were. It was an era defined by deep technical curiosity and creative problem-solving on both sides of the fence, and this was long before AI entered the chat.  
 
-Leaping ahead to 2026, the end goal remains the same, but the path to get there has shifted drastically.  What was once a simple matter of tossing mimikatz onto a machine and scraping the freely available, cleartext wdiget creds, has become a more involved process.  Now, we're faced with a few unique but not all too unfamiliar challenges.  Here are just a few off the top of my head:
+Leaping ahead to 2026, the end goal remains the same, but the path to get there has shifted drastically.  What was once a simple matter of tossing mimikatz onto a machine and scraping the freely available, cleartext wdigest creds, has become a more involved process.  Now, we're faced with a few unique but not all too unfamiliar challenges.  Here are just a few off the top of my head:
 
 - We need to evade or in some cases neutralize EDR ,though I'm of the opinion the latter is much noisier of an option
 - Processes like the coveted `LSASS` now have PPL protection and the many usermode tools that can be used to bypass PPL are heavily signatured
@@ -105,7 +105,7 @@ There is zero validation.  No ProbeForRead/ProbeForWrite, no canonical address c
 1400012b3                            arg2->IoStatus.Information = 0x30;
 ```
 
-I am forever appreciative of the original research that went into discovering the IOCTL value.  It would have taken me a very long time to discover that on my own, I can assure you 😸  But yeah, that's the general breakdown on how this driver vulnerability plays out and why it's a great candicate for BYOVD and removing PPL protection on LSASS.  Now, on to the next best part, the code!
+I am forever appreciative of the original research that went into discovering the IOCTL value.  It would have taken me a very long time to discover that on my own, I can assure you 😸  But yeah, that's the general breakdown on how this driver vulnerability plays out and why it's a great candidate for BYOVD and removing PPL protection on LSASS.  Now, on to the next best part, the code!
 
 Code for the PPL Removal / Exploit Harness for PDFWKRNL.sys
 -
@@ -598,7 +598,7 @@ if __name__ == "__main__":
 🛡️ So, How do I defend against This? 🛡️
 -
 
-First off, I need to make this point very clear.  This is using an already known vulnerable driver.  The fact this is even allowed on a fully patched, secured Windows 11 25h2 machine with all security feasured enabled blows my mind.  This shouldn't even be possible in the first place.  But, then again I wouldn't be a security researcher if I didn't find some alternative, unexplored ways of achieving an end goal right? 😸  Since the vulnerable driver block list isn't detecting this (because it's a different hash?), then we are left with one option I'm aware of as far as built in options in Windows.  We can create a rule/policy using Windows Defender Application Control to block the driver from starting.  Other than that, this really should be easier to prevent. LoL.
+First off, I need to make this point very clear.  This is using an already known vulnerable driver.  The fact this is even allowed on a fully patched, secured Windows 11 25h2 machine with all security features enabled blows my mind.  This shouldn't even be possible in the first place.  But, then again I wouldn't be a security researcher if I didn't find some alternative, unexplored ways of achieving an end goal right? 😸  Since the vulnerable driver block list isn't detecting this (because it's a different hash?), then we are left with one option I'm aware of as far as built in options in Windows.  We can create a rule/policy using Windows Defender Application Control to block the driver from starting.  Other than that, this really should be easier to prevent. LoL.
 
 Here's a script that accomplishes this for those interested.  Be sure to revise it accordingly for your own use case:
 
