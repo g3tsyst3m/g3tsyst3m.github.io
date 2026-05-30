@@ -602,7 +602,7 @@ First off, I need to make this point very clear.  This is using an already known
 
 Here's a script that accomplishes this for those interested.  Be sure to revise it accordingly for your own use case:
 
-```ps1
+```powershell
 
 $DenyRule = New-CIPolicyRule -Level FilePublisher -DriverFilePath "C:\users\robbi\OneDrive\Pictures\AMD.sys" -Fallback SignedVersion,Publisher,Hash -Deny
 
@@ -639,7 +639,6 @@ CiTool.exe --remove-policy "{31351756-3f24-4963-8380-4e7602335aae}"
 
 # 2. Delete the old binary from your local Documents folder to prevent duplicates
 Remove-Item "C:\Users\robbi\Documents\*.cip" -Force
-
 ```
 
 🎁 ***Bonus Content for Members! (Sapphire Tier)*** 🎁
