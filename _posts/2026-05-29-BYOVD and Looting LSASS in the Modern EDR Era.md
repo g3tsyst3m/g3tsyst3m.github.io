@@ -25,7 +25,7 @@ Leaping ahead to 2026, the end goal remains the same, but the path to get there 
 
 In cases like the one we're facing, we traditionally would turn to BYOVD.  Well, I can say not much has changed there, though we will need to get creative in either locating a completely new, undiscovered driver vulnerability.  Or, you could be lazy like me and find a driver that has already been discovered and just use that, albeit a version that hasn't been caught by the blocklist yet 😸
 
-In today's post, we will be uncovering the internals of kernel driver vulnerabilities and how to leverage them via the `BYOVD` (Bring Your Own Vulnerable Driver) method of attack. We will use kernel access to disable PPL for the LSASS process and then process to dump the process to disk, XOR'ing it beforehand so it avoids detection by popular EDR solutions.  Let's begin!
+In today's post, we will be uncovering the internals of kernel driver vulnerabilities and how to leverage them via the `BYOVD` (Bring Your Own Vulnerable Driver) method of attack. We will use kernel access to disable PPL for the LSASS process and then proceed to dump the process to disk, XOR'ing it beforehand so it avoids detection by popular EDR solutions.  Let's begin!
 
 Finding a Signed Driver that's not on the Microsoft Blocklist
 -
