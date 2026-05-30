@@ -247,7 +247,7 @@ int main(int argc, char* argv[]) {
 
 We're close now, basically at the home stretch!  😸  We just need to locate the kernel base `ntoskrnl.exe` and the **EPROCESS** address.  Then, we need cycle through all the processes and locate **LSASS**!
 
-``cpp
+```cpp
  // Get Kernel Base
  ULONG64 ntosBase = 0;
  LPVOID drivers[1024];
