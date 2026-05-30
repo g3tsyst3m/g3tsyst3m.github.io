@@ -641,11 +641,13 @@ CiTool.exe --remove-policy "{31351756-3f24-4963-8380-4e7602335aae}"
 Remove-Item "C:\Users\robbi\Documents\*.cip" -Force
 ```
 
-🎁 ***Bonus Content for Members! (Sapphire Tier)*** 🎁
+🎁 ***Bonus Content for Members! (All Tiers)*** 🎁
 -
 
-Coming very soon!  Likely a video walkthrough and some extra code
-  
+Additional TPwSav.sys BYOVD driver + code!  [TPwSav.sys Source Code on Ko-fi](https://ko-fi.com/s/aeb093ef9e)
+
+<img width="678" height="291" alt="image" src="https://github.com/user-attachments/assets/3dd53e0b-8f62-41c7-8745-1fd1174cf04e" />
+
 ***ANY.RUN Results***
 -
 
