@@ -512,7 +512,7 @@ The main function orchestrates the whole attack chain:
 
 **Step 1 — Buffer allocation.** We pre-allocate 200MB on the heap to receive the dump. This is sized generously to handle a full `lsass` dump on most systems.
 
-**Step 2 — Process cloning.** We open the target PID with `PROCESS_ALL_ACCESS`, then hand that handle to `NtCreateProcessEx` as the "parent." The kernel creates a cloned process object that is a snapshot of the target's address space. We dump the *clone*, not the original, which avoids a direct `OpenProcess` on a sensitive process like lsass.
+**Step 2 — Process cloning**. We open the target PID with **PROCESS_CREATE_PROCESS** access, then pass that handle to **NtCreateProcessEx** as the parent. The kernel creates a new cloned process object that is a snapshot of the target's address space. We then dump the clone, not the original `LSASS` process. This avoids opening a full read/write handle directly on the sensitive `lsass.exe` process (the pattern most EDRs monitor).
 
 **Step 3 — The NUL handle trick.** `MiniDumpWriteDump` requires a file handle as a parameter. We pass it `NUL`, which is Windows' equivalent of `/dev/null`. Since our callback intercepts all writes before they reach the file, nothing actually goes to NUL. But the function needs a valid handle, and NUL is the cleanest placeholder.
 
