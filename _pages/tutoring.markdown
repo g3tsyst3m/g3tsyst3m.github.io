@@ -13,7 +13,7 @@ header:
 Pricing
 -
 
-My standard introductory rate is **$75 /hr** _(Diamond Members automatically get 15% off!)_.  Once you checkout, I'll send you an invoice from Paypal with the discount applied.  
+My standard introductory rate is **$75 /hr** _(Diamond Members automatically get 15% off!)_.
 
 I can accommodate your language needs and only do screen sharing with text based chat so you can translate what I share if you like.  Or if you understand English but can’t speak it you can just listen and take notes. No need to speak if you aren’t comfortable. I also do prerecorded, on demand videos where you learn at your own pace if you’d prefer that approach.  Plenty of options!
 
