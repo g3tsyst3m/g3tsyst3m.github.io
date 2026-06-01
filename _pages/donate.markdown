@@ -22,7 +22,7 @@ header:
 
 Yes, I provide Teaching & Instructional Services!  This is a very personalized and dedicated service I provide that is uniquely different from my KO-FI ☕ membership offering.  The lessons include a dedicated set of hours applied directly to a learning path of your choosing.  More info below:
 
-[Tutoring Services/One on One Sessions](https://ko-fi.com/g3tsyst3m/commissions)
+[Tutoring Services/One on One Sessions](https://g3tsyst3m.com/tutoring/)
 
 **Membership Offering:**
 
