@@ -14,10 +14,6 @@ header:
 
 [Make a Donation to R.B.C](https://ko-fi.com/g3tsyst3m) ☕
 
-**Donate via Bitcoin (BTC):**
-
-379c5AzGLaFsPVmQCzozSjzCZ5zky66bHj
-
 **Tutoring Sessions / One on One Instruction Opportunities**
 
 Yes, I provide Teaching & Instructional Services!  This is a very personalized and dedicated service I provide that is uniquely different from my KO-FI ☕ membership offering.  The lessons include a dedicated set of hours applied directly to a learning path of your choosing.  More info below:
