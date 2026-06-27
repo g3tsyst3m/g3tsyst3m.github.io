@@ -592,7 +592,8 @@ A few things that would make this more production-hardened:
 
 - **Encrypted payloads**: tasks and results are currently plaintext JSON. HTTPS handles transport encryption but payload-level encryption would protect against a compromised broker SQLite.
 - **Implant hardening**: `svc.py` sits on disk in plaintext. For anything beyond a lab you'd want it packed or loaded from memory.
-- **The Obvious - Add More Commands!**: I just threw this together to demonstrate the capabilities of Claude in managing a mimimal C2 setup.  If I really grew this out more, I'd add privilege escalation, BOF options, etc.
+- **The Obvious...Add More Commands!**: I just threw this together to demonstrate the capabilities of Claude in managing a mimimal C2 setup.  If I really grew this out more, I'd add privilege escalation, BOF options, etc.
+
 ---
 
 ## Wrapping Up
