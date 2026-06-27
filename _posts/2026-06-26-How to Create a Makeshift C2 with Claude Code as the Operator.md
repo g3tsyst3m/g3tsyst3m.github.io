@@ -85,6 +85,7 @@ A few things I liked about IONOS for this use case (not sponsored, I promise ðŸ˜
 - **No outbound port restrictions**: Some cheap VPS providers block outbound HTTPS or throttle UDP. IONOS doesn't, and the Cloudflare tunnel runs on HTTPS outbound.
 - **Easy firewall management**: Simple inbound/outbound port rule configuration.
 - **No hidden costs**: Seriously, I'm not kidding.  I pay literally $5.03 /mo with no extras for bandwidth usage, disk IO, nothing additional.  It's a flat rate every month.  It's a barebones setup that isn't a powerhouse by any stretch of the imagination, but it gets the job done.
+
 ---
 
 ## Prerequisites for the Full Setup
