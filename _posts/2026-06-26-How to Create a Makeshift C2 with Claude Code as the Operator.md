@@ -33,7 +33,7 @@ What came out of this project is yet another lightweight Python-based C2 from yo
 
 ## Why MCP as the Operator Interface?
 
-This is the part that makes this setup different. Claude Code can connect to any MCP server and call its tools natively. When I expose my C2's operator functions as MCP tools, I can type `list_agents()` or `run_shell("target-hostname", "whoami")` directly in a Claude Code conversation and get back output with full AI context. I can ask Claude to analyze results, chain commands, write scripts, and pivot -- all without leaving the editor.
+This is the part that makes this setup different. Claude Code can connect to any MCP server and call its tools natively. When I expose my C2's operator functions as MCP tools, I can type `list_agents()` or `run_shell("target-hostname", "whoami")` directly in a Claude Code conversation and get back output with full AI context. I can ask Claude to analyze results, chain commands, write scripts, and pivot.  All without leaving the editor.
 
 This isn't "AI running my C2 autonomously." It's a tight integration where Claude has access to operator tools and I'm driving the session. Think of it like having the C2 client built into your IDE. 😸
 
