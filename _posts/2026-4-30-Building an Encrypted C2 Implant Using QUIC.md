@@ -310,7 +310,7 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -node
 The server loads it like this:
 
 ```python
-config = QuicConfiguration(is_client=False, alpn_protocols=["g3tsyst3m])
+config = QuicConfiguration(is_client=False, alpn_protocols=["g3tsyst3m"])
 config.load_cert_chain("cert.pem", "key.pem")
 config.max_idle_timeout = 600000  # 10 minutes
 ```
