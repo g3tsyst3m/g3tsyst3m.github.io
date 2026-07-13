@@ -10,6 +10,9 @@ header:
 
 **Want to support my work?  Check out my Ko-Fi link below to make a Donation 😸**
 
+I do not accept crypto.  I have nothing against it, but just wanted folks to know as i do get A LOT of requests.  
+-
+
 **Ko-Fi:**
 
 [Make a Donation to R.B.C](https://ko-fi.com/g3tsyst3m) ☕
