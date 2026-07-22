@@ -127,6 +127,12 @@ Also for the record, there are no loopholes here!  I don't have any secret trust
 
 <img width="1108" height="935" alt="image" src="https://github.com/user-attachments/assets/410e1661-83d7-44f0-a2c2-83018eedf801" />
 
+Taking it even further, I can point my PE Loader to my WebDav share and download and execute the PE in memory pulling from the WebDav share!
+
+<img width="1672" height="878" alt="image" src="https://github.com/user-attachments/assets/84cef480-3580-46ce-95b1-32e578478370" />
+
+<img width="1236" height="656" alt="image" src="https://github.com/user-attachments/assets/708d51c8-7394-416f-baa8-fbfb76ca02f9" />
+
 Why This Changes Everything
 -
 
