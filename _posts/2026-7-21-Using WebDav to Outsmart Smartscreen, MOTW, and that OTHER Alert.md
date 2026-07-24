@@ -1,5 +1,5 @@
 ---
-title: Using WebDav to Outsmart Smartscreen, MOTW, and that OTHER Alert.md
+title: Using WebDav to Outsmart Smartscreen, MOTW, and that OTHER Alert
 header:
   teaser: "/assets/images/webdav_pic.png"
 categories:
