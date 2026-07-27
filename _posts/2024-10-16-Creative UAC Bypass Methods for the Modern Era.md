@@ -849,7 +849,7 @@ Let's get creative 😸  We can now sendkeys to an elevated program.  So, let's 
 I'm going to use a powershell script to pull this off.  This is actually pretty hilarious.  I made it so it covers the entire screen green with a message telling the user to hit enter and press yes if prompted (In case UAC always on is set)
 covering the whole screen with a form only works best if the victim is on a laptop of course.  I'll see if I can capture screenshots of the madness below.  Here's the code:
 
-```ps1
+```powershell
 $UACRegKeyPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
 
 $UACValue = Get-ItemProperty -Path $UACRegKeyPath -Name ConsentPromptBehaviorAdmin | Select-Object -ExpandProperty ConsentPromptBehaviorAdmin
