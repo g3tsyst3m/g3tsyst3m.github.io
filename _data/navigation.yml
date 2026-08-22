@@ -1,10 +1,10 @@
 main:
-  - title: "About"
-    url: /about/
-  - title: "G3tSyst3m's Learning Platform"
-    url: /learningplatform/
   - title: "Tutoring / Donate / Become a Member!"
     url: /donate/
+  - title: "G3tSyst3m's Learning Platform"
+    url: /learningplatform/
+  - title: "About Me"
+    url: /about/
   - title: "Sponsors"
     url: /sponsors/
   - title: "Cybersecurity News"
