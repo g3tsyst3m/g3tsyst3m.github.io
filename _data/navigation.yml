@@ -3,6 +3,8 @@ main:
     url: /about/
   - title: "Tutoring / Donate / Become a Member!"
     url: /donate/
+  - title: "G3tSyst3m's Learning Platform"
+    url: /learningplatform/
   - title: "Sponsors"
     url: /sponsors/
   - title: "Cybersecurity News"
