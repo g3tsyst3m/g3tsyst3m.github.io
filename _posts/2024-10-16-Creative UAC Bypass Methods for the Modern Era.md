@@ -21,18 +21,14 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 <hr>
 
-> **Update: 11/16/2025**:
+> **Update: 08/23/2026: This is now an offering made available exclusively through my UAC Bypass Techniques Learning Platform Course module**
 
 🔒 Bonus Content for Subscribers (Working UAC Bypass for Windows 11 25H2 - CMSTPLUA using PEB Masquerading)
 -
 
 > Description: This is a fully working, UAC Bypass for Windows 11 25h2 that once again leverages the CMSTPLUA COM object UAC bypass method.  I've updated the code to help adapt to the changes with the recent 25h2 update.  This should also bypass Windows Defender as a nice added perk.  Enjoy!
 
-🗒️ [C++ version (As seen in Video below)](https://ko-fi.com/s/3214218cba) 🗒️
-
-🦀 [Rust version (Rust executable loads UAC bypass via exported DLL)](https://ko-fi.com/s/693e5ca616) 🦀
-
-💻 [C# version](https://ko-fi.com/s/f233eda4de) 💻
+🗒️ [C++, Rust, and C# version full code](https://g3tsyst3m.com/coursemodules)
 
 > Teaser Video Below:
 
@@ -47,7 +43,7 @@ Unrelated, but I also added an updated [Discord](https://discord.gg/bqDkEdDrQQ) 
 
 Got a new one for you guys 😸  Well, a new take on an old bypass.  This is another COM Object UAC bypass technique which seems to be quite popular right now.  I go over the internals and how it works, analyzing it with Binary Ninja and I walk through the code.  This one still works though you'll have to edit the code some to get it to make EDR happy.  Here's a sneak preview.  If you're a subscriber to the blog you can watch the full length video and get all the code that goes with it! 😸
 
-> Preview Video Below.  Full video at: [https://ko-fi.com/s/ecfb427347](https://ko-fi.com/s/ecfb427347)
+> Preview Video Below.  **Full video made available exclusively through my UAC Bypass Techniques Learning Platform Course module**: [Full Video](https://g3tsyst3m.com/coursemodules)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e3VlUjM7P4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -300,18 +296,22 @@ As always, full source code can be found in my github repo:
 🔒 Bonus Content for Subscribers (Using PEB Masquerading to elevate our cmd.exe using CMSTPLUA COM object UAC Bypass!)
 -
 
+> **Update: 08/23/2026: This is now an offering made available exclusively through my UAC Bypass Techniques Learning Platform Course module**
+
 > Description: This supplements the COM Object UAC bypass method we learned about today with the PEB masquerading technique.  This time, no DLL injection will be required and we make our process look like it's running as explorer.exe
 
-🗒️ [Access Code Here](https://ko-fi.com/s/1d5e78a48a) 🗒️
+🗒️ [Access Full Bonus Source Code Here](https://g3tsyst3m.com/coursemodules) 🗒️
 
 <hr>
 
 🔒 Bonus Content for Subscribers (COM objects - A Deeper exploration)
 -
 
+> **Update: 08/23/2026: This is now an offering made available exclusively through my UAC Bypass Techniques Learning Platform Course module**
+
 > Description: This is a deeper investigation into COM objects prompted by a curious reader of my blog. This supplements the COM Object UAC bypass method I write about on by UAC bypasses for the modern era post.
 
-🗒️ [Access Writeup Here](https://ko-fi.com/s/4bde51ae7b) 🗒️
+🗒️ [Access Full Bonus Source Code Here](https://g3tsyst3m.com/coursemodules) 🗒️
 
 <hr>
 
