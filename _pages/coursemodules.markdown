@@ -17,6 +17,6 @@ I have a learning platform I designed for custom tailored content you can learn 
 
 🖥️ [UAC Bypass Techniques Deep Dive - DEMO](https://ko-fi.com/s/b747e60049)
 
-🖥️[UAC Bypass TEchniques Deep Dive - FULL COURSE](https://ko-fi.com/s/74f54c0d4d)
+🖥️[UAC Bypass Techniques Deep Dive - FULL COURSE](https://ko-fi.com/s/74f54c0d4d)
 
 <img src="https://raw.githubusercontent.com/g3tsyst3m/g3tsyst3m.github.io/refs/heads/master/assets/images/uacbyp_course.png">
