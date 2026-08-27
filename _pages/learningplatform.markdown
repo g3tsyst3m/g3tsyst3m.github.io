@@ -13,7 +13,11 @@ header:
 G3tsyst3m's Learning Platform Info 🖥️
 -
 
+🖥️ [Learning Platform Login](https://learn.g3tsyst3m.com)
+
 I have a learning platform I designed for custom tailored content you can learn at your own pace, on-demand. Includes full source code, videos, the works. Check it out!
+
+**Interested in taking a course?  I have included a link to the free demo and also a link to the full course below**
 
 🖥️ [UAC Bypass Techniques Deep Dive - DEMO](https://ko-fi.com/s/b747e60049)
 
