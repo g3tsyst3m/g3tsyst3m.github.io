@@ -8,13 +8,3 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-/* Darkens the background when the image is enlarged */
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
-}
-
-/* Removes default focus outlines on touch devices */
-dialog:focus-visible {
-  outline: none;
-}
