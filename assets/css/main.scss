@@ -8,14 +8,13 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-.image-zoom-wrapper {
-  overflow: hidden;
+/* Darkens the background when the image is enlarged */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
 }
 
-.image-zoom-wrapper img {
-  transition: transform 0.3s ease-in-out;
-}
-
-.image-zoom-wrapper img:hover {
-  transform: scale(1.2);
+/* Removes default focus outlines on touch devices */
+dialog:focus-visible {
+  outline: none;
 }
