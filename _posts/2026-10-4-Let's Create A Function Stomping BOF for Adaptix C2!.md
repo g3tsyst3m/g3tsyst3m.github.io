@@ -801,7 +801,7 @@ And the **don't** list:
 And that's a wrap!
 
 We went from "what does function stomping actually mean (versus the module stomping I wrote about before)" all the way to a working Adaptix BOF that stomps an exported function in a remote process, and a Crystal Palace PIC shellcode that runs wherever it lands. 
-As always, the code is in the repos below. I hope this was informative and, as always, at least somewhat entertaining 😸 Appreciate you all and thanks for supporting what I do and reading the blog! Until next time!
+I hope this was informative and at least somewhat entertaining 😸 Appreciate you all and thanks for supporting what I do and reading the blog! Until next time!
 
 ***ANY.RUN Results***
 -
