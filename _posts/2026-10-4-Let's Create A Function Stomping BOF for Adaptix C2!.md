@@ -806,7 +806,7 @@ As always, the code is in the repos below. I hope this was informative and, as a
 ***ANY.RUN Results***
 -
 
-(ANY.RUN results)[https://app.any.run/tasks/deabb311-db87-4225-b6d9-ae43d827969c?p=6ac2c4544f8a4970814600a8]
+[ANY.RUN results](https://app.any.run/tasks/deabb311-db87-4225-b6d9-ae43d827969c?p=6ac2c4544f8a4970814600a8)
 
 <div style="text-align: right;">
   
