@@ -1,7 +1,7 @@
 ---
 title:  "Let's Create A Function Stomping BOF for Adaptix C2!"
 header:
-  teaser: "/assets/images/adaptixc2bof.png
+  teaser: "/assets/images/adaptixc2bof.png"
 categories:
   - Process Injection
 tags:
