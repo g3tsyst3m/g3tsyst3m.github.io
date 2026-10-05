@@ -179,7 +179,7 @@ You should see the following output, similar to mine:
 That's it!
 
 
-Crystal Palace PIC ShellCode (🎁 Bonus Subscriber Only Offering 🎁)
+Crystal Palace PIC Shellcode (🎁 Bonus Subscriber Only Offering🎁)
 -
 
 If you've read my [PIC Shellcode from the Ground Up](https://g3tsyst3m.com/shellcode/pic/PIC-Shellcode-from-the-Ground-up-Part-1/) series, you know my feelings about PIC: it's the right tool for shellcode that has to run *anywhere*. For function stomping specifically, PIC is essentially mandatory. We're dropping into the middle of some arbitrary DLL's `.text` section, at an address we did not choose and that changes every run (ASLR). Any absolute address in the payload is a landmine. PIC will resolve everything at runtime relative to our own location.  This is what makes the same `.bin` work whether we stomp it into `explorer.exe` or Notepad, etc.
@@ -194,7 +194,7 @@ A quick note on what "PIC-derived" means concretely in this context, because it'
 
 The actual payload I've been pushing through the stomper in testing is a small beacon-style checkin stub (a few hundred bytes): big enough to do a real handshake with the server, small enough that it fits comfortably inside a single function body without eating its neighbors. For the full-beacon tests (100KB+), I used the standard Adaptix beacon `.bin`, which is PIC in the same way.
 
-Here's the code (🎁 Subscriber Only Perk 🎁): [Source Code Bundle](https://ko-fi.com/s/f4c3282bb3) 
+Here's the code (🎁 Subscriber Only Perk  [Emerald + Diamond Tier] 🎁): [Source Code Bundle](https://ko-fi.com/s/f4c3282bb3) 
 
 Here's how to compile the PIC:
 
