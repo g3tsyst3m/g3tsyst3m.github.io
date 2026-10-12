@@ -21,7 +21,7 @@ The focus on this blog will largely be on offensive security tools and malware r
 > **You can also find me on X:**
 [g3tsyst3m](https://x.com/G3tSyst3m)
 
-> As I mentioned earlier.  I'm also available to do consultation work and always considering prospective job opportunities.  If you have something you would like to collaborate on or interested in discussing work opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
+> This blog has led to considerable outreach opportunities recently and I'm moving toward turning what started as a research effort into a full fledged consultation business!  More info to come as it's still very much in the early stages, but if you have something you would like to collaborate on or interested in discussing consulting opportunities, please do reach out!  The info below can be considered the abridged version of my CV for those interested:
 
 * Dedicated and results-driven information security leader with 15 years of experience designing and implementing comprehensive cybersecurity strategies in Healthcare and Higher Education. I lead a team of on-site and managed services security engineers, driving proactive threat management / threat detection/monitoring, incident response, and compliance with industry frameworks such as NIST, ISO 27001, and PCI DSS.
 
