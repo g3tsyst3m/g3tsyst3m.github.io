@@ -9,6 +9,8 @@ main:
     url: /about/
   - title: "Sponsors"
     url: /sponsors/
+  - title: "Partners"
+    url: /partners/
   - title: "Cybersecurity News"
     url: /news/
 
