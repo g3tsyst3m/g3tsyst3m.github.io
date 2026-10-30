@@ -19,11 +19,7 @@ tags:
   - g3tsyst3m
 ---
 
-Hey everyone! 👋
-
-If you've been around the Infosec block for any length of time, you'll remember **BeEF** - *The Browser Exploitation Framework*. 
-
-Back in the day it was a very creative avenue into gaining initial access through a simple HTML file or clicked URL.   BeEf would inject a single JavaScript line into a victim's browser, and suddenly you have a a hooked session you can drive from your attacker workstation with modules to grab forms, sniff keystrokes, pivot into other sites, and all sorts of other fun. It was browser-exploitation in the most elegant sense: no .exe, no payload on disk, just the browser doing what it does best, and mostly stayed under the radar.
+Hey everyone! 👋 If you've been around the Infosec block for any length of time, you'll remember **BeEF** - *The Browser Exploitation Framework*. Back in the day it was a very creative avenue into gaining initial access through a simple HTML file or clicked URL.   BeEf would inject a single JavaScript line into a victim's browser, and suddenly you have a a hooked session you can drive from your attacker workstation with modules to grab forms, sniff keystrokes, pivot into other sites, and all sorts of other fun. It was browser-exploitation in the most elegant sense: no .exe, no payload on disk, just the browser doing what it does best, and mostly stayed under the radar.
 
 Browser security, and for that matter document security (think word / excel macros, injecting JavaScript into PDFs) has come a long way.  A lot of the old tried and true tricks are getting harder to pull off with modern security enhancements.  However, I've found a creative way to still toss a nod to B33f and pull this off 😼
 
