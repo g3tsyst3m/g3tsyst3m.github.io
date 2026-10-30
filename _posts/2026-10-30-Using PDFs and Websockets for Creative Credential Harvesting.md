@@ -343,14 +343,6 @@ elif t in ("modal_response", "doc_auth", "pdf_closed"):
 
 That's the whole "module": the server pushes the prompt (or the gate shows it on load), the victim types, and the credentials land in the console. BeEF's form-grabbing, translated into a WebSocket frame.
 
-> [placeholder] - The Windows 11–style sign-in modal on screen, mid-typing. Caption it as "The doc_auth prompt - looks like a document unlock, captures what they type."
-
-### The stealth veil
-
-One last client detail worth mentioning, because it's the thing that makes the page feel like a *document* and not a *tool*. In stealth mode (the default), the page shows **nothing** until something needs to be shown - no status bar, no dots, no "connected" text. When a document is pushed, it's shown **blurred behind a lock overlay** with a "close" button, and only after `doc_auth` succeeds does it unblur. The net effect is that a passive observer glancing at the screen sees a locked PDF, not a console. The veil *is* the camouflage.
-
-> [placeholder] - The blurred "locked" PDF with the lock overlay (before auth), next to the unblurred PDF (after auth). Caption it as "The stealth veil: locked until doc_auth succeeds."
-
 ---
 
 ## ***Running It End to End***
