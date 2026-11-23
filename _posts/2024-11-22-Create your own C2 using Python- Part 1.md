@@ -518,7 +518,7 @@ Want the source code?  no problem!  here ya go!  Just go to the C2 folder:
 
 [code for blog](https://github.com/g3tsyst3m/CodefromBlog)
 
-Also I got tired of blurring my name.  Probably better most of you know it honestly.  I'm Robbie, nice to meet you 😄
+Also I got tired of blurring my name.  Probably better most of you know it honestly.  I'm g3tsyst3m, nice to meet you 😄
 
 Next time, we'll start incorporating more advanced features like migrating processes, bypassing UAC (maybe), and elevating to SYSTEM!  See you then!
 

@@ -96,4 +96,4 @@ I tried blocking all images in Outlook and this attack still works.  I'm shocked
   Know of other ways to combat this attack?  Feel free to comment below or hit me up on X!
   thanks everyone!
 
-**-R.B.C.**
+**-g3tsyst3m**

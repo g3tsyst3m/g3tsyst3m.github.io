@@ -130,7 +130,7 @@ cmd = raw.decode('utf-8', errors='ignore').strip()
 ### File Upload Protocol
 
 ```bash
-[C2] Command> send C:\Users\robbi\Documents\vtotal_hash.txt vtotal.txt
+[C2] Command> send C:\Users\g3tsyst3m\Documents\vtotal_hash.txt vtotal.txt
 [C2] Sending 64 bytes...
 Uploading vtotal.txt: 100%|█████████████████████████████████████████████████████████| 64.0/64.0 [00:00<00:00, 23.3kB/s]
 
@@ -153,7 +153,7 @@ Uploaded files land in `C:\users\public\uploads\` on the target by default.
 ### File Download Protocol
 
 ```bash
-[C2] Command> recv C:\Users\robbi\Documents\vtotal_hash.txt c:\users\public\vtotal.txt
+[C2] Command> recv C:\Users\g3tsyst3m\Documents\vtotal_hash.txt c:\users\public\vtotal.txt
 [C2] Receiving 64 bytes -> c:\users\public\vtotal.txt
 [C2] Downloading vtotal.txt: 100%
 [C2] Download complete: c:\users\public\vtotal.txt (64 bytes)
@@ -192,7 +192,7 @@ Executing commands is incredibly straight forward.  Just pretend you are in a sh
 ```bat
 [C2] Command> whoami
 
-g3tsyst3m-pc\robbi
+g3tsyst3m-pc\g3tsyst3m
 
 [C2] Command> net user
 
@@ -200,7 +200,7 @@ User accounts for \\G3TSYST3M-PC
 
 -------------------------------------------------------------------------------
 Administrator            DefaultAccount           Guest
-robbi                    testuser                 WDAGUtilityAccount
+g3tsyst3m                    testuser                 WDAGUtilityAccount
 WsiAccount
 The command completed successfully.
 

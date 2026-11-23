@@ -20,7 +20,7 @@ I can accommodate your language needs and only do screen sharing with text based
 How to Purchase
 -
 
-Just shoot me an email at **robbie@g3tsyst3m.com** or send me a PM on **Discord** with information describing what you're interested in learning.  I'll then get a Calendly link sent over to you for you to choose your preferred day/time.  Next, I'll put together an invoice and share with you to finalize the purchase for your session! Looking forward to it!
+Just shoot me an email at **research@getsystemlabs.com** or send me a PM on **Discord** with information describing what you're interested in learning.  I'll then get a Calendly link sent over to you for you to choose your preferred day/time.  Next, I'll put together an invoice and share with you to finalize the purchase for your session! Looking forward to it!
 
 How the sessions work:
 -
@@ -42,7 +42,7 @@ Topics
 
 Most mentees start with at least the 1st session.  Then I highly recommend building on that initial 1st session and continue building momentum.  Essentially, we will adapt from there based on your progress and interests.
 
-You pick the topic — Robbie (g3tsyst3m) will tailor the session to exactly what you want to learn.  Choose from:
+You pick the topic — g3tsyst3m will tailor the session to exactly what you want to learn.  Choose from:
 
 🛠️ Privilege Escalation
 

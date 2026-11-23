@@ -604,41 +604,41 @@ Here's a script that accomplishes this for those interested.  Be sure to revise 
 
 ```powershell
 
-$DenyRule = New-CIPolicyRule -Level FilePublisher -DriverFilePath "C:\users\robbi\OneDrive\Pictures\AMD.sys" -Fallback SignedVersion,Publisher,Hash -Deny
+$DenyRule = New-CIPolicyRule -Level FilePublisher -DriverFilePath "C:\users\g3tsyst3m\OneDrive\Pictures\AMD.sys" -Fallback SignedVersion,Publisher,Hash -Deny
 
 # 1. Copy the template to your Documents folder where you have full permissions
-Copy-Item "$env:windir\schemas\CodeIntegrity\ExamplePolicies\AllowAll.xml" -Destination "C:\Users\robbi\Documents\AllowAll_Temp.xml"
+Copy-Item "$env:windir\schemas\CodeIntegrity\ExamplePolicies\AllowAll.xml" -Destination "C:\Users\g3tsyst3m\Documents\AllowAll_Temp.xml"
 
 # 2. Point your variable to the new, copied file location
-$AllowAllPolicy = "C:\Users\robbi\Documents\AllowAll_Temp.xml"
+$AllowAllPolicy = "C:\Users\g3tsyst3m\Documents\AllowAll_Temp.xml"
 
 # 3. Run the merge command again using the copied template
-Merge-CIPolicy -PolicyPaths $AllowAllPolicy -OutputFilePath "C:\Users\robbi\Documents\DenyPolicy.xml" -Rules $DenyRule
+Merge-CIPolicy -PolicyPaths $AllowAllPolicy -OutputFilePath "C:\Users\g3tsyst3m\Documents\DenyPolicy.xml" -Rules $DenyRule
 
 # 4. Clean up the temporary template file
-Remove-Item "C:\Users\robbi\Documents\AllowAll_Temp.xml"
+Remove-Item "C:\Users\g3tsyst3m\Documents\AllowAll_Temp.xml"
 
 # 5. Change the Friendly Name safely using the native Microsoft cmdlet
-Set-CIPolicyIdInfo -FilePath "C:\Users\robbi\Documents\DenyPolicy.xml" -PolicyName "Driver Deny Policy - AMD"
+Set-CIPolicyIdInfo -FilePath "C:\Users\g3tsyst3m\Documents\DenyPolicy.xml" -PolicyName "Driver Deny Policy - AMD"
 
 # 6. Read the unique GUID directly out of your policy XML
-[xml]$policy = Get-Content "C:\Users\robbi\Documents\DenyPolicy.xml"
+[xml]$policy = Get-Content "C:\Users\g3tsyst3m\Documents\DenyPolicy.xml"
 $policyID = $policy.SiPolicy.PolicyID
 
 # 7. Re-compile the binary using the exact string formatting Windows expects
 $correctName = "$policyID.cip"
-ConvertFrom-CIPolicy -XmlFilePath "C:\Users\robbi\Documents\DenyPolicy.xml" -BinaryFilePath "C:\Users\robbi\Documents\$correctName"
+ConvertFrom-CIPolicy -XmlFilePath "C:\Users\g3tsyst3m\Documents\DenyPolicy.xml" -BinaryFilePath "C:\Users\g3tsyst3m\Documents\$correctName"
 
 Write-Host "Your new file is named: $correctName"
 
 # 8. Register and refresh the policy binary via the official tool path
-CiTool.exe --update-policy "C:\Users\robbi\Documents\$correctName"
+CiTool.exe --update-policy "C:\Users\g3tsyst3m\Documents\$correctName"
 
 # 1. Remotely unregister the old policy from the Windows Kernel (replace with your GUID)
 CiTool.exe --remove-policy "{31351756-3f24-4963-8380-4e7602335aae}"
 
 # 2. Delete the old binary from your local Documents folder to prevent duplicates
-Remove-Item "C:\Users\robbi\Documents\*.cip" -Force
+Remove-Item "C:\Users\g3tsyst3m\Documents\*.cip" -Force
 ```
 
 🎁 ***Bonus Content for Members! (All Tiers)*** 🎁

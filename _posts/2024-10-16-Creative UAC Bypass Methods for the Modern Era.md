@@ -248,7 +248,7 @@ int main() {
     }
 
     //update this to your path!!!
-    const wchar_t* dllPath = L"C:\\Users\\robbi\\source\\repos\\injected2\\x64\\Debug\\injected2.dll";
+    const wchar_t* dllPath = L"C:\\Users\\g3tsyst3m\\source\\repos\\injected2\\x64\\Debug\\injected2.dll";
     size_t size = (wcslen(dllPath) + 1) * sizeof(wchar_t);
 
     LPVOID remoteMem = VirtualAllocEx(hProcess, nullptr, size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
