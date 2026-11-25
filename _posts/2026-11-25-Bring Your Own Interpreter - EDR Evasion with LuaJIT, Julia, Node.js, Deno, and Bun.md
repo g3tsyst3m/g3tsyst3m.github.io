@@ -807,6 +807,10 @@ The subtleties here are what make it fun:
 
 📹 Video Walkthrough coming soon! Stay tuned 📹
 
+And that's a wrap, folks! Five interpreters, one callback, and a whole lot of reasons not to compile a loader when the OS will happily press the button for you 😺 Thanks for reading, and see you on the next blog post!
+
+~G3tSyst3m
+
 ***ANY.RUN Results***
 -
 
@@ -826,6 +830,4 @@ The subtleties here are what make it fun:
 
 </div>
 
-And that's a wrap, folks! Five interpreters, one callback, and a whole lot of reasons not to compile a loader when the OS will happily press the button for you 😺 Thanks for reading, and see you on the next blog post!
 
-~G3tSyst3m
