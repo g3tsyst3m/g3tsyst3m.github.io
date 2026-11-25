@@ -203,7 +203,7 @@ Here's the final result.  I'm testing this against ESET currently with no threat
 **Why LuaJIT stays quiet**
 
 - The payload, the allocator call, and the enumeration call all happen **in-process** inside `luajit.exe` -- no cross-process telemetry, no injection events.
-- `luajit.exe` is a small, public, well-known binary. Tt's not a custom hash any blocklist tracks. It rides on general binary reputation, not a target-specific rule.
+- `luajit.exe` is a small, public, well-known binary. It's not a custom hash any blocklist tracks. It rides on general binary reputation, not a target-specific rule.
 - The interpreter itself has **no script logging** surface. PowerShell emits script blocks; Python's `ctypes` usage is a textbook pattern defenders already write rules for. A Lua script doing FFI calls has no equivalent default telemetry to my knowledge.  The script content isn't even *visible* to the defender without a memory scan or monitoring using a debugger.
 
 Next up, Julia! (Any Beatles fans here? 😄)
