@@ -692,7 +692,7 @@ PS C:\Users\administrator\bunenum> bun bunenum.ts
 Putting It All Together — Why This Stays Under the Radar
 -
 
-Let's zoom out and look at what an EDR actually has to work with when one of these runs. The table below compares the five vehicles side by side:
+Let's zoom out and look at what an EDR actually has to work with when one of these runs. The table below compares the four vehicles side by side:
 
 | Vehicle | Install footprint | FFI origin | Command-line IOC |
 |---|---|---|---|
